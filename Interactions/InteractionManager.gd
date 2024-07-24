@@ -18,9 +18,8 @@ func unregister_area(area: InteractionArea):
 		active_areas.remove_at(index)
 
 func _process(delta):
-	if player == null:
-		player = get_node("/root/World/Player") # Temporary fix, need to fix issue with line 3
-	if active_areas.size() > 0 && can_interact:
+	player = get_tree().get_first_node_in_group("Players")
+	if active_areas.size() > 0 && can_interact && active_areas[0].interaction_disabled != true:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = base_text + active_areas[0].action_name
 		player.recent_action = active_areas[0].action_name # Sets the recent action variable to the most recent action displayed
@@ -28,7 +27,8 @@ func _process(delta):
 		label.global_position.x -= label.size.x / 4
 		label.show()
 	else:
-		label.hide()
+		if label != null:
+			label.hide()
 		
 		
 
@@ -39,13 +39,12 @@ func _sort_by_distance_to_player(area1, area2):
 	
 
 func _input(event):
-	if event.is_action_pressed("interact") && can_interact:
-		
-		if active_areas.size() > 0:
-			can_interact = false
-			label.hide()
-			
-			await active_areas[0].interact.call()
-			
-			can_interact = true
+	if active_areas.size() > 0:
+		if event.is_action_pressed(active_areas[0].interaction_key) && can_interact:
+			if active_areas.size() > 0:
+				can_interact = false
+				label.hide()
+				await active_areas[0].interact.call()
+				
+				can_interact = true
 	

@@ -8,6 +8,9 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var anim = get_node("AnimationPlayer")
 @onready var recent_action = "None"
+@onready var earth_power: bool = true
+@onready var air_power: bool = false
+@onready var pushing_animation: bool = false
 
 func _ready():
 	pass
@@ -33,6 +36,8 @@ func _physics_process(delta):
 		get_node("AnimatedSprite2D").flip_h = false
 	if direction:
 		velocity.x = direction * SPEED
+		if pushing_animation:
+			velocity.x = direction * SPEED / 2
 		if velocity.y == 0:
 			anim.play("Run")
 	else:
@@ -55,11 +60,6 @@ func _on_area_2d_body_exited(body):
 	if body.is_in_group("PushableObjects"):
 		body.collision_layer = 2
 		body.collision_mask = 2
-		
-func _input(event):
-	if event.is_action_pressed("interact"):
-		print(recent_action)
-		anim.play("Earth Power")
 		
 
 

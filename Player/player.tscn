@@ -1,43 +1,74 @@
-[gd_scene load_steps=53 format=3 uid="uid://b8ptl0m5d13qk"]
+[gd_scene load_steps=61 format=3 uid="uid://b8ptl0m5d13qk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_coqo4"]
-[ext_resource type="Texture2D" uid="uid://c4v6u4fcsix0p" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-1.png" id="2_j8sq0"]
-[ext_resource type="Texture2D" uid="uid://sw8ipfbvuye0" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-2.png" id="3_goq60"]
-[ext_resource type="Texture2D" uid="uid://cfbdyhw8fi3jx" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-3.png" id="4_6bpay"]
-[ext_resource type="Texture2D" uid="uid://b5n0j4c2jccdy" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-4.png" id="5_f0wf1"]
-[ext_resource type="Texture2D" uid="uid://hx234pv0615t" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-1.png" id="6_xtn3r"]
-[ext_resource type="Texture2D" uid="uid://bkbeawmy0blx6" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-2.png" id="7_48d3r"]
-[ext_resource type="Texture2D" uid="uid://xy47yfwc6p0h" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-1.png" id="8_tx4f4"]
-[ext_resource type="Texture2D" uid="uid://d05f6yggpwmhk" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-2.png" id="9_dmkdk"]
-[ext_resource type="Texture2D" uid="uid://cj2flo5svpjqd" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-3.png" id="10_sseic"]
-[ext_resource type="Texture2D" uid="uid://bdbrwq45t5of6" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-4.png" id="11_3m6q4"]
-[ext_resource type="Texture2D" uid="uid://ba8apeppb0yjv" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-5.png" id="12_epjc6"]
-[ext_resource type="Texture2D" uid="uid://fhrdwvo7il7f" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-6.png" id="13_oi2xm"]
-[ext_resource type="Texture2D" uid="uid://brm0f1hxkw74f" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-7.png" id="14_ofg38"]
-[ext_resource type="Texture2D" uid="uid://v444wlj56wuq" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-8.png" id="15_40f2b"]
-[ext_resource type="Texture2D" uid="uid://bkq377wv51si2" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-9.png" id="16_1lvro"]
-[ext_resource type="Texture2D" uid="uid://3rx776n6lct3" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-1.png" id="17_4nyc3"]
-[ext_resource type="Texture2D" uid="uid://rdfn6mc2w2sa" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-2.png" id="18_5vrut"]
-[ext_resource type="Texture2D" uid="uid://4n1vw1e2cdks" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-3.png" id="19_34b1x"]
-[ext_resource type="Texture2D" uid="uid://yt1vin5g8ro6" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-4.png" id="20_3p6rv"]
-[ext_resource type="Texture2D" uid="uid://bkyo741yksfi3" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-1.png" id="21_k87hc"]
-[ext_resource type="Texture2D" uid="uid://b41xg3s0xokip" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-2.png" id="22_wp5e5"]
-[ext_resource type="Texture2D" uid="uid://b8fqqxul4g4wn" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-3.png" id="23_4jc72"]
-[ext_resource type="Texture2D" uid="uid://ct1j76cnyilje" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-4.png" id="24_kopch"]
-[ext_resource type="Texture2D" uid="uid://co8a1qkre5cut" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-5.png" id="25_kj7x0"]
-[ext_resource type="Texture2D" uid="uid://dtmkntskpkhrq" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-6.png" id="26_anu06"]
-[ext_resource type="Texture2D" uid="uid://c8xfbk5iph0b6" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-7.png" id="27_8k7p0"]
-[ext_resource type="Texture2D" uid="uid://cpq0xuy4rlr6b" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-8.png" id="28_lfw5a"]
-[ext_resource type="Texture2D" uid="uid://dhv6c77f6ax4s" path="res://Assets/Effect and Bullet 16x16/Green Effect and Bullet 16x16.png" id="29_uavnn"]
-[ext_resource type="Texture2D" uid="uid://cfwwbpsr53uhj" path="res://Assets/Effect and Bullet 16x16/Green Sprites/tile137.png" id="30_ii6pk"]
-[ext_resource type="Texture2D" uid="uid://cg3vqiixv5lc3" path="res://Assets/Idylwild's Alchemical Codex/tile004transparent1.png" id="31_fiybt"]
-[ext_resource type="Texture2D" uid="uid://cot1njqhqye4o" path="res://Assets/Idylwild's Alchemical Codex/tile004transparent2.png" id="32_y3koj"]
-[ext_resource type="Texture2D" uid="uid://yih3n4hqkuum" path="res://Assets/Idylwild's Alchemical Codex/tile004.png" id="33_tc7n7"]
-[ext_resource type="Texture2D" uid="uid://bbqw0prqmnpri" path="res://Assets/Effect and Bullet 16x16/Green Sprites/tile135.png" id="34_4xlv5"]
-[ext_resource type="Texture2D" uid="uid://b6sqx5cwh7gi" path="res://Assets/Effect and Bullet 16x16/Green Sprites/tile136.png" id="35_2i2xp"]
+[ext_resource type="Texture2D" uid="uid://bvn0wcpbkf0qc" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-1.png" id="2_j8sq0"]
+[ext_resource type="Texture2D" uid="uid://785dmw80lx5g" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-2.png" id="3_goq60"]
+[ext_resource type="Texture2D" uid="uid://xc54bdpwdn6j" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-3.png" id="4_6bpay"]
+[ext_resource type="Texture2D" uid="uid://bnp8lv2cmr5dy" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-4.png" id="5_f0wf1"]
+[ext_resource type="Texture2D" uid="uid://c2wc144n8bqa3" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-1.png" id="6_xtn3r"]
+[ext_resource type="Texture2D" uid="uid://cwlxn1isf0a4i" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-2.png" id="7_48d3r"]
+[ext_resource type="Texture2D" uid="uid://csikf2a3cwrqa" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-1.png" id="8_tx4f4"]
+[ext_resource type="Texture2D" uid="uid://d0lidogc0egh4" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-2.png" id="9_dmkdk"]
+[ext_resource type="Texture2D" uid="uid://bi3bqyojm21l4" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-3.png" id="10_sseic"]
+[ext_resource type="Texture2D" uid="uid://cc2ourf54ov21" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-4.png" id="11_3m6q4"]
+[ext_resource type="Texture2D" uid="uid://cj23exuqikmmd" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-5.png" id="12_epjc6"]
+[ext_resource type="Texture2D" uid="uid://c8rjppqbf5qcm" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-6.png" id="13_oi2xm"]
+[ext_resource type="Texture2D" uid="uid://dfqm5dobnu6ad" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-7.png" id="14_ofg38"]
+[ext_resource type="Texture2D" uid="uid://wthsyx12omt4" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-8.png" id="15_40f2b"]
+[ext_resource type="Texture2D" uid="uid://1hmrp8pwqlux" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-9.png" id="16_1lvro"]
+[ext_resource type="Texture2D" uid="uid://dukrkip701yjg" path="res://Assets/Inanis Sprites/inanis_jump.png" id="17_2rlij"]
+[ext_resource type="Texture2D" uid="uid://2k3iexsyfj68" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-1.png" id="17_4nyc3"]
+[ext_resource type="Texture2D" uid="uid://b4hbdc2wnw4ly" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-2.png" id="18_5vrut"]
+[ext_resource type="Texture2D" uid="uid://o3mxktgb75wf" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-3.png" id="19_34b1x"]
+[ext_resource type="Texture2D" uid="uid://bhdsoomlmms2p" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-4.png" id="20_3p6rv"]
+[ext_resource type="Texture2D" uid="uid://b6wl146lem7jv" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-1.png" id="21_k87hc"]
+[ext_resource type="Texture2D" uid="uid://d4muwyixsmbq7" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-2.png" id="22_wp5e5"]
+[ext_resource type="Texture2D" uid="uid://cpwpg5j68aba6" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-3.png" id="23_4jc72"]
+[ext_resource type="Texture2D" uid="uid://dy5su1n6g65ml" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-4.png" id="24_kopch"]
+[ext_resource type="Texture2D" uid="uid://sluy7h0e43ab" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-5.png" id="25_kj7x0"]
+[ext_resource type="Texture2D" uid="uid://dacv8ymgxij51" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-6.png" id="26_anu06"]
+[ext_resource type="Texture2D" uid="uid://cb1nd0qx3dsqe" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-7.png" id="27_8k7p0"]
+[ext_resource type="Texture2D" uid="uid://bud5jv2swmex5" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-8.png" id="28_lfw5a"]
+[ext_resource type="Texture2D" uid="uid://bwndxk83fdybn" path="res://Assets/Effect and Bullet 16x16/Green Effect and Bullet 16x16.png" id="29_uavnn"]
+[ext_resource type="Texture2D" uid="uid://dornwqbkyaymv" path="res://Assets/Effect and Bullet 16x16/Green Sprites/tile137.png" id="30_ii6pk"]
+[ext_resource type="Texture2D" uid="uid://dhfo6kco7bmq7" path="res://Assets/Idylwild's Alchemical Codex/tile004transparent1.png" id="31_fiybt"]
+[ext_resource type="Texture2D" uid="uid://dwn6h2xaoe7a3" path="res://Assets/Idylwild's Alchemical Codex/tile004transparent2.png" id="32_y3koj"]
+[ext_resource type="Texture2D" uid="uid://d3v155ivvvkl4" path="res://Assets/Idylwild's Alchemical Codex/tile004.png" id="33_tc7n7"]
+[ext_resource type="Texture2D" uid="uid://d38kb4ldn20pd" path="res://Assets/Effect and Bullet 16x16/Green Sprites/tile135.png" id="34_4xlv5"]
+[ext_resource type="Texture2D" uid="uid://coplamef6ctiw" path="res://Assets/Effect and Bullet 16x16/Green Sprites/tile136.png" id="35_2i2xp"]
 
 [sub_resource type="Animation" id="Animation_rsweq"]
 resource_name = "Death"
+
+[sub_resource type="Animation" id="Animation_ue86x"]
+resource_name = "Earth Power"
+length = 3.2
+loop_mode = 2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSpritePowers:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Earth Power"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSpritePowers:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 7, 7, 8, 9, 4, 11, 12, 4]
+}
 
 [sub_resource type="Animation" id="Animation_vvb0k"]
 resource_name = "Fall"
@@ -194,34 +225,33 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_ue86x"]
-resource_name = "Earth Power"
-length = 3.2
-loop_mode = 2
-step = 0.5
+[sub_resource type="Animation" id="Animation_hoh8s"]
+resource_name = "Inanis Jump"
+length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSpritePowers:animation")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Earth Power"]
+"values": [&"Jump"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSpritePowers:frame")
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 7, 7, 8, 9, 4, 11, 12, 4]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6hr1n"]
@@ -230,6 +260,7 @@ _data = {
 "Earth Power": SubResource("Animation_ue86x"),
 "Fall": SubResource("Animation_vvb0k"),
 "Idle": SubResource("Animation_b2slc"),
+"Inanis Jump": SubResource("Animation_hoh8s"),
 "Jump": SubResource("Animation_3mv12"),
 "RESET": SubResource("Animation_4x231"),
 "Run": SubResource("Animation_yst3a")
@@ -237,6 +268,34 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrbuj"]
 height = 22.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ue1b"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bw6n"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqri8"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2isqi"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m5a3"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i2sy"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k85k4"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rrn3l"]
 animations = [{
@@ -299,6 +358,52 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ue1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bw6n")
+}],
+"loop": true,
+"name": &"Inanis Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqri8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2isqi")
+}],
+"loop": true,
+"name": &"Inanis Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m5a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i2sy")
+}],
+"loop": true,
+"name": &"Inanis Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k85k4")
+}],
+"loop": true,
+"name": &"Inanis Max Height",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Inanis PreJump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -418,10 +523,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_q62a1"]
-graph_offset = Vector2(8.86371, 24.1356)
-nodes/output/position = Vector2(840, 140)
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -440,7 +541,7 @@ shape = SubResource("CapsuleShape2D_qrbuj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -4)
 sprite_frames = SubResource("SpriteFrames_rrn3l")
-animation = &"Idle"
+animation = &"Jump"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -454,6 +555,7 @@ position = Vector2(0, 5.25)
 shape = SubResource("RectangleShape2D_vwngf")
 
 [node name="AnimatedSpritePowers" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.0862745, 1, 0.164706, 1)
 z_as_relative = false
 position = Vector2(1, -26)
@@ -461,9 +563,6 @@ sprite_frames = SubResource("SpriteFrames_vdpqx")
 animation = &"Earth Power"
 frame = 7
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_q62a1")
-anim_player = NodePath("../AnimationPlayer")
-
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="StandingDection" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="StandingDection" to="." method="_on_area_2d_body_exited"]
