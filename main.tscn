@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dam6xbir407me"]
+[gd_scene load_steps=2 format=3 uid="uid://dam6xbir407me"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teyo1"]
-[ext_resource type="PackedScene" uid="uid://dqd7s00350fkp" path="res://bg.tscn" id="2_2vc1g"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_teyo1")
@@ -22,8 +21,6 @@ tooltip_text = "This is a quit button
 "
 text = "Quit
 "
-
-[node name="bg" parent="." instance=ExtResource("2_2vc1g")]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drnbunod8ary1"]
+
+[ext_resource type="Script" path="res://Assets/Objects/Breakable Objects/Burnable Objects/Burnable_Object.gd" id="1_qq08v"]
+
+[node name="BurnableObject" type="StaticBody2D"]
+script = ExtResource("1_qq08v")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

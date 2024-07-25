@@ -25,6 +25,7 @@ func _process(delta):
 		player.recent_action = active_areas[0].action_name # Sets the recent action variable to the most recent action displayed
 		label.global_position = active_areas[0].global_position
 		label.global_position.x -= label.size.x / 4
+		label.global_position.y -= 20
 		label.show()
 	else:
 		if label != null:

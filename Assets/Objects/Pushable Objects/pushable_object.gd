@@ -26,8 +26,12 @@ func _ready():
 func _physics_process(delta):
 	if being_pushed == true:
 		freeze = false
-		if player.velocity.x < 0:
-			set_axis_velocity(Vector2(player.velocity.x * 2, 0))
+		if player.position.x < position.x:
+			if player.velocity.x < 0:
+				set_axis_velocity(Vector2(player.velocity.x * 2, 0))
+		if player.position.x > position.x:
+			if player.velocity.x > 0:
+				set_axis_velocity(Vector2(player.velocity.x * 2, 0))
 	else:
 		freeze = true
 		

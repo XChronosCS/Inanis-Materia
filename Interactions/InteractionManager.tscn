@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs4qq2jiwbf8o"]
 
 [ext_resource type="Script" path="res://Interactions/InteractionManager.gd" id="1_hdhq1"]
-[ext_resource type="FontFile" uid="uid://c72c7pl5iwh8i" path="res://Assets/Fonts/pixel-coleco-font/PixelColeco-4vJW.ttf" id="2_dcwwf"]
+
+[sub_resource type="Theme" id="Theme_0olrv"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_hdhq1")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 z_index = 20
 anchors_preset = 5
 anchor_left = 0.5
@@ -15,7 +16,7 @@ offset_left = -84.0
 offset_right = 84.0
 offset_bottom = 24.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_dcwwf")
+theme = SubResource("Theme_0olrv")
 text = "[E] to Interact"
-horizontal_alignment = 1
-vertical_alignment = 1
+fit_content = true
+scroll_active = false
