@@ -1,47 +1,19 @@
-[gd_scene load_steps=49 format=3 uid="uid://b8ptl0m5d13qk"]
+[gd_scene load_steps=41 format=3 uid="uid://b8ptl0m5d13qk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_coqo4"]
-[ext_resource type="Texture2D" uid="uid://bvn0wcpbkf0qc" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-1.png" id="2_j8sq0"]
-[ext_resource type="Texture2D" uid="uid://785dmw80lx5g" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-2.png" id="3_goq60"]
-[ext_resource type="Texture2D" uid="uid://xc54bdpwdn6j" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-3.png" id="4_6bpay"]
-[ext_resource type="Texture2D" uid="uid://bnp8lv2cmr5dy" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-fall/player-fall-4.png" id="5_f0wf1"]
+[ext_resource type="Texture2D" uid="uid://cnlkm1vn5pnby" path="res://Assets/Inanis Sprites/inanis_idle.png" id="5_4jmlj"]
+[ext_resource type="Texture2D" uid="uid://b4x4cpc0kgt5u" path="res://Assets/Inanis Sprites/inanis_push.png" id="6_ojfls"]
 [ext_resource type="Texture2D" uid="uid://c2wc144n8bqa3" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-1.png" id="6_xtn3r"]
 [ext_resource type="Texture2D" uid="uid://cwlxn1isf0a4i" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-2.png" id="7_48d3r"]
-[ext_resource type="Texture2D" uid="uid://csikf2a3cwrqa" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-1.png" id="8_tx4f4"]
-[ext_resource type="Texture2D" uid="uid://d0lidogc0egh4" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-2.png" id="9_dmkdk"]
-[ext_resource type="Texture2D" uid="uid://bi3bqyojm21l4" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-3.png" id="10_sseic"]
-[ext_resource type="Texture2D" uid="uid://cc2ourf54ov21" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-4.png" id="11_3m6q4"]
-[ext_resource type="Texture2D" uid="uid://cj23exuqikmmd" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-5.png" id="12_epjc6"]
-[ext_resource type="Texture2D" uid="uid://c8rjppqbf5qcm" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-6.png" id="13_oi2xm"]
-[ext_resource type="Texture2D" uid="uid://dfqm5dobnu6ad" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-7.png" id="14_ofg38"]
-[ext_resource type="Texture2D" uid="uid://wthsyx12omt4" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-8.png" id="15_40f2b"]
-[ext_resource type="Texture2D" uid="uid://1hmrp8pwqlux" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-idle/player-idle-9.png" id="16_1lvro"]
+[ext_resource type="Texture2D" uid="uid://m0tiy2isum5v" path="res://Assets/Inanis Sprites/inanis_move.png" id="7_usmlp"]
 [ext_resource type="Texture2D" uid="uid://dukrkip701yjg" path="res://Assets/Inanis Sprites/inanis_jump.png" id="17_2rlij"]
-[ext_resource type="Texture2D" uid="uid://2k3iexsyfj68" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-1.png" id="17_4nyc3"]
-[ext_resource type="Texture2D" uid="uid://b4hbdc2wnw4ly" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-2.png" id="18_5vrut"]
-[ext_resource type="Texture2D" uid="uid://o3mxktgb75wf" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-3.png" id="19_34b1x"]
-[ext_resource type="Texture2D" uid="uid://bhdsoomlmms2p" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-jump/player-jump-4.png" id="20_3p6rv"]
-[ext_resource type="Texture2D" uid="uid://b6wl146lem7jv" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-1.png" id="21_k87hc"]
-[ext_resource type="Texture2D" uid="uid://d4muwyixsmbq7" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-2.png" id="22_wp5e5"]
-[ext_resource type="Texture2D" uid="uid://cpwpg5j68aba6" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-3.png" id="23_4jc72"]
-[ext_resource type="Texture2D" uid="uid://dy5su1n6g65ml" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-4.png" id="24_kopch"]
-[ext_resource type="Texture2D" uid="uid://sluy7h0e43ab" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-5.png" id="25_kj7x0"]
-[ext_resource type="Texture2D" uid="uid://dacv8ymgxij51" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-6.png" id="26_anu06"]
-[ext_resource type="Texture2D" uid="uid://cb1nd0qx3dsqe" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-7.png" id="27_8k7p0"]
-[ext_resource type="Texture2D" uid="uid://bud5jv2swmex5" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-skip/player-skip-8.png" id="28_lfw5a"]
 
 [sub_resource type="Animation" id="Animation_rsweq"]
 resource_name = "Death"
 
-[sub_resource type="Animation" id="Animation_ue86x"]
-resource_name = "Earth Power"
-length = 3.2
-loop_mode = 2
-step = 0.5
-
 [sub_resource type="Animation" id="Animation_vvb0k"]
 resource_name = "Fall"
-length = 0.4
+length = 0.05
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,7 +42,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_b2slc"]
 resource_name = "Idle"
-length = 0.9
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -91,15 +63,15 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [0, 1, 2, 7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_3mv12"]
 resource_name = "Jump"
-length = 0.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -117,10 +89,68 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_se8qo"]
+resource_name = "Land"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Land"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ue86x"]
+resource_name = "Push"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Push"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -140,10 +170,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Land"]
+}
 
 [sub_resource type="Animation" id="Animation_yst3a"]
 resource_name = "Run"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -164,35 +206,6 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_hoh8s"]
-resource_name = "Inanis Jump"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
@@ -202,61 +215,107 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6hr1n"]
 _data = {
 "Death": SubResource("Animation_rsweq"),
-"Earth Power": SubResource("Animation_ue86x"),
 "Fall": SubResource("Animation_vvb0k"),
 "Idle": SubResource("Animation_b2slc"),
-"Inanis Jump": SubResource("Animation_hoh8s"),
 "Jump": SubResource("Animation_3mv12"),
+"Land": SubResource("Animation_se8qo"),
+"Push": SubResource("Animation_ue86x"),
 "RESET": SubResource("Animation_4x231"),
 "Run": SubResource("Animation_yst3a")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qrbuj"]
-radius = 8.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut1od"]
+size = Vector2(16, 18.5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ue1b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc1q6"]
 atlas = ExtResource("17_2rlij")
-region = Rect2(192, 0, 32, 32)
+region = Rect2(280, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bw6n"]
-atlas = ExtResource("17_2rlij")
-region = Rect2(224, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fela1"]
+atlas = ExtResource("5_4jmlj")
+region = Rect2(0, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqri8"]
-atlas = ExtResource("17_2rlij")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q08c8"]
+atlas = ExtResource("5_4jmlj")
+region = Rect2(40, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2isqi"]
-atlas = ExtResource("17_2rlij")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7thf"]
+atlas = ExtResource("5_4jmlj")
+region = Rect2(80, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5m5a3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c1pe"]
 atlas = ExtResource("17_2rlij")
-region = Rect2(256, 0, 32, 32)
+region = Rect2(0, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3i2sy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_scus7"]
 atlas = ExtResource("17_2rlij")
-region = Rect2(288, 0, 32, 32)
+region = Rect2(40, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k85k4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g35tl"]
 atlas = ExtResource("17_2rlij")
-region = Rect2(128, 0, 32, 32)
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k04i1"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvt1o"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk1kq"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmd1j"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cyqc"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(320, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma802"]
+atlas = ExtResource("17_2rlij")
+region = Rect2(360, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmub8"]
+atlas = ExtResource("6_ojfls")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5mxf"]
+atlas = ExtResource("6_ojfls")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8lgu"]
+atlas = ExtResource("6_ojfls")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkfjj"]
+atlas = ExtResource("6_ojfls")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4weh"]
+atlas = ExtResource("7_usmlp")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8ksq"]
+atlas = ExtResource("7_usmlp")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7tfd"]
+atlas = ExtResource("7_usmlp")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jd3m"]
+atlas = ExtResource("7_usmlp")
+region = Rect2(120, 0, 40, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rrn3l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_j8sq0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_goq60")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_6bpay")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_f0wf1")
+"texture": SubResource("AtlasTexture_bc1q6")
 }],
 "loop": true,
 "name": &"Fall",
@@ -274,32 +333,14 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_tx4f4")
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_fela1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_dmkdk")
+"texture": SubResource("AtlasTexture_q08c8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_sseic")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_3m6q4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_epjc6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_oi2xm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_ofg38")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_40f2b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_1lvro")
+"texture": SubResource("AtlasTexture_l7thf")
 }],
 "loop": true,
 "name": &"Idle",
@@ -307,62 +348,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ue1b")
+"texture": SubResource("AtlasTexture_4c1pe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5bw6n")
-}],
-"loop": true,
-"name": &"Inanis Fall",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqri8")
+"texture": SubResource("AtlasTexture_scus7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2isqi")
-}],
-"loop": true,
-"name": &"Inanis Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5m5a3")
+"texture": SubResource("AtlasTexture_g35tl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3i2sy")
-}],
-"loop": true,
-"name": &"Inanis Land",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k85k4")
-}],
-"loop": true,
-"name": &"Inanis Max Height",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"Inanis PreJump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_4nyc3")
+"texture": SubResource("AtlasTexture_k04i1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_5vrut")
+"texture": SubResource("AtlasTexture_dvt1o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_34b1x")
+"texture": SubResource("AtlasTexture_bk1kq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_3p6rv")
+"texture": SubResource("AtlasTexture_hmd1j")
 }],
 "loop": true,
 "name": &"Jump",
@@ -370,28 +374,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_k87hc")
+"texture": SubResource("AtlasTexture_6cyqc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_wp5e5")
+"texture": SubResource("AtlasTexture_ma802")
+}],
+"loop": true,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmub8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_4jc72")
+"texture": SubResource("AtlasTexture_i5mxf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_kopch")
+"texture": SubResource("AtlasTexture_a8lgu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_kj7x0")
+"texture": SubResource("AtlasTexture_tkfjj")
+}],
+"loop": true,
+"name": &"Push",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4weh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_anu06")
+"texture": SubResource("AtlasTexture_x8ksq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_8k7p0")
+"texture": SubResource("AtlasTexture_d7tfd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_lfw5a")
+"texture": SubResource("AtlasTexture_1jd3m")
 }],
 "loop": true,
 "name": &"Run",
@@ -413,13 +433,15 @@ libraries = {
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_qrbuj")
+position = Vector2(1.75, 5.66234e-08)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_ut1od")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -4)
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_rrn3l")
-animation = &"Jump"
+animation = &"Land"
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -429,7 +451,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="StandingCollision" type="CollisionShape2D" parent="StandingDection"]
-position = Vector2(0, 5.25)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_vwngf")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

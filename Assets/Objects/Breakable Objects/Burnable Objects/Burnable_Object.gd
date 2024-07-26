@@ -25,10 +25,12 @@ func _on_interact():
 
 func _on_interaction_area_body_entered(body):
 	if body.name == "Player":
-		if body.fire_power:
+		if DataSave.flags.has_fire_power:
+			DataSave.flags.fire_power_usable = true
 			interaction_area.interaction_disabled = false
 
 
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
 		interaction_area.interaction_disabled = true
+		DataSave.flags.fire_power_usable = false

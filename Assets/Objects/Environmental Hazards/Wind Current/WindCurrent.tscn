@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=3 uid="uid://rk3ydbcer58e"]
+
+[ext_resource type="Script" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.gd" id="1_87e5e"]
+[ext_resource type="Texture2D" uid="uid://bdxx05miv3l3d" path="res://Assets/Sprites/Wind Current.png" id="2_ykl6n"]
+[ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="3_2yncm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w38uw"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb2ku"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjnqn"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cld14"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i818a"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhb5u"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px2lt"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36t1b"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0jlu"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slfb8"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfmgw"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(320, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjcke"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(352, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xt1d"]
+atlas = ExtResource("2_ykl6n")
+region = Rect2(384, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7bht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w38uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb2ku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjnqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cld14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i818a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhb5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36t1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0jlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slfb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfmgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjcke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xt1d")
+}],
+"loop": true,
+"name": &"Wind Current",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wdfd"]
+size = Vector2(35, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_566kt"]
+size = Vector2(35, 144)
+
+[node name="WindCurrent" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_87e5e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h7bht")
+animation = &"Wind Current"
+frame_progress = 0.441565
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_4wdfd")
+
+[node name="WindInteractionArea" type="Area2D" parent="."]
+script = ExtResource("3_2yncm")
+action_name = "Ascend"
+interaction_key = "Air Power"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindInteractionArea"]
+position = Vector2(-0.5, -39)
+shape = SubResource("RectangleShape2D_566kt")
+
+[connection signal="body_entered" from="WindInteractionArea" to="." method="_on_wind_interaction_area_body_entered"]
+[connection signal="body_entered" from="WindInteractionArea" to="WindInteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="WindInteractionArea" to="." method="_on_wind_interaction_area_body_exited"]
+[connection signal="body_exited" from="WindInteractionArea" to="WindInteractionArea" method="_on_body_exited"]

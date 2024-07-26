@@ -9,6 +9,6 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "Player":
 		if playing_animation == "Air Power":
-			body.air_power = true
+			DataSave.flags.has_air_power = true
 		queue_free()
 			
