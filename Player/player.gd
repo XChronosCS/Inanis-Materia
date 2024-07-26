@@ -2,22 +2,23 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var camera = $Camera2D
+@export var camera_constraints = []
 @onready var anim = get_node("AnimationPlayer")
 @onready var recent_action = "None"
-@onready var earth_power: bool = true # Governs possession of Earth Power
-@onready var air_power: bool = false # Governs possession of Air Power
-@onready var fire_power: bool = false # Governs possession of Fire Power
-@onready var water_power: bool = false #Governs possession of Water Power
 @onready var pushing_animation: bool = false
 @onready var airborne: bool = false # Checks to see if protagonist is in the air
 @onready var heading_towards_ground: bool = false # Checks to see if the protagonist is heading towards the ground
 
 func _ready():
-	pass
+	camera.limit_bottom = camera_constraints[0]
+	camera.limit_left = camera_constraints[1]
+	camera.limit_right = camera_constraints[2]
+	camera.limit_top = camera_constraints[3]
 	
 	
 func _physics_process(delta):

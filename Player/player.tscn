@@ -72,7 +72,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_3mv12"]
 resource_name = "Jump"
 length = 0.7
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -444,7 +443,7 @@ animation = &"Land"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 metadata/_edit_group_ = true
 
 [node name="StandingDection" type="Area2D" parent="."]

@@ -460,8 +460,9 @@ texture = ExtResource("4_c0qcn")
 position = Vector2(-1, 2)
 collision_layer = 1
 collision_mask = 1
-action_name = "Push"
+action_name = "Push/Pull"
 interaction_key = "Earth Power"
+keyboard_key = "S"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushableObject/InteractionArea"]
