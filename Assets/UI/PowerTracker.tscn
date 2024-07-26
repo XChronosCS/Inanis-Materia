@@ -1,0 +1,243 @@
+[gd_scene load_steps=27 format=3 uid="uid://koyd58kq2e1p"]
+
+[ext_resource type="Script" path="res://Assets/UI/PowerTracker.gd" id="1_34utm"]
+[ext_resource type="Texture2D" uid="uid://bp64y3fmv4de0" path="res://Assets/UI/Sprites/UI Overlay.png" id="2_klwct"]
+[ext_resource type="Texture2D" uid="uid://cdjcltfl6hbbo" path="res://Assets/UI/Sprites/earth_symbol.png" id="3_daott"]
+[ext_resource type="Texture2D" uid="uid://v7b4jj4e441e" path="res://Assets/UI/Sprites/wind_symbol.png" id="4_w2bei"]
+[ext_resource type="Texture2D" uid="uid://cuvtdkiy0j6xn" path="res://Assets/UI/Sprites/water_symbol.png" id="5_bvw8c"]
+[ext_resource type="Texture2D" uid="uid://c325sowerb38v" path="res://Assets/UI/Sprites/fire_symbol.png" id="6_kgdn0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsqxq"]
+atlas = ExtResource("3_daott")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpe1m"]
+atlas = ExtResource("3_daott")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t06md"]
+atlas = ExtResource("3_daott")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lix0"]
+atlas = ExtResource("3_daott")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mismf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsqxq")
+}],
+"loop": true,
+"name": &"Symbol Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpe1m")
+}],
+"loop": true,
+"name": &"Symbol Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t06md")
+}],
+"loop": true,
+"name": &"Symbol On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lix0")
+}],
+"loop": true,
+"name": &"Symbol Ready",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b5jj"]
+atlas = ExtResource("4_w2bei")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jkwb"]
+atlas = ExtResource("4_w2bei")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1c6a"]
+atlas = ExtResource("4_w2bei")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnq41"]
+atlas = ExtResource("4_w2bei")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuktk"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b5jj")
+}],
+"loop": true,
+"name": &"Symbol Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jkwb")
+}],
+"loop": true,
+"name": &"Symbol Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1c6a")
+}],
+"loop": true,
+"name": &"Symbol On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnq41")
+}],
+"loop": true,
+"name": &"Symbol Ready",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dljt1"]
+atlas = ExtResource("5_bvw8c")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vrd2"]
+atlas = ExtResource("5_bvw8c")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a68fp"]
+atlas = ExtResource("5_bvw8c")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehqm5"]
+atlas = ExtResource("5_bvw8c")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_no181"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dljt1")
+}],
+"loop": true,
+"name": &"Symbol Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vrd2")
+}],
+"loop": true,
+"name": &"Symbol Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a68fp")
+}],
+"loop": true,
+"name": &"Symbol On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehqm5")
+}],
+"loop": true,
+"name": &"Symbol Ready",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uitj4"]
+atlas = ExtResource("6_kgdn0")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbjro"]
+atlas = ExtResource("6_kgdn0")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kt2g"]
+atlas = ExtResource("6_kgdn0")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2adm2"]
+atlas = ExtResource("6_kgdn0")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_asokx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uitj4")
+}],
+"loop": true,
+"name": &"Symbol Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbjro")
+}],
+"loop": true,
+"name": &"Symbol Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kt2g")
+}],
+"loop": true,
+"name": &"Symbol On",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2adm2")
+}],
+"loop": true,
+"name": &"Symbol Ready",
+"speed": 5.0
+}]
+
+[node name="PowerTracker" type="CanvasLayer"]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+script = ExtResource("1_34utm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(37, 37)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("2_klwct")
+
+[node name="EarthSymbol" type="AnimatedSprite2D" parent="."]
+position = Vector2(37, 52)
+sprite_frames = SubResource("SpriteFrames_mismf")
+animation = &"Symbol Active"
+
+[node name="AirSymbol" type="AnimatedSprite2D" parent="."]
+position = Vector2(37, 21)
+sprite_frames = SubResource("SpriteFrames_wuktk")
+animation = &"Symbol Off"
+
+[node name="WaterSymbol" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, 36)
+sprite_frames = SubResource("SpriteFrames_no181")
+animation = &"Symbol Ready"
+
+[node name="FireSymbol" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 37)
+sprite_frames = SubResource("SpriteFrames_asokx")
+animation = &"Symbol Active"

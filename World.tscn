@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c63swhm7fev5h"]
+[gd_scene load_steps=14 format=3 uid="uid://c63swhm7fev5h"]
 
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="1_y6l8t"]
 [ext_resource type="PackedScene" uid="uid://c2kokba30ptdj" path="res://Assets/Objects/Pushable Objects/pushable_object.tscn" id="2_y54rr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="4_v7u4i"]
 [ext_resource type="PackedScene" uid="uid://b654eydturcba" path="res://Assets/Objects/Collectables/Elemental_Powers.tscn" id="6_0dwhr"]
 [ext_resource type="PackedScene" uid="uid://rk3ydbcer58e" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.tscn" id="7_s1pqh"]
+[ext_resource type="PackedScene" uid="uid://koyd58kq2e1p" path="res://Assets/UI/PowerTracker.tscn" id="8_rjfn2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5082y"]
 texture = ExtResource("4_aqkcn")
@@ -477,6 +478,8 @@ playing_animation = "Air Power"
 position = Vector2(767, 510)
 max_height = 600.0
 min_height = 400.0
+
+[node name="PowerTracker" parent="." instance=ExtResource("8_rjfn2")]
 
 [connection signal="body_entered" from="PushableObject" to="PushableObject/InteractionArea" method="_on_pushable_object_body_entered"]
 [connection signal="body_entered" from="PushableObject/InteractionArea" to="PushableObject" method="_on_interaction_area_body_entered"]

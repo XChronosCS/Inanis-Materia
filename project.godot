@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 InteractionManager="*res://Interactions/InteractionManager.tscn"
 DataSave="*res://Assets/Scripts/data_save.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
