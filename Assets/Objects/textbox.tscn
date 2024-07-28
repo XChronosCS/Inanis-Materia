@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dquugpob5xs2g"]
+
+[ext_resource type="Script" path="res://Assets/Objects/textbox.gd" id="1_sivwp"]
+[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="2_i2kdq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74ikd"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plsdh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_afb04"]
+default_font = ExtResource("2_i2kdq")
+default_font_size = 40
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_sivwp")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 86.0
+offset_top = 359.0
+offset_right = 1071.0
+offset_bottom = 576.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_74ikd")
+
+[node name="DialogueBox" type="Panel" parent="."]
+offset_left = 95.1094
+offset_top = 368.896
+offset_right = 1053.11
+offset_bottom = 568.896
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsdh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 35.0
+offset_right = 900.0
+offset_bottom = 285.0
+theme = SubResource("Theme_afb04")
+text = "Welcome to the Town of Alchecity, birthplace of modern Alchemy. "
+fit_content = true
+
+[node name="EnterPanel" type="Panel" parent="."]
+offset_left = 795.0
+offset_top = 574.0
+offset_right = 1068.0
+offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_74ikd")
+metadata/_edit_group_ = true
+
+[node name="Enter Panel Inner" type="Panel" parent="EnterPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 258.0
+offset_bottom = 71.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsdh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EnterPanel/Enter Panel Inner"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 22.0
+offset_right = 236.0
+offset_bottom = 46.0
+theme = SubResource("Theme_afb04")
+theme_override_font_sizes/normal_font_size = 25
+text = "Press Enter to continue"
+fit_content = true
+
+[connection signal="pressedEnter" from="." to="." method="_on_pressed_enter"]

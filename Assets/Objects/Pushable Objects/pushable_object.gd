@@ -25,7 +25,7 @@ func _ready():
 
 func _physics_process(delta):
 	if being_pushed == true:
-		freeze = false
+		collision_layer = 2
 		if player.position.x < position.x:
 			if player.velocity.x < 0:
 				set_axis_velocity(Vector2(player.velocity.x * 3, 0))
@@ -33,7 +33,7 @@ func _physics_process(delta):
 			if player.velocity.x > 0:
 				set_axis_velocity(Vector2(player.velocity.x * 3, 0))
 	else:
-		freeze = true
+		collision_layer = 1
 		
 		
 func _on_interact():
@@ -64,5 +64,9 @@ func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
 		player = body
 		interaction_area.interaction_disabled = true
+		collision_layer = 1
+		player.pushing_animation = false
 		DataSave.flags.earth_power_usable = false
+		DataSave.flags.earth_power_activated = false
+		being_pushed = false
 

@@ -14,6 +14,7 @@ var flags = {
 	earth_power_usable = false,
 	earth_power_activated = false,
 	current_level = 0,
+	prevent_player_movement = false
 	
 }
 

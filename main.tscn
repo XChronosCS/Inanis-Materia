@@ -6,21 +6,29 @@
 script = ExtResource("1_teyo1")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 366.0
-offset_top = 130.0
-offset_right = 774.0
-offset_bottom = 268.0
+offset_left = 368.0
+offset_top = 64.0
+offset_right = 776.0
+offset_bottom = 202.0
 text = "Play"
 
+[node name="Play2" type="Button" parent="."]
+offset_left = 363.0
+offset_top = 246.0
+offset_right = 771.0
+offset_bottom = 384.0
+text = "Test World"
+
 [node name="Quit" type="Button" parent="."]
-offset_left = 356.0
-offset_top = 304.0
-offset_right = 779.0
-offset_bottom = 438.0
+offset_left = 355.0
+offset_top = 437.0
+offset_right = 778.0
+offset_bottom = 571.0
 tooltip_text = "This is a quit button
 "
 text = "Quit
 "
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play2" to="." method="_on_play_2_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

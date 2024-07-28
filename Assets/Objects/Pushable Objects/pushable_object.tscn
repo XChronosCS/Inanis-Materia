@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2kokba30ptdj"]
+[gd_scene load_steps=3 format=3 uid="uid://c2kokba30ptdj"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Pushable Objects/pushable_object.gd" id="1_tqaq1"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t5vnk"]
+
 [node name="PushableObject" type="RigidBody2D" groups=["PushableObjects"]]
-collision_layer = 2
 collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_t5vnk")
 can_sleep = false
 lock_rotation = true
 continuous_cd = 1

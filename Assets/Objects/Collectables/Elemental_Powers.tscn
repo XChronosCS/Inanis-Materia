@@ -1,24 +1,62 @@
-[gd_scene load_steps=9 format=3 uid="uid://b654eydturcba"]
+[gd_scene load_steps=14 format=3 uid="uid://b654eydturcba"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Collectables/Elemental_Powers.gd" id="1_cbxjo"]
-[ext_resource type="Texture2D" uid="uid://bgs6jvjvar48y" path="res://Assets/Idylwild's Alchemical Codex/tile003.png" id="2_ftuu4"]
-[ext_resource type="Texture2D" uid="uid://d0iwo332dhoeu" path="res://Assets/Idylwild's Alchemical Codex/tile078.png" id="3_12vfu"]
+[ext_resource type="Texture2D" uid="uid://4sjq14heiqcr" path="res://Assets/Sprites/Air Symbol Appearing-Sheet.png" id="2_4tgdf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_54w68"]
 radius = 9.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5utm"]
+atlas = ExtResource("2_4tgdf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq8ra"]
+atlas = ExtResource("2_4tgdf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g730"]
+atlas = ExtResource("2_4tgdf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oin00"]
+atlas = ExtResource("2_4tgdf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1r00"]
+atlas = ExtResource("2_4tgdf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtipr"]
+atlas = ExtResource("2_4tgdf")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qvkka"]
 animations = [{
 "frames": [{
-"duration": 2.0,
-"texture": ExtResource("2_ftuu4")
+"duration": 1.0,
+"texture": null
 }, {
-"duration": 2.0,
-"texture": ExtResource("3_12vfu")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5utm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq8ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g730")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oin00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1r00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtipr")
 }],
-"loop": true,
+"loop": false,
 "name": &"Air Symbol",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [],
 "loop": true,
@@ -28,7 +66,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_qwdgp"]
 resource_name = "Air Power"
-loop_mode = 1
+length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,10 +74,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 2, 3, 5, 6]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
