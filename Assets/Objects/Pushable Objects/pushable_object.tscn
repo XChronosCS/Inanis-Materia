@@ -1,13 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2kokba30ptdj"]
+[gd_scene load_steps=7 format=3 uid="uid://c2kokba30ptdj"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Pushable Objects/pushable_object.gd" id="1_tqaq1"]
+[ext_resource type="Texture2D" uid="uid://b5jk0bw16v6p7" path="res://Assets/Sprites/Grux Crate.png" id="2_4hgrk"]
+[ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="3_1xvkx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t5vnk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nonbq"]
+size = Vector2(57.9999, 59.0002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knvea"]
+size = Vector2(109, 46.3739)
+
 [node name="PushableObject" type="RigidBody2D" groups=["PushableObjects"]]
+scale = Vector2(1, 1.02206)
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_t5vnk")
 can_sleep = false
 lock_rotation = true
 continuous_cd = 1
 script = ExtResource("1_tqaq1")
+
+[node name="CollisionShape2DCube" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-0.5, 6.10352e-05)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_nonbq")
+
+[node name="Sprite2DCube" type="Sprite2D" parent="."]
+scale = Vector2(1.03125, 1)
+texture = ExtResource("2_4hgrk")
+
+[node name="InteractionAreaCube" parent="." instance=ExtResource("3_1xvkx")]
+position = Vector2(-1, 2)
+collision_layer = 1
+collision_mask = 1
+action_name = "Push/Pull"
+interaction_key = "Earth Power"
+keyboard_key = "S"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCube"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(3.5, 3.18697)
+shape = SubResource("RectangleShape2D_knvea")
+
+[connection signal="body_entered" from="InteractionAreaCube" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionAreaCube" to="." method="_on_interaction_area_body_exited"]

@@ -13,6 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var pushing_animation: bool = false
 @onready var airborne: bool = false # Checks to see if protagonist is in the air
 @onready var heading_towards_ground: bool = false # Checks to see if the protagonist is heading towards the ground
+@onready var is_flipped: bool = false
+@onready var air_current_animation: bool = false
 
 func _ready():
 	camera.limit_bottom = camera_constraints[0]
@@ -44,6 +46,10 @@ func _physics_process(delta):
 				await get_tree().create_timer(0.2).timeout
 				velocity.y = JUMP_VELOCITY
 			
+			if air_current_animation:
+				anim.play("Rise")
+				
+			
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -61,12 +67,15 @@ func _physics_process(delta):
 			#Flips direction of sprites depending on input
 			if direction == -1:
 				get_node("AnimatedSprite2D").flip_h = true
-				if get_node("CollisionShape2D").position.x < 0:
+				if not is_flipped:
 					get_node("CollisionShape2D").position.x *= -1
+					is_flipped = true
+					
 			if direction == 1:
 				get_node("AnimatedSprite2D").flip_h = false
-				if get_node("CollisionShape2D").position.x > 0:
+				if is_flipped:
 					get_node("CollisionShape2D").position.x *= -1
+					is_flipped = false
 
 			if direction:
 				if velocity.y == 0 && not airborne: 
@@ -75,12 +84,13 @@ func _physics_process(delta):
 				if velocity.y == 0 && not airborne:
 					anim.play("Idle")
 		
-		if velocity.y > 0:
+		if velocity.y > 0 && not air_current_animation:
 			anim.play("Fall")
 			heading_towards_ground = true
 		if velocity.y == 0 && heading_towards_ground:
 			anim.play("Land")
 			await get_tree().create_timer(0.2).timeout
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 			airborne = false
 			heading_towards_ground = false
 

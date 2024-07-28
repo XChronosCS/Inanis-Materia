@@ -1,10 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c63swhm7fev5h"]
+[gd_scene load_steps=10 format=3 uid="uid://c63swhm7fev5h"]
 
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="1_y6l8t"]
 [ext_resource type="PackedScene" uid="uid://c2kokba30ptdj" path="res://Assets/Objects/Pushable Objects/pushable_object.tscn" id="2_y54rr"]
 [ext_resource type="Texture2D" uid="uid://b2o6fltumlxit" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/tileset.png" id="4_aqkcn"]
-[ext_resource type="Texture2D" uid="uid://b5jk0bw16v6p7" path="res://Assets/Sprites/Grux Crate.png" id="4_c0qcn"]
-[ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="4_v7u4i"]
 [ext_resource type="PackedScene" uid="uid://b654eydturcba" path="res://Assets/Objects/Collectables/Elemental_Powers.tscn" id="6_0dwhr"]
 [ext_resource type="PackedScene" uid="uid://rk3ydbcer58e" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.tscn" id="7_s1pqh"]
 [ext_resource type="PackedScene" uid="uid://koyd58kq2e1p" path="res://Assets/UI/PowerTracker.tscn" id="8_rjfn2"]
@@ -406,12 +404,6 @@ sources/0 = SubResource("TileSetAtlasSource_5082y")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5r2f"]
 size = Vector2(1382, 120)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ved2t"]
-size = Vector2(57.9999, 59.0002)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_resc8"]
-size = Vector2(102, 45.5)
-
 [node name="World" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [399.0]
 
@@ -443,46 +435,17 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_f5r2f")
 metadata/_edit_lock_ = true
 
-[node name="PushableObject" parent="." instance=ExtResource("2_y54rr")]
-position = Vector2(520, 515)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PushableObject"]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(-0.5, 6.10352e-05)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_ved2t")
-
-[node name="Sprite2D" type="Sprite2D" parent="PushableObject"]
-scale = Vector2(1.03125, 1)
-texture = ExtResource("4_c0qcn")
-
-[node name="InteractionArea" parent="PushableObject" instance=ExtResource("4_v7u4i")]
-position = Vector2(-1, 2)
-collision_layer = 1
-collision_mask = 1
-action_name = "Push/Pull"
-interaction_key = "Earth Power"
-keyboard_key = "S"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PushableObject/InteractionArea"]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(0, 2.75)
-shape = SubResource("RectangleShape2D_resc8")
-
 [node name="Elemental Powers" parent="." instance=ExtResource("6_0dwhr")]
 position = Vector2(262, 531)
 playing_animation = "Air Power"
 
 [node name="WindCurrent" parent="." instance=ExtResource("7_s1pqh")]
-position = Vector2(767, 510)
-max_height = 600.0
-min_height = 400.0
+position = Vector2(323, 504)
+min_height = 600.0
+max_height = 400.0
 
 [node name="PowerTracker" parent="." instance=ExtResource("8_rjfn2")]
 
-[connection signal="body_entered" from="PushableObject" to="PushableObject/InteractionArea" method="_on_pushable_object_body_entered"]
-[connection signal="body_entered" from="PushableObject/InteractionArea" to="PushableObject" method="_on_interaction_area_body_entered"]
-[connection signal="body_exited" from="PushableObject/InteractionArea" to="PushableObject" method="_on_interaction_area_body_exited"]
+[node name="PushableObject" parent="." instance=ExtResource("2_y54rr")]
+position = Vector2(472, 494)
+ground_y = 544

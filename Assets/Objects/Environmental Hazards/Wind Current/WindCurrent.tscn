@@ -112,7 +112,7 @@ animations = [{
 size = Vector2(35, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_566kt"]
-size = Vector2(35, 144)
+size = Vector2(35, 196.5)
 
 [node name="WindCurrent" type="Area2D"]
 collision_mask = 3
@@ -134,7 +134,7 @@ interaction_key = "Air Power"
 keyboard_key = "W"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindInteractionArea"]
-position = Vector2(-0.5, -39)
+position = Vector2(-0.5, -64.25)
 shape = SubResource("RectangleShape2D_566kt")
 
 [connection signal="body_entered" from="WindInteractionArea" to="." method="_on_wind_interaction_area_body_entered"]

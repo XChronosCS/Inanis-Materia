@@ -11,27 +11,31 @@ Breakdown of process:
 
 '''
 
-@onready var interaction_area: InteractionArea = $InteractionArea
-@onready var sprite = $Sprite2D
+@onready var interaction_area: InteractionArea = $InteractionAreaCube
+@onready var sprite = $Sprite2DCube
 @onready var moveable: bool = false # Determines if the object is movable or not
 @onready var being_pushed: bool = false
 @onready var player: CharacterBody2D = null
+@export var ground_y = 0
 
 
 
-func _ready():
+func _ready(): 
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 
 func _physics_process(delta):
 	if being_pushed == true:
 		collision_layer = 2
+		position.y = ground_y - 33
 		if player.position.x < position.x:
+			print("Applying Pull")
 			if player.velocity.x < 0:
-				set_axis_velocity(Vector2(player.velocity.x * 3, 0))
+				linear_velocity.x = player.velocity.x * 2
 		if player.position.x > position.x:
+			print("Applying Pull")
 			if player.velocity.x > 0:
-				set_axis_velocity(Vector2(player.velocity.x * 3, 0))
+				linear_velocity.x = player.velocity.x * 2
 	else:
 		collision_layer = 1
 		
@@ -43,6 +47,7 @@ func _on_interact():
 			being_pushed = true
 			player.pushing_animation = true
 			DataSave.flags.earth_power_activated = true
+			position.y -= 5
 		else:
 			being_pushed = false
 			player.pushing_animation = false
@@ -66,6 +71,7 @@ func _on_interaction_area_body_exited(body):
 		interaction_area.interaction_disabled = true
 		collision_layer = 1
 		player.pushing_animation = false
+		print("Left Area")
 		DataSave.flags.earth_power_usable = false
 		DataSave.flags.earth_power_activated = false
 		being_pushed = false

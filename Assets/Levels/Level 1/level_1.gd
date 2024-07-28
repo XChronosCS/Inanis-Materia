@@ -9,6 +9,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	DataSave.flags.current_level = 1
 	jump_sign.play("Not Visible")
 	AirPower.visible = false
 	powerTracker.visible = false
@@ -43,3 +44,8 @@ func _on_textbox_2_text_trigger_reached():
 	AirPower.visible = true
 	powerTracker.visible = true
 	AirPower.animation.play(AirPower.playing_animation)
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		get_tree().change_scene_to_file("res://Assets/Levels/Level 2/level_2.tscn")
