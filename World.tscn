@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c63swhm7fev5h"]
+[gd_scene load_steps=8 format=3 uid="uid://c63swhm7fev5h"]
 
+[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="1_xcw0b"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="1_y6l8t"]
-[ext_resource type="PackedScene" uid="uid://c2kokba30ptdj" path="res://Assets/Objects/Pushable Objects/pushable_object.tscn" id="2_y54rr"]
 [ext_resource type="Texture2D" uid="uid://b2o6fltumlxit" path="res://Assets/Tilesets/tileset (2).png" id="4_aqkcn"]
-[ext_resource type="PackedScene" uid="uid://b654eydturcba" path="res://Assets/Objects/Collectables/Elemental_Powers.tscn" id="6_0dwhr"]
-[ext_resource type="PackedScene" uid="uid://rk3ydbcer58e" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.tscn" id="7_s1pqh"]
-[ext_resource type="PackedScene" uid="uid://koyd58kq2e1p" path="res://Assets/UI/PowerTracker.tscn" id="8_rjfn2"]
+[ext_resource type="PackedScene" uid="uid://ch1xf283nra5l" path="res://Assets/Objects/Pushable Objects/pushable_cauldron.tscn" id="4_flt42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5082y"]
 texture = ExtResource("4_aqkcn")
@@ -408,6 +406,8 @@ size = Vector2(1382, 120)
 [node name="World" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [399.0]
 
+[node name="GameUI" parent="." instance=ExtResource("1_xcw0b")]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_16kue")
 format = 2
@@ -436,17 +436,11 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_f5r2f")
 metadata/_edit_lock_ = true
 
-[node name="Elemental Powers" parent="." instance=ExtResource("6_0dwhr")]
-position = Vector2(262, 531)
-playing_animation = "Air Power"
+[node name="PushableCauldron" parent="." instance=ExtResource("4_flt42")]
+position = Vector2(442, 510)
 
-[node name="WindCurrent" parent="." instance=ExtResource("7_s1pqh")]
-position = Vector2(323, 504)
-min_height = 600.0
-max_height = 400.0
+[node name="WindCurrent" parent="PushableCauldron" index="5"]
+min_height = 500.0
+max_height = 350.0
 
-[node name="PowerTracker" parent="." instance=ExtResource("8_rjfn2")]
-
-[node name="PushableObject" parent="." instance=ExtResource("2_y54rr")]
-position = Vector2(472, 494)
-ground_y = 544
+[editable path="PushableCauldron"]

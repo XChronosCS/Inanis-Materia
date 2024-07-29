@@ -1,22 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs4qq2jiwbf8o"]
 
 [ext_resource type="Script" path="res://Interactions/InteractionManager.gd" id="1_hdhq1"]
-
-[sub_resource type="Theme" id="Theme_0olrv"]
+[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="2_dj6v4"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_hdhq1")
 
-[node name="Label" type="RichTextLabel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer"]
 z_index = 20
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -84.0
-offset_right = 84.0
-offset_bottom = 24.0
-grow_horizontal = 2
-theme = SubResource("Theme_0olrv")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -171.0
+offset_top = 2.0
+offset_right = -11.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.549206, 0, 0.100786, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_dj6v4")
+theme_override_font_sizes/normal_font_size = 30
 text = "[E] to Interact"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0

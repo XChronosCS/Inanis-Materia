@@ -12,6 +12,7 @@ func _ready():
 	anim.play("Wind Current")
 	interaction_area.interact = Callable(self, "_on_interact")
 	
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	if DataSave.flags.air_power_activated:
 			if clamp(player.position.y, max_height, min_height) == player.position.y:

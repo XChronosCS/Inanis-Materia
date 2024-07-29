@@ -1,13 +1,14 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Players")
-@onready var label = $Label
+@onready var label = $CanvasLayer/Label
 
 
 const base_text = "] to "
 
 var active_areas = []
 var can_interact = true
+
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
@@ -17,19 +18,21 @@ func unregister_area(area: InteractionArea):
 	if index != -1:
 		active_areas.remove_at(index)
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	player = get_tree().get_first_node_in_group("Players")
-	if active_areas.size() > 0 && can_interact && active_areas[0].interaction_disabled != true:
+	label.text = ""
+	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		label.text = "[" + active_areas[0].keyboard_key + base_text + active_areas[0].action_name
+		for active_area in active_areas:
+			if active_area.interaction_disabled != true:
+				label.text += "[" + active_area.keyboard_key + base_text + active_area.action_name + "\n"
 		# player.recent_action = active_areas[0].action_name # Sets the recent action variable to the most recent action displayed
-		label.global_position = active_areas[0].global_position
-		label.global_position.x -= label.size.x / 4
-		label.global_position.y -= 20
 		label.show()
 	else:
-		if label != null:
-			label.hide()
+		#if label != null:
+			#label.hide()
+			pass
 		
 		
 
@@ -41,11 +44,11 @@ func _sort_by_distance_to_player(area1, area2):
 
 func _input(event):
 	if active_areas.size() > 0:
-		if event.is_action_pressed(active_areas[0].interaction_key) && can_interact:
-			if active_areas.size() > 0:
-				can_interact = false
-				label.hide()
-				await active_areas[0].interact.call()
-				
-				can_interact = true
+		for active_area in active_areas:
+			if event.is_action_pressed(active_area.interaction_key) && can_interact:
+				if active_areas.size() > 0:
+					can_interact = false
+					label.hide()
+					await active_area.interact.call()
+					can_interact = true
 	

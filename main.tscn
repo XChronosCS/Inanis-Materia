@@ -36,11 +36,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1jg3l")
 text = "Play"
 
 [node name="Play2" type="Button" parent="."]
-visible = false
-offset_left = 644.0
-offset_top = 401.0
-offset_right = 933.0
-offset_bottom = 486.0
+offset_left = 720.0
+offset_top = 414.0
+offset_right = 1009.0
+offset_bottom = 499.0
 text = "Test World"
 
 [node name="Quit" type="Button" parent="."]
