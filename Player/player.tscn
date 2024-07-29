@@ -1,10 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://b8ptl0m5d13qk"]
+[gd_scene load_steps=44 format=3 uid="uid://b8ptl0m5d13qk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_coqo4"]
 [ext_resource type="Texture2D" uid="uid://cnlkm1vn5pnby" path="res://Assets/Inanis Sprites/inanis_idle.png" id="5_4jmlj"]
 [ext_resource type="Texture2D" uid="uid://b4x4cpc0kgt5u" path="res://Assets/Inanis Sprites/inanis_push.png" id="6_ojfls"]
-[ext_resource type="Texture2D" uid="uid://c2wc144n8bqa3" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-1.png" id="6_xtn3r"]
-[ext_resource type="Texture2D" uid="uid://cwlxn1isf0a4i" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/Forest/Forest Pack/PNG/sprites/player/player-hurt/player-hurt-2.png" id="7_48d3r"]
 [ext_resource type="Texture2D" uid="uid://dlho0h7kstkgc" path="res://Assets/Inanis Sprites/inanis_rise.png" id="7_qbypi"]
 [ext_resource type="Texture2D" uid="uid://m0tiy2isum5v" path="res://Assets/Inanis Sprites/inanis_move.png" id="7_usmlp"]
 [ext_resource type="Texture2D" uid="uid://dukrkip701yjg" path="res://Assets/Inanis Sprites/inanis_jump.png" id="17_2rlij"]
@@ -362,17 +360,6 @@ animations = [{
 "loop": true,
 "name": &"Fall",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_xtn3r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_48d3r")
-}],
-"loop": true,
-"name": &"Hurt",
-"speed": 5.0
 }, {
 "frames": [{
 "duration": 3.0,

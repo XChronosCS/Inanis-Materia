@@ -22,7 +22,7 @@ func _process(delta):
 	if active_areas.size() > 0 && can_interact && active_areas[0].interaction_disabled != true:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = "[" + active_areas[0].keyboard_key + base_text + active_areas[0].action_name
-		player.recent_action = active_areas[0].action_name # Sets the recent action variable to the most recent action displayed
+		# player.recent_action = active_areas[0].action_name # Sets the recent action variable to the most recent action displayed
 		label.global_position = active_areas[0].global_position
 		label.global_position.x -= label.size.x / 4
 		label.global_position.y -= 20

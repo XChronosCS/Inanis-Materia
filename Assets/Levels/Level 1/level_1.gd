@@ -10,7 +10,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DataSave.flags.current_level = 1
-	jump_sign.play("Not Visible")
 	AirPower.visible = false
 	powerTracker.visible = false
 	AirPower.process_mode = Node.PROCESS_MODE_DISABLED
@@ -24,7 +23,6 @@ func _process(delta):
 
 
 func _on_elemental_powers_body_entered(body):
-	# jump_sign.play("Sign Appears") # Replace with function body.
 	pass
 
 # InfoBall Code

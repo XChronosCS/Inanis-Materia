@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="1_y6l8t"]
 [ext_resource type="PackedScene" uid="uid://c2kokba30ptdj" path="res://Assets/Objects/Pushable Objects/pushable_object.tscn" id="2_y54rr"]
-[ext_resource type="Texture2D" uid="uid://b2o6fltumlxit" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Packs/Sunnyland/environment/tileset.png" id="4_aqkcn"]
+[ext_resource type="Texture2D" uid="uid://b2o6fltumlxit" path="res://Assets/Tilesets/tileset (2).png" id="4_aqkcn"]
 [ext_resource type="PackedScene" uid="uid://b654eydturcba" path="res://Assets/Objects/Collectables/Elemental_Powers.tscn" id="6_0dwhr"]
 [ext_resource type="PackedScene" uid="uid://rk3ydbcer58e" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.tscn" id="7_s1pqh"]
 [ext_resource type="PackedScene" uid="uid://koyd58kq2e1p" path="res://Assets/UI/PowerTracker.tscn" id="8_rjfn2"]
@@ -191,6 +191,7 @@ texture = ExtResource("4_aqkcn")
 5:10/0 = 0
 5:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:10/0/physics_layer_0/angular_velocity = 0.0
+5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:10/0 = 0
 7:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:10/0/physics_layer_0/angular_velocity = 0.0

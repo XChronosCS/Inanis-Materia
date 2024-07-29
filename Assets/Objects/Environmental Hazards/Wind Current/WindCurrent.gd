@@ -14,7 +14,6 @@ func _ready():
 	
 func _physics_process(delta):
 	if DataSave.flags.air_power_activated:
-			print(player.position.y)
 			if clamp(player.position.y, max_height, min_height) == player.position.y:
 				player.velocity.y += lift_speed
 			else:
@@ -32,7 +31,6 @@ func _on_wind_interaction_area_body_entered(body):
 	if body.name == "Player":
 		player = body
 		if DataSave.flags.has_air_power:
-			print(interaction_area.interaction_key)
 			interaction_area.interaction_disabled = false
 			DataSave.flags.air_power_usable = true
 

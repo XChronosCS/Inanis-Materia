@@ -1,31 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://dam6xbir407me"]
+[gd_scene load_steps=7 format=3 uid="uid://dam6xbir407me"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teyo1"]
+[ext_resource type="PackedScene" uid="uid://dqd7s00350fkp" path="res://bg.tscn" id="2_xdn4p"]
+[ext_resource type="Texture2D" uid="uid://k2h3fx5feley" path="res://Assets/UI/Sprites/Title Screen/Inanis Materia Title.png" id="3_odbma"]
+[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="4_yfyu4"]
+[ext_resource type="StyleBox" uid="uid://dt51qvveewq2k" path="res://normal_play_button.tres" id="5_8iwvh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jg3l"]
+bg_color = Color(0.366316, 0.00705911, 0.176648, 1)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_teyo1")
 
+[node name="bg" parent="." instance=ExtResource("2_xdn4p")]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(575, 328)
+scale = Vector2(1.98958, 1.99383)
+texture = ExtResource("3_odbma")
+
 [node name="Play" type="Button" parent="."]
-offset_left = 368.0
-offset_top = 64.0
-offset_right = 776.0
-offset_bottom = 202.0
+offset_left = 405.0
+offset_top = 414.0
+offset_right = 685.0
+offset_bottom = 499.0
+theme_override_colors/font_hover_color = Color(0.680591, 0.569689, 1.92523e-07, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_yfyu4")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("5_8iwvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1jg3l")
 text = "Play"
 
 [node name="Play2" type="Button" parent="."]
-offset_left = 363.0
-offset_top = 246.0
-offset_right = 771.0
-offset_bottom = 384.0
+visible = false
+offset_left = 644.0
+offset_top = 401.0
+offset_right = 933.0
+offset_bottom = 486.0
 text = "Test World"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 355.0
-offset_top = 437.0
-offset_right = 778.0
-offset_bottom = 571.0
+offset_left = 408.0
+offset_top = 525.0
+offset_right = 686.0
+offset_bottom = 607.0
 tooltip_text = "This is a quit button
 "
+theme_override_fonts/font = ExtResource("4_yfyu4")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("5_8iwvh")
 text = "Quit
 "
 

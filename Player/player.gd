@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var anim = get_node("AnimationPlayer")
 @onready var recent_action = "None"
 @onready var pushing_animation: bool = false
+@onready var jumping_animation: bool = false
 @onready var airborne: bool = false # Checks to see if protagonist is in the air
 @onready var heading_towards_ground: bool = false # Checks to see if the protagonist is heading towards the ground
 @onready var is_flipped: bool = false
@@ -42,9 +43,11 @@ func _physics_process(delta):
 			# Prevents jump during pushing animation
 			if Input.is_action_just_pressed("jump") and is_on_floor() and not pushing_animation: 
 				airborne = true
+				jumping_animation = true
 				anim.play("Jump")
 				await get_tree().create_timer(0.2).timeout
 				velocity.y = JUMP_VELOCITY
+				jumping_animation = false
 			
 			if air_current_animation:
 				anim.play("Rise")
@@ -78,10 +81,10 @@ func _physics_process(delta):
 					is_flipped = false
 
 			if direction:
-				if velocity.y == 0 && not airborne: 
+				if velocity.y == 0 && not airborne && not jumping_animation: 
 					anim.play("Run")
 			else:
-				if velocity.y == 0 && not airborne:
+				if velocity.y == 0 && not airborne && not jumping_animation:
 					anim.play("Idle")
 		
 		if velocity.y > 0 && not air_current_animation:

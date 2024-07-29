@@ -27,17 +27,27 @@ func _ready():
 func _physics_process(delta):
 	if being_pushed == true:
 		collision_layer = 2
-		position.y = ground_y - 33
+		ground_y = player.position.y
+		position.y = ground_y - 25
 		if player.position.x < position.x:
-			print("Applying Pull")
 			if player.velocity.x < 0:
 				linear_velocity.x = player.velocity.x * 2
+			elif not Input.is_action_pressed("move_right"):
+				linear_velocity.x = 0
+			elif Input.is_action_pressed("move_right"):
+				linear_velocity.x = player.SPEED / 2
 		if player.position.x > position.x:
-			print("Applying Pull")
 			if player.velocity.x > 0:
 				linear_velocity.x = player.velocity.x * 2
+			elif not Input.is_action_pressed("move_left"):
+				linear_velocity.x = 0
+			elif Input.is_action_pressed("move_left"):
+				linear_velocity.x = -player.SPEED / 2
+			
 	else:
+		
 		collision_layer = 1
+		
 		
 		
 func _on_interact():
@@ -47,11 +57,11 @@ func _on_interact():
 			being_pushed = true
 			player.pushing_animation = true
 			DataSave.flags.earth_power_activated = true
-			position.y -= 5
 		else:
 			being_pushed = false
 			player.pushing_animation = false
 			DataSave.flags.earth_power_activated = false
+			linear_velocity.y = 0
 			
 			
 		
@@ -71,7 +81,6 @@ func _on_interaction_area_body_exited(body):
 		interaction_area.interaction_disabled = true
 		collision_layer = 1
 		player.pushing_animation = false
-		print("Left Area")
 		DataSave.flags.earth_power_usable = false
 		DataSave.flags.earth_power_activated = false
 		being_pushed = false

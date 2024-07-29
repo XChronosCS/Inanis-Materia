@@ -112,7 +112,7 @@ animations = [{
 size = Vector2(35, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_566kt"]
-size = Vector2(35, 196.5)
+size = Vector2(35, 244.25)
 
 [node name="WindCurrent" type="Area2D"]
 collision_mask = 3
