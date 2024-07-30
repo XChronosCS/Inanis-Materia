@@ -5,4 +5,6 @@
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource("1_sw3l7")
 format = 2
-layer_0/tile_data = PackedInt32Array(196628, 262144, 5, 327700, 262144, 5, 327667, 262144, 5, 327669, 327680, 8)
+layer_0/name = "Background"
+layer_1/name = "Foreground"
+layer_1/tile_data = PackedInt32Array()

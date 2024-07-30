@@ -67,9 +67,9 @@ offset_bottom = 286.0
 tooltip_text = "This is a quit button
 "
 theme_override_fonts/font = ExtResource("2_dh2c4")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 43
 theme_override_styles/normal = SubResource("StyleBoxFlat_u35mx")
-text = "RESUME"
+text = "RESUME LEVEL"
 
 [connection signal="pressed" from="Panel/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]

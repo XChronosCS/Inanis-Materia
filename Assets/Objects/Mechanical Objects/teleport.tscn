@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfc65dkt4d0u"]
+
+[ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointA.gd" id="1_hp76p"]
+[ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="2_nr18p"]
+[ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointB.gd" id="3_rb2ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnx4q"]
+size = Vector2(20.8439, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqsvf"]
+
+[node name="Teleport" type="Node2D"]
+
+[node name="PointA" type="Node2D" parent="."]
+script = ExtResource("1_hp76p")
+metadata/_edit_group_ = true
+
+[node name="InteractionAreaA" parent="PointA" instance=ExtResource("2_nr18p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointA/InteractionAreaA"]
+shape = SubResource("RectangleShape2D_xnx4q")
+
+[node name="PointB" type="Node2D" parent="."]
+position = Vector2(168, 0)
+script = ExtResource("3_rb2ya")
+metadata/_edit_group_ = true
+
+[node name="InteractionAreaB" parent="PointB" instance=ExtResource("2_nr18p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointB/InteractionAreaB"]
+shape = SubResource("RectangleShape2D_lqsvf")
+
+[connection signal="teleportingInProgress" from="PointA" to="PointB" method="_on_point_a_teleporting_in_progress"]
+[connection signal="body_entered" from="PointA/InteractionAreaA" to="PointA" method="_on_interaction_area_a_body_entered"]
+[connection signal="body_exited" from="PointA/InteractionAreaA" to="PointA" method="_on_interaction_area_a_body_exited"]
+[connection signal="teleportingInProgress" from="PointB" to="PointA" method="_on_point_b_teleporting_in_progress"]
+[connection signal="body_entered" from="PointB/InteractionAreaB" to="PointB" method="_on_interaction_area_b_body_entered"]
+[connection signal="body_exited" from="PointB/InteractionAreaB" to="PointB" method="_on_interaction_area_b_body_exited"]

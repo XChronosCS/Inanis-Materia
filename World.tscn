@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c63swhm7fev5h"]
+[gd_scene load_steps=13 format=3 uid="uid://c63swhm7fev5h"]
 
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="1_xcw0b"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="1_y6l8t"]
 [ext_resource type="Texture2D" uid="uid://b2o6fltumlxit" path="res://Assets/Tilesets/tileset (2).png" id="4_aqkcn"]
 [ext_resource type="PackedScene" uid="uid://ch1xf283nra5l" path="res://Assets/Objects/Pushable Objects/pushable_cauldron.tscn" id="4_flt42"]
+[ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointA.gd" id="5_rcq8s"]
+[ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="6_v0tbh"]
+[ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointB.gd" id="7_l0h52"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5082y"]
 texture = ExtResource("4_aqkcn")
@@ -403,6 +406,11 @@ sources/0 = SubResource("TileSetAtlasSource_5082y")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5r2f"]
 size = Vector2(1382, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnx4q"]
+size = Vector2(20.8439, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqsvf"]
+
 [node name="World" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [399.0]
 
@@ -439,8 +447,48 @@ metadata/_edit_lock_ = true
 [node name="PushableCauldron" parent="." instance=ExtResource("4_flt42")]
 position = Vector2(442, 510)
 
+[node name="Sprite2DCube" parent="PushableCauldron" index="1"]
+animation = &"Boiling"
+
 [node name="WindCurrent" parent="PushableCauldron" index="5"]
 min_height = 500.0
 max_height = 350.0
+
+[node name="Teleport" type="Node2D" parent="."]
+position = Vector2(129.156, 249.794)
+
+[node name="PointA" type="Node2D" parent="Teleport"]
+position = Vector2(-1.1561, 283.206)
+script = ExtResource("5_rcq8s")
+metadata/_edit_group_ = true
+
+[node name="InteractionAreaA" parent="Teleport/PointA" instance=ExtResource("6_v0tbh")]
+action_name = "Traverse"
+interaction_key = "Water Power"
+keyboard_key = "A"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/PointA/InteractionAreaA"]
+position = Vector2(0.421951, 0)
+shape = SubResource("RectangleShape2D_xnx4q")
+
+[node name="PointB" type="Node2D" parent="Teleport"]
+position = Vector2(160.844, 283.206)
+script = ExtResource("7_l0h52")
+metadata/_edit_group_ = true
+
+[node name="InteractionAreaB" parent="Teleport/PointB" instance=ExtResource("6_v0tbh")]
+action_name = "Traverse"
+interaction_key = "Water Power"
+keyboard_key = "A"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/PointB/InteractionAreaB"]
+shape = SubResource("RectangleShape2D_lqsvf")
+
+[connection signal="teleportingInProgress" from="Teleport/PointA" to="Teleport/PointB" method="_on_point_a_teleporting_in_progress"]
+[connection signal="body_entered" from="Teleport/PointA/InteractionAreaA" to="Teleport/PointA" method="_on_interaction_area_a_body_entered"]
+[connection signal="body_exited" from="Teleport/PointA/InteractionAreaA" to="Teleport/PointA" method="_on_interaction_area_a_body_exited"]
+[connection signal="teleportingInProgress" from="Teleport/PointB" to="Teleport/PointA" method="_on_point_b_teleporting_in_progress"]
+[connection signal="body_entered" from="Teleport/PointB/InteractionAreaB" to="Teleport/PointB" method="_on_interaction_area_b_body_entered"]
+[connection signal="body_exited" from="Teleport/PointB/InteractionAreaB" to="Teleport/PointB" method="_on_interaction_area_b_body_exited"]
 
 [editable path="PushableCauldron"]

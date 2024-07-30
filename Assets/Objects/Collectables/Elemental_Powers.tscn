@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://b654eydturcba"]
+[gd_scene load_steps=38 format=3 uid="uid://b654eydturcba"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Collectables/Elemental_Powers.gd" id="1_cbxjo"]
 [ext_resource type="Texture2D" uid="uid://4sjq14heiqcr" path="res://Assets/Sprites/Air Symbol Appearing-Sheet.png" id="2_4tgdf"]
 [ext_resource type="Texture2D" uid="uid://bfret7n11amxw" path="res://Assets/Sprites/Earth Symbol Appearing-Sheet.png" id="3_i04oi"]
+[ext_resource type="Texture2D" uid="uid://bjc4tksys7lbi" path="res://Assets/Sprites/Fire-Symbol Appearing-Sheet.png" id="4_606pp"]
+[ext_resource type="Texture2D" uid="uid://be4viqp507yxn" path="res://Assets/Sprites/Water-Symbol Appearing-Sheet.png" id="5_ekwib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_54w68"]
 radius = 9.0
@@ -53,6 +55,54 @@ region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u755t"]
 atlas = ExtResource("3_i04oi")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbhdi"]
+atlas = ExtResource("4_606pp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dmx8"]
+atlas = ExtResource("4_606pp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow1s7"]
+atlas = ExtResource("4_606pp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr60h"]
+atlas = ExtResource("4_606pp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qen6"]
+atlas = ExtResource("4_606pp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v20kh"]
+atlas = ExtResource("4_606pp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvyu4"]
+atlas = ExtResource("5_ekwib")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg0wq"]
+atlas = ExtResource("5_ekwib")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy2w6"]
+atlas = ExtResource("5_ekwib")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlfah"]
+atlas = ExtResource("5_ekwib")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydn2x"]
+atlas = ExtResource("5_ekwib")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gml1"]
+atlas = ExtResource("5_ekwib")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qvkka"]
@@ -107,6 +157,58 @@ animations = [{
 }],
 "loop": false,
 "name": &"Earth Symbol",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbhdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dmx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow1s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr60h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qen6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v20kh")
+}],
+"loop": true,
+"name": &"Fire Symbol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvyu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg0wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy2w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlfah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydn2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gml1")
+}],
+"loop": true,
+"name": &"Water Symbol",
 "speed": 11.0
 }, {
 "frames": [],
@@ -197,11 +299,67 @@ tracks/1/keys = {
 "values": [&"Air Symbol"]
 }
 
+[sub_resource type="Animation" id="Animation_ja1j7"]
+resource_name = "Water Power"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Water Symbol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_6jetb"]
+resource_name = "Fire Power"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Fire Symbol"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i62gu"]
 _data = {
 "Air Power": SubResource("Animation_qwdgp"),
 "Earth Power": SubResource("Animation_c45da"),
-"RESET": SubResource("Animation_msde6")
+"Fire Power": SubResource("Animation_6jetb"),
+"RESET": SubResource("Animation_msde6"),
+"Water Power": SubResource("Animation_ja1j7")
 }
 
 [node name="Elemental Powers" type="Area2D"]

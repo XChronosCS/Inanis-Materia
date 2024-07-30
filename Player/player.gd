@@ -19,6 +19,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var is_flipped: bool = false
 @onready var air_current_animation: bool = false
 @onready var unskippable_animation: bool = false # Flag for when any of the animations I want to play fully are performed. Combinees several flags into one
+@onready var melt_animation: bool = false
 
 func _ready():
 	camera.limit_bottom = camera_constraints[0]
@@ -29,7 +30,7 @@ func _ready():
 	
 func _physics_process(delta): 
 	
-	if air_current_animation or fire_animation or jumping_animation or water_animation:
+	if air_current_animation or fire_animation or jumping_animation or water_animation or melt_animation:
 		unskippable_animation = true
 	else:
 		unskippable_animation = false 
@@ -50,14 +51,14 @@ func _physics_process(delta):
 				anim.play("Burn")
 		
 		if Input.is_action_pressed("Water Power"):
-			if DataSave.flags.water_power_usable:
+			if DataSave.flags.water_power_usable and not melt_animation:
 				water_animation = true
 				anim.play("Fill")
 
 		# Handle jump. Requires Air Power
 		if DataSave.flags.has_air_power:
 			# Prevents jump during pushing animation
-			if Input.is_action_just_pressed("jump") and is_on_floor() and not pushing_animation: 
+			if Input.is_action_just_pressed("jump") and is_on_floor() and not pushing_animation and not melt_animation: 
 				airborne = true
 				jumping_animation = true
 				anim.play("Jump")
@@ -74,7 +75,7 @@ func _physics_process(delta):
 		var direction = Input.get_axis("move_left", "move_right")
 		
 		# Controls Momentum
-		if direction and not fire_animation and not water_animation: 
+		if direction and not fire_animation and not water_animation and not melt_animation: 
 				velocity.x = direction * SPEED
 				if pushing_animation: # Slows down player when pushing
 					velocity.x = direction * SPEED / 2
@@ -137,6 +138,10 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Fill":
 		water_animation = false
 		DataSave.flags.water_power_activated = false
+	if anim_name == "Drain":
+		hide()
+	if anim_name == "Reform":
+		melt_animation = false
 		
 
 		

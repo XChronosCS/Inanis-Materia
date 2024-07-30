@@ -12,5 +12,9 @@ func _on_body_entered(body):
 			DataSave.flags.has_air_power = true
 		if playing_animation == "Earth Power":
 			DataSave.flags.has_earth_power = true
+		if playing_animation == "Water Power":
+			DataSave.flags.has_water_power = true
+		if playing_animation == "Fire Power":
+			DataSave.flags.has_fire_power = true
 		queue_free()
 			

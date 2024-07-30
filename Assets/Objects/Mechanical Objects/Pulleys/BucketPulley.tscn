@@ -1,0 +1,111 @@
+[gd_scene load_steps=16 format=3 uid="uid://ct85djsd5nd12"]
+
+[ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/Pulleys/BucketPulley.gd" id="1_cqo2u"]
+[ext_resource type="Texture2D" uid="uid://br5u14lt0dar8" path="res://Assets/Sprites/ropes_and_chains.png" id="2_oda37"]
+[ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="3_g4n2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qayif"]
+atlas = ExtResource("2_oda37")
+region = Rect2(0, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlpvu"]
+atlas = ExtResource("2_oda37")
+region = Rect2(480, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22qqe"]
+atlas = ExtResource("2_oda37")
+region = Rect2(0, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imfv2"]
+atlas = ExtResource("2_oda37")
+region = Rect2(96, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oawda"]
+atlas = ExtResource("2_oda37")
+region = Rect2(192, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f75s7"]
+atlas = ExtResource("2_oda37")
+region = Rect2(288, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv0e3"]
+atlas = ExtResource("2_oda37")
+region = Rect2(384, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3pj2"]
+atlas = ExtResource("2_oda37")
+region = Rect2(576, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bp1j"]
+atlas = ExtResource("2_oda37")
+region = Rect2(672, 0, 96, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p5xq"]
+atlas = ExtResource("2_oda37")
+region = Rect2(768, 0, 96, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkmtj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qayif")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlpvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22qqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imfv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oawda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f75s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3pj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bp1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p5xq")
+}],
+"loop": false,
+"name": &"Pulley",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x83t"]
+size = Vector2(34, 32)
+
+[node name="BucketPulley" type="Node2D"]
+script = ExtResource("1_cqo2u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nkmtj")
+animation = &"Pulley"
+frame = 8
+frame_progress = 1.0
+flip_h = true
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_g4n2m")]
+position = Vector2(-6.56921, -66.7933)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-126.431, 3.79333)
+shape = SubResource("RectangleShape2D_3x83t")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

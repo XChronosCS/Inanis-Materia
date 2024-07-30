@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dcls1hd427g1u"]
+[gd_scene load_steps=33 format=3 uid="uid://dcls1hd427g1u"]
 
 [ext_resource type="Script" path="res://Assets/Levels/Level 2/level_2.gd" id="1_2ou4f"]
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_ac53x"]
@@ -128,6 +128,9 @@ size = Vector2(35, 244.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ekxu"]
 size = Vector2(1114, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bknrv"]
+size = Vector2(124, 60.125)
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_2ou4f")
 
@@ -229,6 +232,15 @@ shape = SubResource("RectangleShape2D_1ekxu")
 position = Vector2(73, -1042)
 camera_constraints = Array[int]([0, 0, 2336, -1311])
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1232, -842)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(916, 362)
+shape = SubResource("RectangleShape2D_bknrv")
+
 [connection signal="body_entered" from="WindCurrent/WindInteractionArea" to="WindCurrent" method="_on_wind_interaction_area_body_entered"]
 [connection signal="body_entered" from="WindCurrent/WindInteractionArea" to="WindCurrent/WindInteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="WindCurrent/WindInteractionArea" to="WindCurrent" method="_on_wind_interaction_area_body_exited"]
@@ -237,3 +249,4 @@ camera_constraints = Array[int]([0, 0, 2336, -1311])
 [connection signal="textTriggerReached" from="L2Textbox2" to="." method="_on_l_2_textbox_2_text_trigger_reached"]
 [connection signal="body_entered" from="L2InfoBall2" to="." method="_on_l2_info_ball_2_body_entered"]
 [connection signal="body_entered" from="SpikeDeath" to="." method="_on_spike_death_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

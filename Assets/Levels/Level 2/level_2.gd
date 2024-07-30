@@ -3,7 +3,6 @@ extends Node2D
 @onready var EarthPower = $"Elemental Powers"
 @onready var textbox1 = $L2Textbox1
 @onready var textbox2 = $L2Textbox2
-@onready var powerTracker = $PowerTracker
 @onready var player = $Player
 @onready var starting_position_x = 0
 @onready var starting_position_y = 0
@@ -44,3 +43,8 @@ func _on_l_2_textbox_2_text_trigger_reached():
 	EarthPower.process_mode = Node.PROCESS_MODE_ALWAYS
 	EarthPower.visible = true
 	EarthPower.animation.play(EarthPower.playing_animation)
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		get_tree().change_scene_to_file("res://Assets/Levels/Level 3/level_3.tscn")

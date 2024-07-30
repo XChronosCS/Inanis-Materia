@@ -23,7 +23,6 @@ func _process(delta):
 	player = get_tree().get_first_node_in_group("Players")
 	label.text = ""
 	if active_areas.size() > 0 && can_interact:
-		active_areas.sort_custom(_sort_by_distance_to_player)
 		for active_area in active_areas:
 			if active_area.interaction_disabled != true:
 				label.text += "[" + active_area.keyboard_key + base_text + active_area.action_name + "\n"
@@ -35,11 +34,6 @@ func _process(delta):
 			pass
 		
 		
-
-func _sort_by_distance_to_player(area1, area2):
-	var area1_to_player = player.global_position.distance_to(area1.global_position)
-	var area2_to_player = player.global_position.distance_to(area2.global_position)
-	return area1_to_player < area2_to_player
 	
 
 func _input(event):

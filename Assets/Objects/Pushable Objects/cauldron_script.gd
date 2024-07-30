@@ -104,14 +104,12 @@ func _on_interact():
 			
 		
 func _on_water_interact():
-	print("Water Interact Trigger")
 	interaction_water_area.interaction_disabled = not interaction_water_area.interaction_disabled
 	DataSave.flags.water_power_activated = true
 	anim_player.play("Filled")
 	is_filled = true
 	
 func _on_fire_interact():
-	print("Fire Interact Triggered")
 	interaction_fire_area.interaction_disabled = not interaction_fire_area.interaction_disabled
 	DataSave.flags.fire_power_activated = true
 	is_lit = true
