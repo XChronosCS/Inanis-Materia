@@ -48,5 +48,7 @@ func _on_point_b_teleporting_in_progress(player_data):
 	player = player_data
 	player.global_position.x = global_position.x
 	player.global_position.y = global_position.y
+	if not player.is_on_floor():
+		player.melt_animation = false
 	player.show()
 	player.anim.play("Reform")

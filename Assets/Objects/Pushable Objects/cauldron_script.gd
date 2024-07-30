@@ -21,8 +21,8 @@ Breakdown of process:
 @onready var being_pushed: bool = false
 @onready var player: CharacterBody2D = null
 @export var ground_y = 0
-@onready var is_lit: bool = false
-@onready var is_filled: bool = false
+@export var is_lit: bool = false
+@export var is_filled: bool = false
 @onready var has_wind: bool = false
 @onready var anim_player = $AnimationPlayer
 @onready var playing_animation: String = ""
@@ -46,6 +46,7 @@ func _process(delta):
 			wind_current.process_mode = Node.PROCESS_MODE_INHERIT
 			wind_animation.play("Wind Current")
 			has_wind = true
+			wind_current.player = player
 	
 	# Tree for Playing Animations
 	if is_filled:
@@ -108,11 +109,17 @@ func _on_water_interact():
 	DataSave.flags.water_power_activated = true
 	anim_player.play("Filled")
 	is_filled = true
+	await get_tree().create_timer(1).timeout
+	DataSave.flags.water_power_activated = false
+	DataSave.flags.water_power_usable = false
 	
 func _on_fire_interact():
 	interaction_fire_area.interaction_disabled = not interaction_fire_area.interaction_disabled
 	DataSave.flags.fire_power_activated = true
 	is_lit = true
+	await get_tree().create_timer(1).timeout
+	DataSave.flags.fire_power_activated = false
+	DataSave.flags.fire_power_usable = false
 	
 	
 

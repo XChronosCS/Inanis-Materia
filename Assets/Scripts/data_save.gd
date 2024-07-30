@@ -1,10 +1,10 @@
 extends Node
 
 var flags = {
-	has_earth_power = true,
-	has_air_power = true,
+	has_earth_power = false,
+	has_air_power = false,
 	has_fire_power = false,
-	has_water_power = true,
+	has_water_power = false,
 	fire_power_usable = false,
 	fire_power_activated = false,
 	air_power_usable = false,

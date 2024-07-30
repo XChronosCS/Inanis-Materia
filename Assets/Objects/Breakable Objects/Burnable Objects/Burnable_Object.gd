@@ -5,7 +5,7 @@ extends StaticBody2D
 @export var starting_animation: String = ""
 @export var burning_animation: String = ""
 @onready var animation = get_node("AnimationPlayer")
-@onready var sprite_animation = $TileMap/SpriteAnimationPlayer
+@onready var sprite_animation = $AnimatedSprite2D/SpriteAnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +24,10 @@ func _on_interact():
 	interaction_area.interaction_disabled = not interaction_area.interaction_disabled
 	DataSave.flags.fire_power_activated = true
 	await get_tree().create_timer(0.8).timeout
+	sprite_animation.stop()
 	if burning_animation != "":	
 		animation.play(burning_animation)
+		await get_tree().create_timer(1.5).timeout
 	queue_free()
 
 

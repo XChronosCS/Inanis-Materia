@@ -46,4 +46,4 @@ func _on_textbox_2_text_trigger_reached():
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		get_tree().change_scene_to_file("res://Assets/Levels/Level 2/level_2.tscn")
+		transition.transition_to("res://Assets/Levels/Level 2/level_2.tscn")

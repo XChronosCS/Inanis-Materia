@@ -1,13 +1,86 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfc65dkt4d0u"]
+[gd_scene load_steps=17 format=3 uid="uid://dfc65dkt4d0u"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointA.gd" id="1_hp76p"]
+[ext_resource type="Texture2D" uid="uid://bcpc3kq8wwuec" path="res://Assets/Sprites/Blue Teleport Arrow.png" id="2_i5r8v"]
 [ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="2_nr18p"]
 [ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointB.gd" id="3_rb2ya"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wexjy"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na7m6"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0t77"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57405"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by40w"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri0wa"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeija"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq5fa"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu7qe"]
+atlas = ExtResource("2_i5r8v")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1jcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wexjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na7m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0t77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57405")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by40w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri0wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeija")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq5fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu7qe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnx4q"]
-size = Vector2(20.8439, 20)
+size = Vector2(20.8439, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqsvf"]
+size = Vector2(20, 17)
 
 [node name="Teleport" type="Node2D"]
 
@@ -15,9 +88,16 @@ size = Vector2(20.8439, 20)
 script = ExtResource("1_hp76p")
 metadata/_edit_group_ = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PointA"]
+sprite_frames = SubResource("SpriteFrames_l1jcy")
+
 [node name="InteractionAreaA" parent="PointA" instance=ExtResource("2_nr18p")]
+action_name = "Traverse"
+interaction_key = "Water Power"
+keyboard_key = "D"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointA/InteractionAreaA"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_xnx4q")
 
 [node name="PointB" type="Node2D" parent="."]
@@ -25,9 +105,16 @@ position = Vector2(168, 0)
 script = ExtResource("3_rb2ya")
 metadata/_edit_group_ = true
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PointB"]
+sprite_frames = SubResource("SpriteFrames_l1jcy")
+
 [node name="InteractionAreaB" parent="PointB" instance=ExtResource("2_nr18p")]
+action_name = "Traverse"
+interaction_key = "Water Power"
+keyboard_key = "D"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointB/InteractionAreaB"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_lqsvf")
 
 [connection signal="teleportingInProgress" from="PointA" to="PointB" method="_on_point_a_teleporting_in_progress"]

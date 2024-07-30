@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Levels/Level 2/level_2.gd" id="1_2ou4f"]
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_ac53x"]
-[ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Levels/Level 1/Background Tile Map.tscn" id="3_h8d32"]
+[ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Tilesets/Background Tile Map.tscn" id="3_h8d32"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="4_hqakv"]
 [ext_resource type="Texture2D" uid="uid://box6gtbkgls8q" path="res://Assets/Sprites/Big Alchemy Poster.png" id="4_jlcdv"]
 [ext_resource type="Texture2D" uid="uid://heqthntuse7i" path="res://Assets/Sprites/Next Level Sign.png" id="5_42km6"]

@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="3_1xvkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nonbq"]
-size = Vector2(58.4999, 58.4999)
+size = Vector2(60, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knvea"]
-size = Vector2(109, 42.4603)
+size = Vector2(124, 59)
 
 [node name="PushableObject" type="RigidBody2D" groups=["PushableObjects"]]
 collision_mask = 2
@@ -21,7 +21,7 @@ script = ExtResource("1_tqaq1")
 [node name="CollisionShape2DCube" type="CollisionShape2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(-0.249949, -0.249944)
+position = Vector2(9.53674e-07, -0.500001)
 shape = SubResource("RectangleShape2D_nonbq")
 
 [node name="Sprite2DCube" type="Sprite2D" parent="."]
@@ -40,7 +40,7 @@ keyboard_key = "S"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCube"]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(3.5, 1.23014)
+position = Vector2(3, -2.5)
 shape = SubResource("RectangleShape2D_knvea")
 
 [connection signal="body_entered" from="InteractionAreaCube" to="." method="_on_interaction_area_body_entered"]

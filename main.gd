@@ -7,10 +7,18 @@ func _on_quit_pressed():
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Assets/Levels/Level 3/level_3.tscn")
+	transition.transition_to("res://Assets/Levels/Level 1/level_1.tscn")
 	
 
 
 func _on_play_2_pressed():
-	get_tree().change_scene_to_file("res://World.tscn")
+	transition.transition_to("res://Assets/Levels/Level 2/level_2.tscn")
 	  
+
+
+func _on_play_3_pressed():
+	transition.transition_to("res://Assets/Levels/Level 3/level_3.tscn")
+
+
+func _on_play_4_pressed():
+	transition.transition_to("res://Assets/Levels/Level 4/level_4.tscn")

@@ -6,6 +6,7 @@ extends Area2D
 @export var min_height: float = 300
 @export var max_height: float = -400
 @export var lift_speed: float = -20
+@onready var lift_enabled = false
 
 
 func _ready():
@@ -14,17 +15,18 @@ func _ready():
 	
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
-	if DataSave.flags.air_power_activated:
-			if clamp(player.position.y, max_height, min_height) == player.position.y:
+	if DataSave.flags.air_power_activated and lift_enabled:
+			if clamp(player.global_position.y, max_height, min_height) == player.global_position.y:
 				player.velocity.y += lift_speed
 			else:
-				player.position.y = max_height
+				player.global_position.y = max_height
 				player.velocity.y = 0
 
 	
 func _on_interact():
 		DataSave.flags.air_power_activated = not DataSave.flags.air_power_activated
 		player.air_current_animation = not player.air_current_animation
+		lift_enabled = not lift_enabled
 		
 		
 
@@ -43,6 +45,7 @@ func _on_wind_interaction_area_body_exited(body):
 		DataSave.flags.air_power_usable = false
 		DataSave.flags.air_power_activated = false
 		player.air_current_animation = false
+		lift_enabled = false
 
 
 

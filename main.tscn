@@ -36,11 +36,30 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1jg3l")
 text = "Play"
 
 [node name="Play2" type="Button" parent="."]
+visible = false
 offset_left = 720.0
 offset_top = 414.0
-offset_right = 1009.0
-offset_bottom = 499.0
-text = "Test World"
+offset_right = 890.0
+offset_bottom = 467.0
+text = "Test Level 2
+"
+
+[node name="Play3" type="Button" parent="."]
+visible = false
+offset_left = 724.0
+offset_top = 468.0
+offset_right = 894.0
+offset_bottom = 521.0
+text = "Test Level 3 "
+
+[node name="Play4" type="Button" parent="."]
+visible = false
+offset_left = 718.0
+offset_top = 530.0
+offset_right = 888.0
+offset_bottom = 583.0
+text = "Test Level 4
+"
 
 [node name="Quit" type="Button" parent="."]
 offset_left = 408.0
@@ -57,4 +76,6 @@ text = "Quit
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play2" to="." method="_on_play_2_pressed"]
+[connection signal="pressed" from="Play3" to="." method="_on_play_3_pressed"]
+[connection signal="pressed" from="Play4" to="." method="_on_play_4_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

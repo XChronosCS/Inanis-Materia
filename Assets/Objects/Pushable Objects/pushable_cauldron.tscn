@@ -220,7 +220,7 @@ animations = [{
 size = Vector2(35, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_566kt"]
-size = Vector2(35, 89)
+size = Vector2(36, 204.125)
 
 [sub_resource type="Animation" id="Animation_k8qvx"]
 resource_name = "Boiling"
@@ -399,7 +399,7 @@ shape = SubResource("RectangleShape2D_knvea")
 [node name="Fire_Interaction_Area" parent="." instance=ExtResource("3_rt3rx")]
 action_name = "Light"
 interaction_key = "Fire Power"
-keyboard_key = "D"
+keyboard_key = "A"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire_Interaction_Area"]
 light_mask = 3
@@ -410,7 +410,7 @@ shape = SubResource("RectangleShape2D_knvea")
 [node name="Water_Interaction_Area" parent="." instance=ExtResource("3_rt3rx")]
 action_name = "Fill"
 interaction_key = "Water Power"
-keyboard_key = "A"
+keyboard_key = "D"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Water_Interaction_Area"]
 light_mask = 3
@@ -439,7 +439,7 @@ interaction_key = "Air Power"
 keyboard_key = "W"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindCurrent/WindInteractionArea"]
-position = Vector2(-0.5, -50.5)
+position = Vector2(0, -44)
 shape = SubResource("RectangleShape2D_566kt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

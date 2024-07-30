@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://c1fhc4bhmhxoa"]
 
-[ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Levels/Level 1/Background Tile Map.tscn" id="1_crbov"]
+[ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Tilesets/Background Tile Map.tscn" id="1_crbov"]
 [ext_resource type="Script" path="res://Assets/Levels/Level 1/level_1.gd" id="1_sfafw"]
 [ext_resource type="PackedScene" uid="uid://koyd58kq2e1p" path="res://Assets/UI/PowerTracker.tscn" id="1_xcgfh"]
 [ext_resource type="Texture2D" uid="uid://1xvml3o1q3cc" path="res://Assets/Sprites/Move Controls Background Sign Sprite.png" id="2_6iob5"]
