@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://dam6xbir407me"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_teyo1"]
+[ext_resource type="Texture2D" uid="uid://jw1nplvqio78" path="res://Assets/UI/ezgif-4-e2098ddc25.png" id="2_esdac"]
+[ext_resource type="Texture2D" uid="uid://c08pm4jwsgb3j" path="res://Assets/UI/Play Button Highlight.png" id="3_owfb2"]
+[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="4_yfyu4"]
+[ext_resource type="StyleBox" uid="uid://dt51qvveewq2k" path="res://normal_play_button.tres" id="5_8iwvh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi03l"]
+atlas = ExtResource("2_esdac")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynkpl"]
+atlas = ExtResource("2_esdac")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27dl5"]
+atlas = ExtResource("2_esdac")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsxn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi03l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynkpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27dl5")
+}],
+"loop": true,
+"name": &"TitleScreen",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t28cg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7b6f"]
+texture = ExtResource("3_owfb2")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_teyo1")
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(575.5, 325)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_fsxn4")
+animation = &"TitleScreen"
+frame_progress = 0.765135
+
+[node name="Play" type="Button" parent="."]
+offset_left = 151.0
+offset_top = 339.0
+offset_right = 316.0
+offset_bottom = 383.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_t28cg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l7b6f")
+
+[node name="Play2" type="Button" parent="."]
+visible = false
+offset_left = 720.0
+offset_top = 414.0
+offset_right = 890.0
+offset_bottom = 467.0
+text = "Test Level 2
+"
+
+[node name="Play3" type="Button" parent="."]
+visible = false
+offset_left = 724.0
+offset_top = 468.0
+offset_right = 894.0
+offset_bottom = 521.0
+text = "Test Level 3 "
+
+[node name="Play4" type="Button" parent="."]
+visible = false
+offset_left = 718.0
+offset_top = 530.0
+offset_right = 888.0
+offset_bottom = 583.0
+text = "Test Level 4
+"
+
+[node name="Quit" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 356.0
+offset_top = 321.0
+offset_right = 634.0
+offset_bottom = 403.0
+tooltip_text = "This is a quit button
+"
+theme_override_fonts/font = ExtResource("4_yfyu4")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("5_8iwvh")
+text = "Quit
+"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play2" to="." method="_on_play_2_pressed"]
+[connection signal="pressed" from="Play3" to="." method="_on_play_3_pressed"]
+[connection signal="pressed" from="Play4" to="." method="_on_play_4_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

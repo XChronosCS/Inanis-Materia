@@ -1,39 +1,75 @@
-[gd_scene load_steps=7 format=3 uid="uid://dam6xbir407me"]
+[gd_scene load_steps=15 format=3 uid="uid://dam6xbir407me"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teyo1"]
-[ext_resource type="PackedScene" uid="uid://dqd7s00350fkp" path="res://bg.tscn" id="2_xdn4p"]
-[ext_resource type="Texture2D" uid="uid://k2h3fx5feley" path="res://Assets/UI/Sprites/Title Screen/Inanis Materia Title.png" id="3_odbma"]
-[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="4_yfyu4"]
-[ext_resource type="StyleBox" uid="uid://dt51qvveewq2k" path="res://normal_play_button.tres" id="5_8iwvh"]
+[ext_resource type="Texture2D" uid="uid://jw1nplvqio78" path="res://Assets/UI/ezgif-4-e2098ddc25.png" id="2_esdac"]
+[ext_resource type="Texture2D" uid="uid://c08pm4jwsgb3j" path="res://Assets/UI/Play Button Highlight.png" id="3_owfb2"]
+[ext_resource type="Texture2D" uid="uid://cbh8tvcrbkuxj" path="res://Assets/UI/Quit Button Highlight.png" id="4_ygeeg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jg3l"]
-bg_color = Color(0.366316, 0.00705911, 0.176648, 1)
-border_width_left = 6
-border_width_right = 6
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi03l"]
+atlas = ExtResource("2_esdac")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynkpl"]
+atlas = ExtResource("2_esdac")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27dl5"]
+atlas = ExtResource("2_esdac")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsxn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi03l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynkpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27dl5")
+}],
+"loop": true,
+"name": &"TitleScreen",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t28cg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7b6f"]
+texture = ExtResource("3_owfb2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqj7e"]
+texture = ExtResource("3_owfb2")
+modulate_color = Color(0.792157, 0.0235294, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gomhi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwf4p"]
+texture = ExtResource("4_ygeeg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tokr"]
+texture = ExtResource("4_ygeeg")
+modulate_color = Color(0.792157, 0.0235294, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_teyo1")
 
-[node name="bg" parent="." instance=ExtResource("2_xdn4p")]
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(575, 328)
-scale = Vector2(1.98958, 1.99383)
-texture = ExtResource("3_odbma")
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_fsxn4")
+animation = &"TitleScreen"
+frame_progress = 0.181462
 
 [node name="Play" type="Button" parent="."]
-offset_left = 405.0
-offset_top = 414.0
-offset_right = 685.0
-offset_bottom = 499.0
-theme_override_colors/font_hover_color = Color(0.680591, 0.569689, 1.92523e-07, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("4_yfyu4")
-theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = ExtResource("5_8iwvh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1jg3l")
-text = "Play"
+offset_left = 151.0
+offset_top = 334.0
+offset_right = 317.0
+offset_bottom = 378.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_t28cg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l7b6f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wqj7e")
 
 [node name="Play2" type="Button" parent="."]
 visible = false
@@ -62,17 +98,15 @@ text = "Test Level 4
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 408.0
-offset_top = 525.0
-offset_right = 686.0
-offset_bottom = 607.0
+offset_left = 425.0
+offset_top = 335.0
+offset_right = 569.0
+offset_bottom = 385.0
 tooltip_text = "This is a quit button
 "
-theme_override_fonts/font = ExtResource("4_yfyu4")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = ExtResource("5_8iwvh")
-text = "Quit
-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_gomhi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dwf4p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5tokr")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Play2" to="." method="_on_play_2_pressed"]

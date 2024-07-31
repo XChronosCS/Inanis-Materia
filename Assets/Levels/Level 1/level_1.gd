@@ -4,7 +4,7 @@ extends Node2D
 @onready var AirPower = $"Elemental Powers"
 @onready var textbox1 = $Textbox1
 @onready var textbox2 = $Textbox2
-@onready var powerTracker = $PowerTracker
+@onready var powerTracker = $GameUI/PowerTracker
 
 
 # Called when the node enters the scene tree for the first time.

@@ -28,6 +28,20 @@ func _ready():
 	camera.limit_top = camera_constraints[3]
 	
 	
+func end_powers():
+		water_animation = false
+		fire_animation = false
+		pushing_animation = false
+		air_current_animation = false
+		melt_animation = false
+		DataSave.flags.fire_power_activated = false
+		DataSave.flags.earth_power_activated = false
+		DataSave.flags.air_power_activated = false
+		DataSave.flags.water_power_activated = false
+		
+		anim.stop()
+		
+		
 func _physics_process(delta): 
 	
 	if air_current_animation or fire_animation or jumping_animation or water_animation or melt_animation:
@@ -42,16 +56,16 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 			
 			
-		if pushing_animation:
+		if pushing_animation and DataSave.flags.earth_power_activated:
 			anim.play("Push")
 			
 		if Input.is_action_pressed("Fire Power"):
-			if DataSave.flags.fire_power_usable:
+			if DataSave.flags.fire_power_usable and not pushing_animation:
 				fire_animation = true
 				anim.play("Burn")
 		
 		if Input.is_action_pressed("Water Power"):
-			if DataSave.flags.water_power_usable and not melt_animation:
+			if DataSave.flags.water_power_usable and not melt_animation and not pushing_animation:
 				water_animation = true
 				anim.play("Fill")
 
@@ -133,15 +147,13 @@ func _on_area_2d_body_exited(body): # Allows STanding on Pushable Objects
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Burn":
-		fire_animation = false
-		DataSave.flags.fire_power_activated = false
+		end_powers()
 	if anim_name == "Fill":
-		water_animation = false
-		DataSave.flags.water_power_activated = false
+		end_powers()
 	if anim_name == "Drain":
 		hide()
 	if anim_name == "Reform":
-		melt_animation = false
+		end_powers()
 		
 
 		

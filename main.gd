@@ -1,5 +1,10 @@
 extends Node2D
 
+@onready var background = $Sprite2D2
+
+func _ready():
+	background.play("TitleScreen")
+
 
 
 func _on_quit_pressed():
