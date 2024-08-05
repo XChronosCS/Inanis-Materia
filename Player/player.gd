@@ -20,6 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var air_current_animation: bool = false
 @onready var unskippable_animation: bool = false # Flag for when any of the animations I want to play fully are performed. Combinees several flags into one
 @onready var melt_animation: bool = false
+@onready var landing = false
 
 func _ready():
 	camera.limit_bottom = camera_constraints[0]
@@ -56,7 +57,7 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 			
 			
-		if pushing_animation and DataSave.flags.earth_power_activated:
+		if pushing_animation and DataSave.flags.earth_power_activated and not water_animation and not fire_animation:
 			anim.play("Push")
 			
 		if Input.is_action_pressed("Fire Power"):
@@ -68,15 +69,16 @@ func _physics_process(delta):
 			if DataSave.flags.water_power_usable and not melt_animation and not pushing_animation:
 				water_animation = true
 				anim.play("Fill")
+				
 
 		# Handle jump. Requires Air Power
 		if DataSave.flags.has_air_power:
 			# Prevents jump during pushing animation
-			if Input.is_action_just_pressed("jump") and is_on_floor() and not pushing_animation and not melt_animation: 
+			if Input.is_action_just_pressed("jump") and is_on_floor() and not pushing_animation and not melt_animation and not landing and not water_animation and not fire_animation: 
 				airborne = true
 				jumping_animation = true
 				anim.play("Jump")
-				await get_tree().create_timer(0.2).timeout
+				# await get_tree().create_timer(0.2).timeout
 				velocity.y = JUMP_VELOCITY
 				jumping_animation = false
 			if air_current_animation:
@@ -113,16 +115,19 @@ func _physics_process(delta):
 			if direction:
 				if velocity.y == 0 && not airborne && not unskippable_animation: 
 					anim.play("Run")
+					landing = false
 			else:
 				if velocity.y == 0 && not airborne && not unskippable_animation:
 					anim.play("Idle")
+					landing = false
 		 
 		if velocity.y > 0 && not air_current_animation:
 			anim.play("Fall")
 			heading_towards_ground = true
 		if velocity.y == 0 && heading_towards_ground:
 			anim.play("Land")
-			await get_tree().create_timer(0.2).timeout
+			landing = true
+			# await get_tree().create_timer(0.2).timeout
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			airborne = false
 			heading_towards_ground = false
@@ -154,6 +159,8 @@ func _on_animation_player_animation_finished(anim_name):
 		hide()
 	if anim_name == "Reform":
 		end_powers()
+	if anim_name == "Land":
+		landing = false
 		
 
 		

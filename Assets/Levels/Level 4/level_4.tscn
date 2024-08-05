@@ -595,7 +595,7 @@ position = Vector2(0, 4)
 position = Vector2(352, 118)
 
 [node name="Player" parent="." instance=ExtResource("4_qdcog")]
-position = Vector2(115, -398)
+position = Vector2(81, -394)
 camera_constraints = Array[int]([0, 0, 1553, -2175])
 
 [node name="Next_Level" type="Area2D" parent="."]

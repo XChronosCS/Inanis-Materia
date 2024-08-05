@@ -72,7 +72,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_l7b6f")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wqj7e")
 
 [node name="Play2" type="Button" parent="."]
-visible = false
 offset_left = 720.0
 offset_top = 414.0
 offset_right = 890.0
@@ -89,7 +88,6 @@ offset_bottom = 521.0
 text = "Test Level 3 "
 
 [node name="Play4" type="Button" parent="."]
-visible = false
 offset_left = 718.0
 offset_top = 530.0
 offset_right = 888.0
