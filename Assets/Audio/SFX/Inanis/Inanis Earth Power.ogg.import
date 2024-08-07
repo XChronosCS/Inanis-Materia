@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7xne3onhckas"
+path="res://.godot/imported/Inanis Earth Power.ogg-1f653de74c490a59d698256a793320eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Inanis/Inanis Earth Power.ogg"
+dest_files=["res://.godot/imported/Inanis Earth Power.ogg-1f653de74c490a59d698256a793320eb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

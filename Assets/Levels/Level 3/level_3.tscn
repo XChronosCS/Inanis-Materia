@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://qsmc3u3omy3m"]
+[gd_scene load_steps=64 format=3 uid="uid://qsmc3u3omy3m"]
 
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="1_6vxjw"]
 [ext_resource type="Script" path="res://Assets/Levels/Level 3/level_3.gd" id="1_bnyub"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://enc2cv2i2cqb" path="res://Assets/Objects/Collectables/InfoBall.tscn" id="13_5b62b"]
 [ext_resource type="Texture2D" uid="uid://chka0nry1ax5x" path="res://Assets/Sprites/Phlogiston Resistance Symbol.png" id="13_fnjy7"]
 [ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointA.gd" id="14_jy6tg"]
+[ext_resource type="AudioStream" uid="uid://2kit48th7l8p" path="res://Assets/Audio/SFX/Inanis/air_move.wav" id="15_b0tm2"]
 [ext_resource type="Texture2D" uid="uid://c3xwfqrm8xd85" path="res://Assets/Sprites/Torn Big Alchemy Poster.png" id="15_en2ck"]
 [ext_resource type="Script" path="res://Assets/Objects/Mechanical Objects/TeleportPointB.gd" id="15_hiucy"]
 [ext_resource type="Texture2D" uid="uid://bcpc3kq8wwuec" path="res://Assets/Sprites/Blue Teleport Arrow.png" id="17_01wul"]
@@ -387,6 +388,9 @@ keyboard_key = "W"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindCurrent/WindInteractionArea"]
 position = Vector2(-1, -73.9063)
 shape = SubResource("RectangleShape2D_566kt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WindCurrent"]
+stream = ExtResource("15_b0tm2")
 
 [node name="PushableObject" parent="." instance=ExtResource("6_1j4lo")]
 position = Vector2(386, -626)

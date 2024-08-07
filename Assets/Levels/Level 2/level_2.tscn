@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dcls1hd427g1u"]
+[gd_scene load_steps=35 format=3 uid="uid://dcls1hd427g1u"]
 
 [ext_resource type="Script" path="res://Assets/Levels/Level 2/level_2.gd" id="1_2ou4f"]
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_ac53x"]
@@ -12,8 +12,10 @@
 [ext_resource type="Script" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.gd" id="8_5nro1"]
 [ext_resource type="Texture2D" uid="uid://bdxx05miv3l3d" path="res://Assets/Sprites/Wind Current.png" id="9_plwok"]
 [ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="10_x0r6c"]
+[ext_resource type="AudioStream" uid="uid://2kit48th7l8p" path="res://Assets/Audio/SFX/Inanis/air_move.wav" id="11_dxx3k"]
 [ext_resource type="PackedScene" uid="uid://dquugpob5xs2g" path="res://Assets/Objects/textbox.tscn" id="11_joc4n"]
 [ext_resource type="PackedScene" uid="uid://enc2cv2i2cqb" path="res://Assets/Objects/Collectables/InfoBall.tscn" id="12_5o3pk"]
+[ext_resource type="AudioStream" uid="uid://bnr7ptvr0lgm3" path="res://Assets/Audio/SFX/Background/atmosbasement.mp3_.mp3" id="15_6u0c8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w38uw"]
 atlas = ExtResource("9_plwok")
@@ -202,6 +204,9 @@ keyboard_key = "W"
 position = Vector2(0, -87.875)
 shape = SubResource("RectangleShape2D_566kt")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WindCurrent"]
+stream = ExtResource("11_dxx3k")
+
 [node name="L2Textbox1" parent="." instance=ExtResource("11_joc4n")]
 visible = false
 full_text = Array[String](["This pipe here has broken, releasing a stream of gas. You can use the Alchemical Power of Air to Ride the current upward.  ", "Whenever you are in an area where you can use an alchemical power, the symbol of that power will glow in your tracker. ", "To activate the Air Power, press the [W] Key while inside the jet stream to ride upwards. Press [W         ] again or leave the current to deactivate the power."])
@@ -240,6 +245,10 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(916, 362)
 shape = SubResource("RectangleShape2D_bknrv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6u0c8")
+autoplay = true
 
 [connection signal="body_entered" from="WindCurrent/WindInteractionArea" to="WindCurrent" method="_on_wind_interaction_area_body_entered"]
 [connection signal="body_entered" from="WindCurrent/WindInteractionArea" to="WindCurrent/WindInteractionArea" method="_on_body_entered"]

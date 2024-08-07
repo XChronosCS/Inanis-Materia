@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://rk3ydbcer58e"]
+[gd_scene load_steps=21 format=3 uid="uid://rk3ydbcer58e"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.gd" id="1_87e5e"]
 [ext_resource type="Texture2D" uid="uid://bdxx05miv3l3d" path="res://Assets/Sprites/Wind Current.png" id="2_ykl6n"]
 [ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="3_2yncm"]
+[ext_resource type="AudioStream" uid="uid://2kit48th7l8p" path="res://Assets/Audio/SFX/Inanis/air_move.wav" id="4_sub4q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w38uw"]
 atlas = ExtResource("2_ykl6n")
@@ -136,6 +137,9 @@ keyboard_key = "W"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindInteractionArea"]
 position = Vector2(-0.5, -64.25)
 shape = SubResource("RectangleShape2D_566kt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sub4q")
 
 [connection signal="body_entered" from="WindInteractionArea" to="." method="_on_wind_interaction_area_body_entered"]
 [connection signal="body_entered" from="WindInteractionArea" to="WindInteractionArea" method="_on_body_entered"]

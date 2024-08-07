@@ -7,6 +7,7 @@ extends Area2D
 @export var max_height: float = -400
 @export var lift_speed: float = -20
 @onready var lift_enabled = false
+@onready var audio_player = $AudioStreamPlayer
 
 
 func _ready():
@@ -26,6 +27,7 @@ func _physics_process(delta):
 func _on_interact():
 		DataSave.flags.air_power_activated = not DataSave.flags.air_power_activated
 		player.air_current_animation = not player.air_current_animation
+		audio_player.play()
 		lift_enabled = not lift_enabled
 		
 		

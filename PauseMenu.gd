@@ -18,7 +18,8 @@ func _on_reset_pressed():
 
 
 func _on_quit_pressed():
-	get_tree().quit() # Replace with function body.
+	get_tree().paused = false# Replace with function body.
+	transition.transition_to("res://main.tscn")
 
 
 func _on_resume_pressed():

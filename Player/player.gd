@@ -21,6 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var unskippable_animation: bool = false # Flag for when any of the animations I want to play fully are performed. Combinees several flags into one
 @onready var melt_animation: bool = false
 @onready var landing = false
+@onready var audio_player = $AudioStreamPlayer
 
 func _ready():
 	camera.limit_bottom = camera_constraints[0]
@@ -82,6 +83,7 @@ func _physics_process(delta):
 				velocity.y = JUMP_VELOCITY
 				jumping_animation = false
 			if air_current_animation:
+				
 				anim.play("Rise")
 				
 			

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d242q6ydrj78c"
+path="res://.godot/imported/Inanis Fire Power.wav-6b2a7b8534779503947814ae4bd9d804.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Inanis/Inanis Fire Power.wav"
+dest_files=["res://.godot/imported/Inanis Fire Power.wav-6b2a7b8534779503947814ae4bd9d804.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

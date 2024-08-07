@@ -4,6 +4,7 @@ extends Node2D
 @onready var textbox1 = $L2Textbox1
 @onready var textbox2 = $L2Textbox2
 @onready var player = $Player
+@onready var audio_player = $AudioStreamPlayer
 @onready var starting_position_x = 0
 @onready var starting_position_y = 0
 

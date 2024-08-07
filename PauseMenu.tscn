@@ -34,6 +34,7 @@ offset_right = 1077.0
 offset_bottom = 582.0
 
 [node name="Reset" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 373.0
 offset_top = 75.0
 offset_right = 653.0
@@ -47,6 +48,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_fsbpd")
 text = "RESET LEVEL"
 
 [node name="Quit" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 330.0
 offset_right = 649.0
@@ -60,6 +62,7 @@ text = "QUIT
 "
 
 [node name="Resume" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 203.0
 offset_right = 650.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c1onjep7rbd52"]
+[gd_scene load_steps=63 format=3 uid="uid://c1onjep7rbd52"]
 
 [ext_resource type="Script" path="res://Assets/Levels/Level 4/level_4.gd" id="1_b33xv"]
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_aej8c"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="18_6bm4j"]
 [ext_resource type="PackedScene" uid="uid://cpwgheyxg1vu7" path="res://Assets/Objects/Platforms/AluFloatingPlatform.tscn" id="19_p3btt"]
 [ext_resource type="PackedScene" uid="uid://rk3ydbcer58e" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.tscn" id="20_5eoht"]
+[ext_resource type="AudioStream" uid="uid://2kit48th7l8p" path="res://Assets/Audio/SFX/Inanis/air_move.wav" id="20_5p1fr"]
 [ext_resource type="PackedScene" uid="uid://dfc65dkt4d0u" path="res://Assets/Objects/Mechanical Objects/teleport.tscn" id="22_xxa3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nonbq"]
@@ -555,6 +556,9 @@ keyboard_key = "W"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushableCauldron3/WindCurrent/WindInteractionArea"]
 position = Vector2(-2, -209.75)
 shape = SubResource("RectangleShape2D_566kt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PushableCauldron3/WindCurrent"]
+stream = ExtResource("20_5p1fr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PushableCauldron3"]
 libraries = {
