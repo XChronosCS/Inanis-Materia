@@ -25,6 +25,8 @@ func transition_to(target: String) -> void:
 	anim_player.play("dissolve")
 	await anim_player.animation_finished
 	get_tree().change_scene_to_file(target_scene)
+	anim_player.play_backwards("dissolve")
+	await anim_player.animation_finished
 	finished_Transition.emit()
 	
 
