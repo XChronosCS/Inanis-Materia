@@ -32,9 +32,7 @@ func _process(delta):
 	
 # Receives signal from PowerStateMachine
 func _on_use_power(power):
-	print("Signal Received")
 	if active_areas.size() > 0:
-		print(interaction_powers)
 		for active_area in active_areas:
 			# If the current power being used matches one of the interaction areas needed powers
 			if active_area.power_needed == power && can_interact:

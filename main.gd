@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var background = $Sprite2D2
+@onready var start_button = $Play
 
 func admin_privledges():
 	PowerStateMachine.power_obtained("Water")
@@ -10,6 +11,7 @@ func admin_privledges():
 
 func _ready():
 	background.play("TitleScreen")
+	start_button.grab_focus()
 	PowerStateMachine.reset_power_tracker()
 
 
