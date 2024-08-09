@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://dam6xbir407me"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_teyo1"]
-[ext_resource type="Texture2D" uid="uid://jw1nplvqio78" path="res://Assets/UI/ezgif-4-e2098ddc25.png" id="2_esdac"]
-[ext_resource type="Texture2D" uid="uid://c08pm4jwsgb3j" path="res://Assets/UI/Play Button Highlight.png" id="3_owfb2"]
-[ext_resource type="Texture2D" uid="uid://cbh8tvcrbkuxj" path="res://Assets/UI/Quit Button Highlight.png" id="4_ygeeg"]
+[ext_resource type="Texture2D" uid="uid://jw1nplvqio78" path="res://UI/Sprites/ezgif-4-e2098ddc25.png" id="2_esdac"]
+[ext_resource type="Texture2D" uid="uid://c08pm4jwsgb3j" path="res://UI/Sprites/Play Button Highlight.png" id="3_owfb2"]
+[ext_resource type="Texture2D" uid="uid://cbh8tvcrbkuxj" path="res://UI/Sprites/Quit Button Highlight.png" id="4_ygeeg"]
 [ext_resource type="AudioStream" uid="uid://5wa3mowvgcnv" path="res://Assets/Audio/Music/tiny_sad_lonly_theme.ogg" id="5_2pl70"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yi03l"]
@@ -65,9 +65,9 @@ frame_progress = 0.181462
 
 [node name="Play" type="Button" parent="."]
 offset_left = 151.0
-offset_top = 334.0
+offset_top = 335.0
 offset_right = 317.0
-offset_bottom = 378.0
+offset_bottom = 379.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_t28cg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l7b6f")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wqj7e")

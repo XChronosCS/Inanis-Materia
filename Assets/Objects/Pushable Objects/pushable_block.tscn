@@ -33,9 +33,6 @@ texture = ExtResource("2_4hgrk")
 position = Vector2(-1, 2)
 collision_layer = 1
 collision_mask = 1
-action_name = "Push/Pull"
-interaction_key = "Earth Power"
-keyboard_key = "S"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCube"]
 light_mask = 3

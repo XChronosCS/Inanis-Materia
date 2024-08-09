@@ -9,12 +9,12 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "Player":
 		if playing_animation == "Air Power":
-			DataSave.flags.has_air_power = true
+			PowerStateMachine.power_obtained("Air")
 		if playing_animation == "Earth Power":
-			DataSave.flags.has_earth_power = true
+			PowerStateMachine.power_obtained("Earth")
 		if playing_animation == "Water Power":
-			DataSave.flags.has_water_power = true
+			PowerStateMachine.power_obtained("Water")
 		if playing_animation == "Fire Power":
-			DataSave.flags.has_fire_power = true
+			PowerStateMachine.power_obtained("Fire")
 		queue_free()
 			

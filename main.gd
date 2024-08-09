@@ -3,13 +3,14 @@ extends Node2D
 @onready var background = $Sprite2D2
 
 func admin_privledges():
-	DataSave.flags.has_air_power = true
-	DataSave.flags.has_earth_power = true
-	DataSave.flags.has_fire_power = true
-	DataSave.flags.has_water_power = true
+	PowerStateMachine.power_obtained("Water")
+	PowerStateMachine.power_obtained("Fire")
+	PowerStateMachine.power_obtained("Earth")
+	PowerStateMachine.power_obtained("Air")
 
 func _ready():
 	background.play("TitleScreen")
+	PowerStateMachine.reset_power_tracker()
 
 
 

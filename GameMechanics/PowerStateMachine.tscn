@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://day78143y8d2p"]
+
+[ext_resource type="Script" path="res://GameMechanics/PowerStateMachine.gd" id="1_4jn4k"]
+[ext_resource type="Script" path="res://GameMechanics/DefaultState.gd" id="2_fo4m7"]
+[ext_resource type="Script" path="res://GameMechanics/WaterState.gd" id="3_mkpwu"]
+[ext_resource type="Script" path="res://GameMechanics/EarthState.gd" id="4_ajm0c"]
+[ext_resource type="Script" path="res://GameMechanics/FireState.gd" id="5_rtpds"]
+[ext_resource type="Script" path="res://GameMechanics/AirState.gd" id="6_207gs"]
+[ext_resource type="AudioStream" uid="uid://dossk757kp2xq" path="res://Assets/Audio/SFX/PowerSwap.mp3" id="7_0jexh"]
+
+[node name="PowerStateMachine" type="Node" node_paths=PackedStringArray("current_power", "previous_power", "next_power")]
+script = ExtResource("1_4jn4k")
+current_power = NodePath("Default")
+previous_power = NodePath("Default")
+next_power = NodePath("Default")
+
+[node name="Default" type="Node" parent="."]
+script = ExtResource("2_fo4m7")
+
+[node name="Water" type="Node" parent="."]
+script = ExtResource("3_mkpwu")
+alchemical_power = "Water"
+
+[node name="Earth" type="Node" parent="."]
+script = ExtResource("4_ajm0c")
+alchemical_power = "Earth"
+
+[node name="Fire" type="Node" parent="."]
+script = ExtResource("5_rtpds")
+alchemical_power = "Fire"
+
+[node name="Air" type="Node" parent="."]
+script = ExtResource("6_207gs")
+alchemical_power = "Air"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0jexh")

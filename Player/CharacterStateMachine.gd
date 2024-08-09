@@ -27,9 +27,6 @@ func _physics_process(delta):
 func check_can_move():
 	return current_state.can_move
 
-func check_alchemical_power():
-	return current_state.alchemical_power
-
 func switch_states(next_state : State):
 	if current_state != null:
 		current_state.on_exit()

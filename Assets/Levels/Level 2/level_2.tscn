@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://dcls1hd427g1u"]
 
 [ext_resource type="Script" path="res://Assets/Levels/Level 2/level_2.gd" id="1_2ou4f"]
-[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_ac53x"]
+[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://UI/game_ui.tscn" id="2_ac53x"]
 [ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Tilesets/Background Tile Map.tscn" id="3_h8d32"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="4_hqakv"]
 [ext_resource type="Texture2D" uid="uid://box6gtbkgls8q" path="res://Assets/Sprites/Big Alchemy Poster.png" id="4_jlcdv"]
@@ -196,9 +196,7 @@ shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="WindCurrent"]
 script = ExtResource("10_x0r6c")
-action_name = "Ascend"
-interaction_key = "Air Power"
-keyboard_key = "W"
+power_needed = "Air"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindCurrent/WindInteractionArea"]
 position = Vector2(0, -87.875)
@@ -234,7 +232,7 @@ position = Vector2(1038, -374)
 shape = SubResource("RectangleShape2D_1ekxu")
 
 [node name="Player" parent="." instance=ExtResource("4_hqakv")]
-position = Vector2(64, -1036)
+position = Vector2(1165, -830)
 camera_constraints = Array[int]([0, 0, 2336, -1311])
 
 [node name="Area2D" type="Area2D" parent="."]

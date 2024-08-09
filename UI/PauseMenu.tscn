@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7bo35dai863v"]
+
+[ext_resource type="Script" path="res://UI/PauseMenu.gd" id="1_oxgx8"]
+[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="2_dh2c4"]
+[ext_resource type="StyleBox" uid="uid://dt51qvveewq2k" path="res://normal_play_button.tres" id="3_no6eu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsbpd"]
+bg_color = Color(0.366316, 0.00705911, 0.176648, 1)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhwwo"]
+bg_color = Color(0.540278, 1.92523e-07, 0.285672, 1)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u35mx"]
+bg_color = Color(0.0477664, 0.346253, 0.240743, 1)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
+layer = 3
+script = ExtResource("1_oxgx8")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 80.0
+offset_top = 66.0
+offset_right = 1077.0
+offset_bottom = 582.0
+
+[node name="Reset" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 75.0
+offset_right = 653.0
+offset_bottom = 160.0
+theme_override_colors/font_hover_color = Color(0.680591, 0.569689, 1.92523e-07, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_dh2c4")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("3_no6eu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fsbpd")
+text = "RESET LEVEL"
+
+[node name="Quit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 330.0
+offset_right = 649.0
+offset_bottom = 413.0
+tooltip_text = "This is a quit button
+"
+theme_override_fonts/font = ExtResource("2_dh2c4")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhwwo")
+text = "QUIT
+"
+
+[node name="Resume" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 203.0
+offset_right = 650.0
+offset_bottom = 286.0
+tooltip_text = "This is a quit button
+"
+theme_override_fonts/font = ExtResource("2_dh2c4")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_u35mx")
+text = "RESUME LEVEL"
+
+[connection signal="pressed" from="Panel/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Resume" to="." method="_on_resume_pressed"]

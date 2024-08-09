@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://u7s24oqsh5ht"]
+
+[ext_resource type="Script" path="res://UI/game_ui.gd" id="1_ntdot"]
+[ext_resource type="PackedScene" uid="uid://koyd58kq2e1p" path="res://UI/PowerTracker.tscn" id="1_q7a4o"]
+[ext_resource type="FontFile" uid="uid://chkkn0vp04bpj" path="res://Assets/Fonts/stepalange-font/Stepalange-x3BLm.otf" id="2_osr4w"]
+[ext_resource type="PackedScene" uid="uid://b7bo35dai863v" path="res://UI/PauseMenu.tscn" id="3_28w72"]
+
+[node name="GameUI" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_ntdot")
+
+[node name="PowerTracker" parent="." instance=ExtResource("1_q7a4o")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 976.0
+offset_top = 616.0
+offset_right = 1155.0
+offset_bottom = 649.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_osr4w")
+theme_override_font_sizes/normal_font_size = 30
+text = "[Esc] for Menu"
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_28w72")]

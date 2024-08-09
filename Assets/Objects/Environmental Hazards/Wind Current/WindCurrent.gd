@@ -8,6 +8,7 @@ extends Area2D
 @export var lift_speed: float = -20
 @onready var lift_enabled = false
 @onready var audio_player = $AudioStreamPlayer
+@onready var psm = PowerStateMachine
 
 
 func _ready():
@@ -16,7 +17,7 @@ func _ready():
 	
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
-	if DataSave.flags.air_power_activated and lift_enabled:
+	if psm.correct_power_in_use("Air") and lift_enabled:
 			if clamp(player.global_position.y, max_height, min_height) == player.global_position.y:
 				player.velocity.y += lift_speed
 			else:
@@ -25,27 +26,26 @@ func _physics_process(delta):
 
 	
 func _on_interact():
-		DataSave.flags.air_power_activated = not DataSave.flags.air_power_activated
-		player.air_current_animation = not player.air_current_animation
-		audio_player.play()
-		lift_enabled = not lift_enabled
+		if psm.current_power.alchemical_power == "Air":
+			player.air_current_animation = not player.air_current_animation
+			audio_player.play()
+			lift_enabled = not lift_enabled
 		
 		
 
 func _on_wind_interaction_area_body_entered(body):
 	if body.name == "Player":
 		player = body
-		if DataSave.flags.has_air_power:
+		if psm.confirm_power_obtained("Air"):
 			interaction_area.interaction_disabled = false
-			DataSave.flags.air_power_usable = true
+
 
 
 func _on_wind_interaction_area_body_exited(body):
 	if body.name == "Player":
 		player = body
 		interaction_area.interaction_disabled = true
-		DataSave.flags.air_power_usable = false
-		DataSave.flags.air_power_activated = false
+		psm.power_in_use = false
 		player.air_current_animation = false
 		lift_enabled = false
 

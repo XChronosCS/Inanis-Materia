@@ -1,9 +1,7 @@
 extends Area2D
 class_name InteractionArea
 
-@export var action_name: String = "interact"
-@export var interaction_key: String = "interact"
-@export var keyboard_key: String = "E"
+@export var power_needed: String = "None"
 @export var interaction_disabled = true
 
 var interact: Callable = func():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://b8ptl0m5d13qk"]
+[gd_scene load_steps=109 format=3 uid="uid://b8ptl0m5d13qk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_coqo4"]
 [ext_resource type="AudioStream" uid="uid://bqypmcwtqn4oc" path="res://Assets/Audio/SFX/Inanis/Inanis Jump.ogg" id="2_2i7b1"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://Player/State_Scripts/GroundState.gd" id="16_f6pkp"]
 [ext_resource type="Texture2D" uid="uid://dukrkip701yjg" path="res://Assets/Inanis Sprites/inanis_jump.png" id="17_2rlij"]
 [ext_resource type="Script" path="res://Player/State_Scripts/AirState.gd" id="17_fbgxm"]
-[ext_resource type="Script" path="res://Player/State_Scripts/LandingState.gd" id="18_ccpti"]
+[ext_resource type="Script" path="res://Player/State_Scripts/FallingState.gd" id="18_5xqh3"]
 [ext_resource type="Script" path="res://Player/State_Scripts/Pushing.gd" id="19_lnrle"]
 [ext_resource type="Script" path="res://Player/StateDebugLabel.gd" id="20_h8yct"]
 
@@ -890,6 +890,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwngf"]
 size = Vector2(2, 23.5)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gh7b0"]
+animation = &"Fall"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5cgs"]
 animation = &"Jump"
 
@@ -929,8 +932,16 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_55lui"]
 advance_mode = 0
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ilqkg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qxvo6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3nul1"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_htyj3"]
 states/End/position = Vector2(892, 108)
+states/Fall/node = SubResource("AnimationNodeAnimation_gh7b0")
+states/Fall/position = Vector2(571, -23.8049)
 states/Jump/node = SubResource("AnimationNodeAnimation_e5cgs")
 states/Jump/position = Vector2(384, -11)
 states/Land/node = SubResource("AnimationNodeAnimation_6g2ap")
@@ -938,8 +949,8 @@ states/Land/position = Vector2(595, 45.1086)
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_s1vbu")
 states/Move/position = Vector2(384, 108)
 states/Start/position = Vector2(197, 108)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_15fao"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_1urdb"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_eaps0"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_5w33g"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_55lui")]
-graph_offset = Vector2(0, -234.891)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_15fao"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_1urdb"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_eaps0"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_5w33g"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_55lui"), "Land", "Jump", SubResource("AnimationNodeStateMachineTransition_ilqkg"), "Move", "Fall", SubResource("AnimationNodeStateMachineTransition_qxvo6"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_3nul1")]
+graph_offset = Vector2(0, -75.8049)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
@@ -989,17 +1000,19 @@ current_state = NodePath("Ground")
 animation_tree = NodePath("../AnimationTree")
 player = NodePath("..")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "push_state")]
+[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "push_state", "fall_state")]
 script = ExtResource("16_f6pkp")
 air_state = NodePath("../Air")
 push_state = NodePath("../Pushing")
+fall_state = NodePath("../Falling")
 
 [node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("17_fbgxm")
 ground_state = NodePath("../Ground")
 
-[node name="Landing" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("18_ccpti")
+[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
+script = ExtResource("18_5xqh3")
+ground_state = NodePath("../Ground")
 
 [node name="Pushing" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("19_lnrle")

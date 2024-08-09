@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Tilesets/Background Tile Map.tscn" id="1_crbov"]
 [ext_resource type="Script" path="res://Assets/Levels/Level 1/level_1.gd" id="1_sfafw"]
 [ext_resource type="Texture2D" uid="uid://1xvml3o1q3cc" path="res://Assets/Sprites/Move Controls Background Sign Sprite.png" id="2_6iob5"]
-[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_vgxum"]
+[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://UI/game_ui.tscn" id="2_vgxum"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="3_14a3n"]
 [ext_resource type="PackedScene" uid="uid://b654eydturcba" path="res://Assets/Objects/Collectables/Elemental_Powers.tscn" id="4_eqht5"]
 [ext_resource type="Texture2D" uid="uid://box6gtbkgls8q" path="res://Assets/Sprites/Big Alchemy Poster.png" id="5_1niof"]

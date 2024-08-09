@@ -3,7 +3,6 @@ extends Node
 class_name State
 
 @export var can_move : bool = true
-@export var alchemical_power : String = "None"
 var character : CharacterBody2D
 var playback : AnimationNodeStateMachinePlayback
 var next_state: State

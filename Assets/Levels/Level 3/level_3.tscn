@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=3 uid="uid://qsmc3u3omy3m"]
 
-[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="1_6vxjw"]
+[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://UI/game_ui.tscn" id="1_6vxjw"]
 [ext_resource type="Script" path="res://Assets/Levels/Level 3/level_3.gd" id="1_bnyub"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="2_rgkf6"]
 [ext_resource type="Script" path="res://Assets/Objects/Environmental Hazards/Wind Current/WindCurrent.gd" id="3_7mqyu"]

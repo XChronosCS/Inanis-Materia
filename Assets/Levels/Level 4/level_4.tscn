@@ -1,7 +1,7 @@
 [gd_scene load_steps=63 format=3 uid="uid://c1onjep7rbd52"]
 
 [ext_resource type="Script" path="res://Assets/Levels/Level 4/level_4.gd" id="1_b33xv"]
-[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://game_ui.tscn" id="2_aej8c"]
+[ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://UI/game_ui.tscn" id="2_aej8c"]
 [ext_resource type="PackedScene" uid="uid://dghv3asfwy3j6" path="res://Assets/Tilesets/Background Tile Map.tscn" id="3_7wrrt"]
 [ext_resource type="PackedScene" uid="uid://clraoar7ns4ep" path="res://Assets/Objects/Mechanical Objects/Chain Switch/chain_switch.tscn" id="4_lr1w0"]
 [ext_resource type="PackedScene" uid="uid://b8ptl0m5d13qk" path="res://Player/player.tscn" id="4_qdcog"]

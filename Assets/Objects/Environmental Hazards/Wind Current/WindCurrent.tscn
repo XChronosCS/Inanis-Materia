@@ -130,9 +130,7 @@ shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="."]
 script = ExtResource("3_2yncm")
-action_name = "Ascend"
-interaction_key = "Air Power"
-keyboard_key = "W"
+power_needed = "Air"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindInteractionArea"]
 position = Vector2(-0.5, -64.25)
