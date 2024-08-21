@@ -11,6 +11,8 @@ extends CanvasLayer
 @onready var water_power = $WaterSymbol
 @onready var next_power_display = $NextPower
 @onready var prev_power_display = $PreviousPower
+@onready var center_sprite = $CenterRing
+@onready var controller_sprite = $CenterRingController
 @onready var displayed_power: AnimatedSprite2D
 
 func _ready():
@@ -25,6 +27,14 @@ func select_power_visibility(selected_power: String):
 				child.visible = true
 			else:
 				child.visible = false
+				
+func _input(event):
+	if event is InputEventKey:
+		center_sprite.visible = true
+		controller_sprite.visible = false
+	elif event is InputEventJoypadButton:
+		center_sprite.visible = false
+		controller_sprite.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

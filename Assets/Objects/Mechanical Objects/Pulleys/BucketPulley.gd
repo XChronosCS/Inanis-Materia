@@ -21,7 +21,6 @@ func _process(delta):
 	
 func _on_interact():
 	if DataSave.flags.has_water_power && not interacted_with:
-		interaction_area.interaction_disabled = not interaction_area.interaction_disabled
 		DataSave.flags.earth_power_activated = true
 		interacted_with = true
 		sprite.play("Pulley")
@@ -35,7 +34,6 @@ func _on_interact():
 func _on_interaction_area_body_entered(body):
 	if body.name == "Player":
 		if DataSave.flags.has_water_power && not interacted_with:
-			interaction_area.interaction_disabled = false
 			DataSave.flags.water_power_usable = true
 
 
@@ -43,6 +41,5 @@ func _on_interaction_area_body_entered(body):
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
 		player = body
-		interaction_area.interaction_disabled = true
 		DataSave.flags.water_power_usable = false
 		DataSave.flags.water_power_activated = false

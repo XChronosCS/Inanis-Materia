@@ -18,3 +18,11 @@ func on_enter():
 	
 func on_exit():
 	pass
+
+func get_details(arguments: Array):
+	pass
+	
+# For when something outside of the state machine itself needs to facilitate a
+# State Change (ex: Death, Power Use, etc.)
+func force_move():
+	pass

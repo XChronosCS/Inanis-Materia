@@ -33,6 +33,10 @@ func switch_states(next_state : State):
 		current_state.next_state = null
 		
 	current_state = next_state
+	current_state.on_enter()
 	
 func _input(event):
 	current_state.state_input(event)
+	
+func give_details(arguments: Array):
+	current_state.get_details(arguments)

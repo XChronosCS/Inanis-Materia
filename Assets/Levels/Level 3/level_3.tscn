@@ -328,9 +328,6 @@ flip_h = true
 
 [node name="InteractionArea" parent="BucketPulley" instance=ExtResource("5_4u4b5")]
 position = Vector2(-6.56921, -66.7933)
-action_name = "Fill Bucket"
-interaction_key = "Water Power"
-keyboard_key = "D"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BucketPulley/InteractionArea"]
 position = Vector2(-44.4308, 4.79327)
@@ -381,9 +378,7 @@ shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="WindCurrent"]
 script = ExtResource("5_xtcvv")
-action_name = "Ascend"
-interaction_key = "Air Power"
-keyboard_key = "W"
+power_needed = "Air"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindCurrent/WindInteractionArea"]
 position = Vector2(-1, -73.9063)
@@ -403,9 +398,7 @@ script = ExtResource("14_jy6tg")
 metadata/_edit_group_ = true
 
 [node name="InteractionAreaA" parent="Teleport/PointA" instance=ExtResource("5_4u4b5")]
-action_name = "Traverse"
-interaction_key = "Water Power"
-keyboard_key = "D"
+power_needed = "Water"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/PointA/InteractionAreaA"]
 shape = SubResource("RectangleShape2D_xnx4q")
@@ -420,9 +413,7 @@ script = ExtResource("15_hiucy")
 metadata/_edit_group_ = true
 
 [node name="InteractionAreaB" parent="Teleport/PointB" instance=ExtResource("5_4u4b5")]
-action_name = "Traverse"
-interaction_key = "Water Power"
-keyboard_key = "D"
+power_needed = "Water"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/PointB/InteractionAreaB"]
 shape = SubResource("RectangleShape2D_lqsvf")

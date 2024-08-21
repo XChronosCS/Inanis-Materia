@@ -9,9 +9,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var camera = $Camera2D
 @export var camera_constraints: Array[int] = []
 @onready var anim = $AnimationPlayer
-@onready var recent_action = "None"
-@onready var pushing_animation: bool = false
-@onready var jumping_animation: bool = false
+# @onready var recent_action = "None"
+# @onready var pushing_animation: bool = false
+# @onready var jumping_animation: bool = false
 @onready var fire_animation: bool = false # Checks if Inanis is in the middle of the fire animation
 @onready var water_animation: bool = false
 @onready var airborne: bool = false # Checks to see if protagonist is in the air
@@ -24,29 +24,41 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var audio_player = $AudioStreamPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
+@onready var coyote_timer: Timer = $CoyoteTimer
+@onready var death_flag: bool = false
+
+# Death Details
+@onready var starting_position_x = 0
+@onready var starting_position_y = 0
 
 
 func _ready():
 	anim_tree.active = true
+	starting_position_x = position.x
+	starting_position_y = position.y
 	camera.limit_bottom = camera_constraints[0]
 	camera.limit_left = camera_constraints[1] 
 	camera.limit_right = camera_constraints[2]
 	camera.limit_top = camera_constraints[3]
+	coyote_timer.wait_time = coyote_timer.coyote_frames / 60.0
 	
 	
 func end_powers():
-		water_animation = false
-		fire_animation = false
-		pushing_animation = false
-		air_current_animation = false
-		melt_animation = false
-		DataSave.flags.fire_power_activated = false
-		DataSave.flags.earth_power_activated = false
-		DataSave.flags.air_power_activated = false
-		DataSave.flags.water_power_activated = false
+		#water_animation = false
+		#fire_animation = false
+		#pushing_animation = false
+		#air_current_animation = false
+		#melt_animation = false
+		#DataSave.flags.fire_power_activated = false
+		#DataSave.flags.earth_power_activated = false
+		#DataSave.flags.air_power_activated = false
+		#DataSave.flags.water_power_activated = false
+		pass
 		
 		
-		
+func respawn():
+	position.x = starting_position_x
+	position.y = starting_position_y
 func movement_anim_handler():
 	var direction = Input.get_vector("move_left", "move_right", "jump", "move_down")
 	anim_tree.set("parameters/Move/blend_position", direction.x)
@@ -73,13 +85,21 @@ func orientation_handler():
 	#velocity.y = JUMP_VELOCITY
 	#jumping_animation = false
 	
+func _input(event):
+	if event.is_action_released("zoom_in"):
+		if camera.zoom.x == 2 && camera.zoom.y == 2:
+			pass
+		else:
+			camera.zoom.x += .5
+			camera.zoom.y += .5
+	if event.is_action_released("zoom_out"):
+		if camera.zoom.x == 1 && camera.zoom.y == 1:
+			pass
+		else:
+			camera.zoom.x -= .5
+			camera.zoom.y -= .5
 		
 func _physics_process(delta): 
-	
-	if air_current_animation or fire_animation or jumping_animation or water_animation or melt_animation:
-		unskippable_animation = true
-	else:
-		unskippable_animation = false 
 	
 	if not is_on_floor():
 			velocity.y += gravity * delta
@@ -109,8 +129,6 @@ func _physics_process(delta):
 				#
 			#
 
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("move_left", "move_right")
 		
 		# Controls Momentum
@@ -145,7 +163,8 @@ func _physics_process(delta):
 					#landing = false
 					
 		movement_anim_handler()
-		orientation_handler()
+		if state_machine.current_state.name != "Pushing":
+			orientation_handler()
 		 
 		#if velocity.y > 0 && not air_current_animation:
 			#anim.play("Fall")
@@ -160,30 +179,22 @@ func _physics_process(delta):
 		move_and_slide()
 		
 
+func character_death():
+	death_flag = true
+	state_machine.current_state.force_move()
 
-func _on_area_2d_body_entered(body): # Allows Standing on Pushable Objects
-	if body.is_in_group("PushableObjects"):
-		body.collision_mask = 1
-
-
-func _on_area_2d_body_exited(body): # Allows STanding on Pushable Objects
-	if body.is_in_group("PushableObjects"):
-		body.collision_mask = 2
-		
-	
-
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "Burn":
-		end_powers()
-	if anim_name == "Fill":
-		end_powers()
-	if anim_name == "Drain":
-		hide()
-	if anim_name == "Reform":
-		end_powers()
-	if anim_name == "Land":
-		landing = false
+#func _on_animation_player_animation_finished(anim_name):
+	#if anim_name == "Burn":
+		#end_powers()
+	#if anim_name == "Fill":
+		#end_powers()
+	#if anim_name == "Drain":
+		#hide()
+	#if anim_name == "Reform":
+		#end_powers()
+	#if anim_name == "Land":
+		#landing = false
 		
 
 		
+

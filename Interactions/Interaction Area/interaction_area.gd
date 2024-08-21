@@ -2,7 +2,6 @@ extends Area2D
 class_name InteractionArea
 
 @export var power_needed: String = "None"
-@export var interaction_disabled = true
 
 var interact: Callable = func():
 	pass

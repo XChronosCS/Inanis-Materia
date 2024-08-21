@@ -23,14 +23,15 @@ offset_right = 1071.0
 offset_bottom = 576.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_74ikd")
 
-[node name="DialogueBox" type="Panel" parent="."]
-offset_left = 95.1094
-offset_top = 368.896
-offset_right = 1053.11
-offset_bottom = 568.896
+[node name="DialogueBox" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 9.1094
+offset_top = 9.896
+offset_right = 967.11
+offset_bottom = 209.896
 theme_override_styles/panel = SubResource("StyleBoxFlat_plsdh")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/DialogueBox"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 35.0
@@ -40,15 +41,16 @@ theme = SubResource("Theme_afb04")
 text = "Welcome to the Town of Alchecity, birthplace of modern Alchemy. "
 fit_content = true
 
-[node name="EnterPanel" type="Panel" parent="."]
-offset_left = 795.0
-offset_top = 574.0
-offset_right = 1068.0
-offset_bottom = 652.0
+[node name="EnterPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 709.0
+offset_top = 215.0
+offset_right = 982.0
+offset_bottom = 293.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_74ikd")
 metadata/_edit_group_ = true
 
-[node name="Enter Panel Inner" type="Panel" parent="EnterPanel"]
+[node name="Enter Panel Inner" type="Panel" parent="Panel/EnterPanel"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 6.0
@@ -56,7 +58,7 @@ offset_right = 258.0
 offset_bottom = 71.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_plsdh")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="EnterPanel/Enter Panel Inner"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/EnterPanel/Enter Panel Inner"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 22.0

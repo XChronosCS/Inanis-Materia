@@ -6,6 +6,7 @@ extends StaticBody2D
 @export var burning_animation: String = ""
 @onready var animation = get_node("AnimationPlayer")
 @onready var sprite_animation = $AnimatedSprite2D/SpriteAnimationPlayer
+@onready var psm = PowerStateMachine
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,26 +22,21 @@ func _process(delta):
 	pass
 
 func _on_interact():
-	interaction_area.interaction_disabled = not interaction_area.interaction_disabled
-	DataSave.flags.fire_power_activated = true
-	await get_tree().create_timer(0.8).timeout
-	sprite_animation.stop()
-	if burning_animation != "":	
-		animation.play(burning_animation)
-		await get_tree().create_timer(1.5).timeout
-	queue_free()
+	if psm.confirm_power_obtained("Fire"):
+		await get_tree().create_timer(0.8).timeout
+		sprite_animation.stop()
+		if burning_animation != "":	
+			animation.play(burning_animation)
+			await get_tree().create_timer(1.5).timeout
+		queue_free()
 
 
 func _on_interaction_area_body_entered(body):
 	if body.name == "Player":
-		if DataSave.flags.has_fire_power:
-			DataSave.flags.fire_power_usable = true
+		if psm.confirm_power_obtained("Fire"):
 			sprite_animation.play("Burnable")
-			interaction_area.interaction_disabled = false
 
 
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
-		interaction_area.interaction_disabled = true
-		DataSave.flags.fire_power_usable = false
-		DataSave.flags.fire_power_active = false
+		animation.play(starting_animation)

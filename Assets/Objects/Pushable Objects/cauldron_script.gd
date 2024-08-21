@@ -91,7 +91,6 @@ func _physics_process(delta):
 		
 func _on_interact():
 	if DataSave.flags.has_earth_power:
-		interaction_area.interaction_disabled = not interaction_area.interaction_disabled
 		if being_pushed == false:
 			being_pushed = true
 			player.pushing_animation = true
@@ -106,7 +105,6 @@ func _on_interact():
 		
 func _on_water_interact():
 	if not being_pushed:
-		interaction_water_area.interaction_disabled = not interaction_water_area.interaction_disabled
 		DataSave.flags.water_power_activated = true
 		anim_player.play("Filled")
 		is_filled = true
@@ -116,7 +114,6 @@ func _on_water_interact():
 	
 func _on_fire_interact():
 	if not being_pushed:
-		interaction_fire_area.interaction_disabled = not interaction_fire_area.interaction_disabled
 		DataSave.flags.fire_power_activated = true
 		is_lit = true
 		await get_tree().create_timer(1).timeout
@@ -129,14 +126,12 @@ func _on_interaction_area_body_entered(body):
 	if body.name == "Player":
 		player = body
 		if DataSave.flags.has_earth_power:
-			interaction_area.interaction_disabled = false
 			DataSave.flags.earth_power_usable = true
 
 
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
 		player = body
-		interaction_area.interaction_disabled = true
 		collision_layer = 1
 		player.pushing_animation = false
 		DataSave.flags.earth_power_usable = false
@@ -148,14 +143,13 @@ func _on_interaction_area_body_exited(body):
 func _on_water_interaction_area_body_entered(body):
 	if body.name == "Player":
 		if DataSave.flags.has_water_power && not is_filled and not being_pushed:
-			interaction_water_area.interaction_disabled = false
 			DataSave.flags.water_power_usable = true
 		else:
 			DataSave.flags.water_power_usable = false
 
 func _on_water_interaction_area_body_exited(body):
 	if body.name == "Player":
-		interaction_water_area.interaction_disabled = true
+
 		DataSave.flags.water_power_usable = false
 		DataSave.flags.water_power_activated = false
 
@@ -163,7 +157,6 @@ func _on_water_interaction_area_body_exited(body):
 func _on_fire_interaction_area_body_entered(body):
 	if body.name == "Player":
 		if DataSave.flags.has_fire_power && not is_lit and not being_pushed:
-			interaction_fire_area.interaction_disabled = false
 			DataSave.flags.fire_power_usable = true 
 		else:
 			DataSave.flags.fire_power_usable = false
@@ -171,6 +164,5 @@ func _on_fire_interaction_area_body_entered(body):
 
 func _on_fire_interaction_area_body_exited(body):
 	if body.name == "Player":
-		interaction_fire_area.interaction_disabled = true
 		DataSave.flags.fire_power_usable = false
 		DataSave.flags.fire_power_activated = false # Replace with function body.

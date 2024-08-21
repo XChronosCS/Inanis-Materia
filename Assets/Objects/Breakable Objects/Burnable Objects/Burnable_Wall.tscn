@@ -188,9 +188,7 @@ libraries = {
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_77rcy")]
 position = Vector2(82, 62)
-action_name = "Burn"
-interaction_key = "Fire Power"
-keyboard_key = "A"
+power_needed = "Fire"
 metadata/_edit_group_ = true
 
 [node name="InteractionCollisionArea" type="CollisionShape2D" parent="InteractionArea"]

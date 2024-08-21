@@ -1,7 +1,8 @@
 extends CanvasLayer
 
-@onready var text_label: RichTextLabel = $DialogueBox/RichTextLabel
-@onready var enter_panel: Panel = $EnterPanel
+@onready var text_label: RichTextLabel = $Panel/DialogueBox/RichTextLabel
+@onready var enter_panel: Panel = $Panel/EnterPanel
+@onready var enter_panel_text = $"Panel/EnterPanel/Enter Panel Inner/RichTextLabel"
 @onready var index = 0
 @export var full_text: Array[String] = []
 @export var text_trigger_index: int = 0
@@ -14,6 +15,10 @@ func _ready():
 	enter_panel.visible = false
 	
 func _input(event):
+	if event is InputEventKey:
+		enter_panel_text.text = "Press Enter to continue"
+	elif event is InputEventJoypadButton:
+		enter_panel_text.text = "X Button to continue"
 	if event.is_action_pressed("advance_dialog"):
 		pressedEnter.emit()
 

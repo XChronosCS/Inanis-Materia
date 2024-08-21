@@ -28,6 +28,12 @@ func unregister_area(area: InteractionArea):
 func _process(delta):
 	player = get_tree().get_first_node_in_group("Players")
 	
+
+func power_use_available(power: String):
+	for item in interaction_powers:
+		if item == power:
+			return true
+	return false
 	
 	
 # Receives signal from PowerStateMachine

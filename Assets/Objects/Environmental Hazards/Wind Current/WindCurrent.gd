@@ -37,14 +37,13 @@ func _on_wind_interaction_area_body_entered(body):
 	if body.name == "Player":
 		player = body
 		if psm.confirm_power_obtained("Air"):
-			interaction_area.interaction_disabled = false
+			pass
 
 
 
 func _on_wind_interaction_area_body_exited(body):
 	if body.name == "Player":
 		player = body
-		interaction_area.interaction_disabled = true
 		psm.power_in_use = false
 		player.air_current_animation = false
 		lift_enabled = false

@@ -11,8 +11,8 @@ size = Vector2(60, 57)
 size = Vector2(124, 59)
 
 [node name="PushableObject" type="RigidBody2D" groups=["PushableObjects"]]
-collision_mask = 2
-gravity_scale = 0.5
+collision_layer = 4
+collision_mask = 3
 can_sleep = false
 lock_rotation = true
 continuous_cd = 1
@@ -31,8 +31,8 @@ texture = ExtResource("2_4hgrk")
 
 [node name="InteractionAreaCube" parent="." instance=ExtResource("3_1xvkx")]
 position = Vector2(-1, 2)
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+power_needed = "Earth"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaCube"]
 light_mask = 3

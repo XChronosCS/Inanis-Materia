@@ -5,8 +5,6 @@ extends Node2D
 @onready var textbox2 = $L2Textbox2
 @onready var player = $Player
 @onready var audio_player = $AudioStreamPlayer
-@onready var starting_position_x = 0
-@onready var starting_position_y = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,8 +12,6 @@ func _ready():
 	DataSave.flags.current_level = 2
 	EarthPower.visible = false
 	EarthPower.process_mode = Node.PROCESS_MODE_DISABLED
-	starting_position_x = player.position.x
-	starting_position_y = player.position.y
 	
 
 
@@ -36,8 +32,7 @@ func _on_l2_info_ball_2_body_entered(body):
 
 func _on_spike_death_body_entered(body):
 	if body.name == "Player":
-		player.position.x = starting_position_x
-		player.position.y = starting_position_y # Replace with function body.
+		player.character_death()
 
 
 func _on_l_2_textbox_2_text_trigger_reached():

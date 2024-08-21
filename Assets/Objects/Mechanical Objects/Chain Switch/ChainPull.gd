@@ -51,7 +51,6 @@ func _physics_process(delta):
 		
 func _on_interact():
 	if DataSave.flags.has_earth_power:
-		interaction_area.interaction_disabled = not interaction_area.interaction_disabled
 		if being_pushed == false:
 			being_pushed = true
 			player.pushing_animation = true
@@ -70,14 +69,13 @@ func _on_interaction_area_body_entered(body):
 	if body.name == "Player":
 		player = body
 		if DataSave.flags.has_earth_power:
-			interaction_area.interaction_disabled = false
 			DataSave.flags.earth_power_usable = true
 
 
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
 		player = body
-		interaction_area.interaction_disabled = true
+
 		collision_layer = 1
 		player.pushing_animation = false
 		DataSave.flags.earth_power_usable = false

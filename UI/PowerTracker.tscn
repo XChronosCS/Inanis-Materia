@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://koyd58kq2e1p"]
+[gd_scene load_steps=70 format=3 uid="uid://koyd58kq2e1p"]
 
 [ext_resource type="Script" path="res://UI/PowerTracker.gd" id="1_34utm"]
 [ext_resource type="Texture2D" uid="uid://b14tg05ndbs1p" path="res://UI/Sprites/Power Tracker/previous power tileset.png" id="2_qnmok"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwsf506lvk858" path="res://UI/Sprites/Power Tracker/Next Power Tileset.png" id="3_wyl25"]
 [ext_resource type="Texture2D" uid="uid://d3cqbont2jfpe" path="res://Assets/Sprites/wind_symbol.png" id="4_0urd5"]
 [ext_resource type="Texture2D" uid="uid://rqm0mmbgb4dd" path="res://UI/Sprites/Power Tracker/Power Tracker Center.png" id="4_j5hq7"]
+[ext_resource type="Texture2D" uid="uid://ciycph0wec0v5" path="res://UI/Sprites/Power Tracker/Power Tracker Center Controller.png" id="5_dkl3d"]
 [ext_resource type="Texture2D" uid="uid://8rfqlpfsce8m" path="res://Assets/Sprites/water_symbol.png" id="5_rbynj"]
 [ext_resource type="Texture2D" uid="uid://j6i1ehlae7gg" path="res://Assets/Sprites/fire_symbol.png" id="6_70mdx"]
 
@@ -555,10 +556,15 @@ animation = &"Water"
 position = Vector2(48.1667, 17.3333)
 texture = ExtResource("4_j5hq7")
 
+[node name="CenterRingController" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(48.1667, 17.3333)
+texture = ExtResource("5_dkl3d")
+
 [node name="EarthSymbol" type="AnimatedSprite2D" parent="." groups=["PowerSymbol"]]
 position = Vector2(48.167, 17.8)
 sprite_frames = SubResource("SpriteFrames_mismf")
-animation = &"Symbol On"
+animation = &"Symbol Active"
 
 [node name="AirSymbol" type="AnimatedSprite2D" parent="." groups=["PowerSymbol"]]
 visible = false

@@ -220,8 +220,10 @@ text_trigger_index = 2
 [node name="L2InfoBall2" parent="." instance=ExtResource("12_5o3pk")]
 position = Vector2(1627, -1018)
 
-[node name="PushableObject" parent="." instance=ExtResource("6_r6hl3")]
+[node name="PushableObject" parent="." node_paths=PackedStringArray("player", "scene") instance=ExtResource("6_r6hl3")]
 position = Vector2(1446, -624)
+player = NodePath("../Player")
+scene = NodePath("..")
 
 [node name="SpikeDeath" type="Area2D" parent="."]
 collision_layer = 3
@@ -232,7 +234,7 @@ position = Vector2(1038, -374)
 shape = SubResource("RectangleShape2D_1ekxu")
 
 [node name="Player" parent="." instance=ExtResource("4_hqakv")]
-position = Vector2(76, -1033)
+position = Vector2(45, -1032)
 camera_constraints = Array[int]([0, 0, 2336, -1311])
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -246,6 +248,7 @@ shape = SubResource("RectangleShape2D_bknrv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_6u0c8")
+volume_db = -15.0
 autoplay = true
 
 [connection signal="body_entered" from="WindCurrent/WindInteractionArea" to="WindCurrent" method="_on_wind_interaction_area_body_entered"]

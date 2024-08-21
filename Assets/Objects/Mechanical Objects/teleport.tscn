@@ -92,9 +92,6 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_l1jcy")
 
 [node name="InteractionAreaA" parent="PointA" instance=ExtResource("2_nr18p")]
-action_name = "Traverse"
-interaction_key = "Water Power"
-keyboard_key = "D"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointA/InteractionAreaA"]
 position = Vector2(0, -1.5)
@@ -109,9 +106,6 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_l1jcy")
 
 [node name="InteractionAreaB" parent="PointB" instance=ExtResource("2_nr18p")]
-action_name = "Traverse"
-interaction_key = "Water Power"
-keyboard_key = "D"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointB/InteractionAreaB"]
 position = Vector2(0, -1.5)
