@@ -1,14 +1,19 @@
-[gd_scene load_steps=70 format=3 uid="uid://koyd58kq2e1p"]
+[gd_scene load_steps=102 format=3 uid="uid://koyd58kq2e1p"]
 
 [ext_resource type="Script" path="res://UI/PowerTracker.gd" id="1_34utm"]
 [ext_resource type="Texture2D" uid="uid://b14tg05ndbs1p" path="res://UI/Sprites/Power Tracker/previous power tileset.png" id="2_qnmok"]
 [ext_resource type="Texture2D" uid="uid://trmrdc6clqus" path="res://Assets/Sprites/earth_symbol.png" id="3_10cr1"]
 [ext_resource type="Texture2D" uid="uid://bwsf506lvk858" path="res://UI/Sprites/Power Tracker/Next Power Tileset.png" id="3_wyl25"]
 [ext_resource type="Texture2D" uid="uid://d3cqbont2jfpe" path="res://Assets/Sprites/wind_symbol.png" id="4_0urd5"]
-[ext_resource type="Texture2D" uid="uid://rqm0mmbgb4dd" path="res://UI/Sprites/Power Tracker/Power Tracker Center.png" id="4_j5hq7"]
+[ext_resource type="Texture2D" uid="uid://dpr6jt74l7nth" path="res://UI/Sprites/Power Tracker/Power Tracker Center Air-Sheet.png" id="4_fsw32"]
+[ext_resource type="Texture2D" uid="uid://cg0ofefo10u0i" path="res://UI/Sprites/Power Tracker/Power Tracker Center-sheet.png" id="5_245uk"]
 [ext_resource type="Texture2D" uid="uid://ciycph0wec0v5" path="res://UI/Sprites/Power Tracker/Power Tracker Center Controller.png" id="5_dkl3d"]
 [ext_resource type="Texture2D" uid="uid://8rfqlpfsce8m" path="res://Assets/Sprites/water_symbol.png" id="5_rbynj"]
 [ext_resource type="Texture2D" uid="uid://j6i1ehlae7gg" path="res://Assets/Sprites/fire_symbol.png" id="6_70mdx"]
+[ext_resource type="Texture2D" uid="uid://bvgr2pp3h0j67" path="res://UI/Sprites/Power Tracker/Power Tracker Center Earth-sheet.png" id="6_tm53v"]
+[ext_resource type="Texture2D" uid="uid://d28wxrwbptlqk" path="res://UI/Sprites/Power Tracker/Power Tracker Center Fire-sheet.png" id="7_ytr2v"]
+[ext_resource type="Texture2D" uid="uid://e4s2vv7wh76v" path="res://UI/Sprites/Power Tracker/Power Tracker Center Water-sheet.png" id="8_kw16t"]
+[ext_resource type="Texture2D" uid="uid://bkdn1yw4gd1pw" path="res://UI/Sprites/Power Tracker/Power Tracker Controls.png" id="9_37qgf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6076u"]
 atlas = ExtResource("2_qnmok")
@@ -134,6 +139,221 @@ animations = [{
 "loop": true,
 "name": &"Water",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q7d8"]
+atlas = ExtResource("4_fsw32")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvlam"]
+atlas = ExtResource("4_fsw32")
+region = Rect2(55, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvx4u"]
+atlas = ExtResource("4_fsw32")
+region = Rect2(110, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqyfc"]
+atlas = ExtResource("4_fsw32")
+region = Rect2(165, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0wwt"]
+atlas = ExtResource("4_fsw32")
+region = Rect2(220, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb5pe"]
+atlas = ExtResource("5_245uk")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76fxt"]
+atlas = ExtResource("6_tm53v")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwryl"]
+atlas = ExtResource("6_tm53v")
+region = Rect2(55, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw7yp"]
+atlas = ExtResource("6_tm53v")
+region = Rect2(110, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v67ue"]
+atlas = ExtResource("6_tm53v")
+region = Rect2(165, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmnkl"]
+atlas = ExtResource("6_tm53v")
+region = Rect2(220, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wglsf"]
+atlas = ExtResource("7_ytr2v")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jj0m"]
+atlas = ExtResource("7_ytr2v")
+region = Rect2(55, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq4e2"]
+atlas = ExtResource("7_ytr2v")
+region = Rect2(110, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xi3n"]
+atlas = ExtResource("7_ytr2v")
+region = Rect2(165, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hnyw"]
+atlas = ExtResource("7_ytr2v")
+region = Rect2(220, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prrm6"]
+atlas = ExtResource("5_245uk")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elhww"]
+atlas = ExtResource("5_245uk")
+region = Rect2(55, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ionv"]
+atlas = ExtResource("5_245uk")
+region = Rect2(110, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eloyo"]
+atlas = ExtResource("5_245uk")
+region = Rect2(165, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wmoo"]
+atlas = ExtResource("5_245uk")
+region = Rect2(220, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30fd3"]
+atlas = ExtResource("8_kw16t")
+region = Rect2(0, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2mft"]
+atlas = ExtResource("8_kw16t")
+region = Rect2(55, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sogup"]
+atlas = ExtResource("8_kw16t")
+region = Rect2(110, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tifuv"]
+atlas = ExtResource("8_kw16t")
+region = Rect2(165, 0, 55, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnrot"]
+atlas = ExtResource("8_kw16t")
+region = Rect2(220, 0, 55, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1who"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q7d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvlam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvx4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqyfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0wwt")
+}],
+"loop": true,
+"name": &"Air",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb5pe")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76fxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwryl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw7yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v67ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmnkl")
+}],
+"loop": true,
+"name": &"Earth",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wglsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jj0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq4e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xi3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hnyw")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elhww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ionv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eloyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wmoo")
+}],
+"loop": true,
+"name": &"Multiple",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30fd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2mft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sogup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tifuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnrot")
+}],
+"loop": true,
+"name": &"Water",
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xig27"]
@@ -552,9 +772,15 @@ position = Vector2(47.8333, 17.3333)
 sprite_frames = SubResource("SpriteFrames_fhoae")
 animation = &"Water"
 
-[node name="CenterRing" type="Sprite2D" parent="."]
+[node name="CenterRing" type="AnimatedSprite2D" parent="."]
 position = Vector2(48.1667, 17.3333)
-texture = ExtResource("4_j5hq7")
+sprite_frames = SubResource("SpriteFrames_k1who")
+animation = &"Default"
+frame_progress = 0.730685
+
+[node name="CenterRingControls" type="Sprite2D" parent="."]
+position = Vector2(48.1667, 17.3333)
+texture = ExtResource("9_37qgf")
 
 [node name="CenterRingController" type="Sprite2D" parent="."]
 visible = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://enc2cv2i2cqb"]
+[gd_scene load_steps=10 format=3 uid="uid://enc2cv2i2cqb"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Collectables/InfoBall.gd" id="1_0lu06"]
 [ext_resource type="Texture2D" uid="uid://d1dx5btu4i7b5" path="res://Assets/Sprites/Question Ball Sprite-Sheet.png" id="2_gyeyx"]
+[ext_resource type="AudioStream" uid="uid://yvnr6udxy27t" path="res://Assets/Audio/SFX/Button Sound Effects Pack/Button Sound Effects Pack 1.mp3" id="3_6iiq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw2uk"]
 radius = 14.3178
@@ -48,6 +49,8 @@ animations = [{
 }]
 
 [node name="InfoBall" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_0lu06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -57,4 +60,8 @@ shape = SubResource("CircleShape2D_xw2uk")
 sprite_frames = SubResource("SpriteFrames_18h5x")
 animation = &"InfoBall"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6iiq4")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

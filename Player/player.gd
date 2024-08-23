@@ -26,6 +26,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var death_flag: bool = false
+@onready var cutscene_flag: bool = false
 
 # Death Details
 @onready var starting_position_x = 0
@@ -183,6 +184,20 @@ func character_death():
 	death_flag = true
 	state_machine.current_state.force_move()
 
+func enter_cutscene():
+	cutscene_flag = true
+	anim_tree.active = false
+	state_machine.current_state.force_move()
+	
+func exit_cutscene():
+	cutscene_flag = false
+	anim_tree.active = true
+	state_machine.current_state.end_cutscene()
+
+func get_previous_state():
+	return state_machine.previous_state
+	
+	
 #func _on_animation_player_animation_finished(anim_name):
 	#if anim_name == "Burn":
 		#end_powers()

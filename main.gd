@@ -11,7 +11,7 @@ func admin_privledges():
 
 func _ready():
 	background.play("TitleScreen")
-	start_button.grab_focus()
+	# start_button.grab_focus()
 	PowerStateMachine.reset_power_tracker()
 
 

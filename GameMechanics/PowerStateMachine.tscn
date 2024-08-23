@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://GameMechanics/EarthState.gd" id="4_ajm0c"]
 [ext_resource type="Script" path="res://GameMechanics/FireState.gd" id="5_rtpds"]
 [ext_resource type="Script" path="res://GameMechanics/AirState.gd" id="6_207gs"]
-[ext_resource type="AudioStream" uid="uid://cu2cg3v86cvxi" path="res://Assets/Audio/SFX/click_sound_1.mp3" id="7_xg4ci"]
+[ext_resource type="AudioStream" uid="uid://doi3mosiunsjm" path="res://Assets/Audio/SFX/vgmenuselect.ogg" id="7_8cajk"]
 
 [node name="PowerStateMachine" type="Node" node_paths=PackedStringArray("current_power", "previous_power", "next_power")]
 script = ExtResource("1_4jn4k")
@@ -34,4 +34,5 @@ script = ExtResource("6_207gs")
 alchemical_power = "Air"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_xg4ci")
+stream = ExtResource("7_8cajk")
+volume_db = -10.0

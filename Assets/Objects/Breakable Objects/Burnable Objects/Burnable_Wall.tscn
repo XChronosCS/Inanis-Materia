@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3r4pg51cccxh"]
+[gd_scene load_steps=20 format=3 uid="uid://d3r4pg51cccxh"]
 
 [ext_resource type="Script" path="res://Assets/Objects/Breakable Objects/Burnable Objects/Burnable_Object.gd" id="1_d062t"]
 [ext_resource type="Texture2D" uid="uid://wedrm1crlrum" path="res://Assets/Sprites/firelogs.png" id="2_doya7"]
+[ext_resource type="AudioStream" uid="uid://cy67oknjua4l3" path="res://Assets/Audio/SFX/fire_sound_effect.mp3" id="2_fww1d"]
 [ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="3_77rcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kemc8"]
@@ -34,6 +35,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 3, 4, 5, 3, 4, 5, 3, 4, 5]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 6.19733,
+"start_offset": 0.0,
+"stream": ExtResource("2_fww1d")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1s02c"]
 resource_name = "Default"
@@ -194,6 +210,9 @@ metadata/_edit_group_ = true
 [node name="InteractionCollisionArea" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fbkao")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

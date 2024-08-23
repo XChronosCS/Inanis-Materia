@@ -27,7 +27,7 @@ func _ready():
 	
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 	#if being_pushed == true:
 		#collision_layer = 2

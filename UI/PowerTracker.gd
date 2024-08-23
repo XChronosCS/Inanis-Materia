@@ -13,12 +13,15 @@ extends CanvasLayer
 @onready var prev_power_display = $PreviousPower
 @onready var center_sprite = $CenterRing
 @onready var controller_sprite = $CenterRingController
+@onready var keyboard_sprite = $CenterRingControls
 @onready var displayed_power: AnimatedSprite2D
 
 func _ready():
 	select_power_visibility("Default")
 	prev_power_display.play("Default")
 	next_power_display.play("Default")
+	center_sprite.play("Default")
+	
 
 func select_power_visibility(selected_power: String):
 	for child in get_children():
@@ -30,10 +33,10 @@ func select_power_visibility(selected_power: String):
 				
 func _input(event):
 	if event is InputEventKey:
-		center_sprite.visible = true
+		keyboard_sprite.visible = true
 		controller_sprite.visible = false
 	elif event is InputEventJoypadButton:
-		center_sprite.visible = false
+		keyboard_sprite.visible = false
 		controller_sprite.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,7 +70,15 @@ func _process(delta):
 				displayed_power.play("Symbol On")
 			else:
 				displayed_power.play("Symbol Off")
+		if not PowerStateMachine.interactable_powers.is_empty() and current_power.alchemical_power not in PowerStateMachine.interactable_powers:
+				if PowerStateMachine.interactable_powers.size() == 1:
+					center_sprite.play(PowerStateMachine.interactable_powers[0])
+				else:
+					center_sprite.play("Multiple")
+		else:
+			center_sprite.play("Default")
 			
+				
 	
 	
 	

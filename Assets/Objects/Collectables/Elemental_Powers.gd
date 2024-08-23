@@ -2,6 +2,7 @@ extends Area2D
 
 @export var playing_animation: String = ""
 @onready var animation = get_node("AnimationPlayer")
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready():
 	animation.play(playing_animation)
@@ -16,5 +17,11 @@ func _on_body_entered(body):
 			PowerStateMachine.power_obtained("Water")
 		if playing_animation == "Fire Power":
 			PowerStateMachine.power_obtained("Fire")
-		queue_free()
+		if not audio.is_playing():
+			audio.play()
+		visible = false
 			
+
+
+func _on_audio_stream_player_finished():
+	queue_free()

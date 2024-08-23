@@ -1,18 +1,18 @@
 extends Node
 
 var flags = {
-	has_earth_power = false,
-	has_air_power = false,
-	has_fire_power = false,
-	has_water_power = false,
-	fire_power_usable = false,
-	fire_power_activated = false,
-	air_power_usable = false,
-	air_power_activated = false,
-	water_power_usable = false,
-	water_power_activated = false,
-	earth_power_usable = false,
-	earth_power_activated = false,
+	#has_earth_power = false,
+	#has_air_power = false,
+	#has_fire_power = false,
+	#has_water_power = false,
+	#fire_power_usable = false,
+	#fire_power_activated = false,
+	#air_power_usable = false,
+	#air_power_activated = false,
+	#water_power_usable = false,
+	#water_power_activated = false,
+	#earth_power_usable = false,
+	#earth_power_activated = false,
 	current_level = 0,
 	prevent_player_movement = false
 	

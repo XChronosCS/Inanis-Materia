@@ -138,6 +138,7 @@ shape = SubResource("RectangleShape2D_566kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_sub4q")
+volume_db = -20.0
 
 [connection signal="body_entered" from="WindInteractionArea" to="." method="_on_wind_interaction_area_body_entered"]
 [connection signal="body_entered" from="WindInteractionArea" to="WindInteractionArea" method="_on_body_entered"]

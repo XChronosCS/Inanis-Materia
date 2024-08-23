@@ -404,23 +404,23 @@ layer_5/tile_data = PackedInt32Array(-3801078, 262144, 268435456, -3735542, 2621
 layer_6/name = "Wall 1"
 layer_6/tile_data = PackedInt32Array(-4128738, 327680, 1342177286, -4063202, 327680, 1342177286, -3997666, 393216, 1342177286)
 
-[node name="ChainSwitch" parent="." instance=ExtResource("4_lr1w0")]
+[node name="ChainSwitch" parent="." node_paths=PackedStringArray("scene", "chain") instance=ExtResource("4_lr1w0")]
 position = Vector2(46, -1872)
+scene = NodePath("..")
+chain = NodePath("RigidBody2D")
 
 [node name="TriggerZone" parent="ChainSwitch" index="0"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="RigidBody2D" parent="ChainSwitch" index="1"]
+[node name="RigidBody2D" parent="ChainSwitch" index="1" node_paths=PackedStringArray("player", "scene", "parent_chain")]
 visibility_layer = 2
+player = NodePath("../../Player")
+scene = NodePath("../..")
+parent_chain = NodePath("..")
 
 [node name="CollisionShape2D" parent="ChainSwitch/RigidBody2D/InteractionAreaCube" index="0"]
 position = Vector2(65, -2)
-
-[node name="TileMap2" parent="." instance=ExtResource("3_7wrrt")]
-layer_1/tile_data = PackedInt32Array(-3997696, 524288, 2, -3932160, 524288, 2, -3866624, 524288, 2, -3997695, 524288, 2, -3932159, 524288, 2, -3866623, 524288, 2, -3997694, 589824, 2, -3932158, 589824, 2, -3866622, 589824, 2)
-layer_2/name = "More Foreground"
-layer_2/tile_data = PackedInt32Array(-3932159, 720896, 0, -3866623, 393216, 268435456, -3866624, 327680, 1, -3997695, 393216, 1610612736, -4063231, 262144, 0, -4128767, 262144, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.2)
@@ -437,24 +437,30 @@ position = Vector2(384, -515)
 starting_animation = "Default"
 burning_animation = "Burning"
 
-[node name="PushableObject" parent="." instance=ExtResource("7_jmrhx")]
+[node name="PushableObject" parent="." node_paths=PackedStringArray("player", "scene") instance=ExtResource("7_jmrhx")]
 position = Vector2(720, -1554)
+player = NodePath("../Player")
+scene = NodePath("..")
 
-[node name="L4Textbox1" parent="." instance=ExtResource("5_0hw1m")]
-full_text = Array[String](["Looks like a non-mechanical wooden roadblock has obstructed your path, and no pipes in site.", "In cases like these, you can use the final of the four elemental powers granted through Alchemy: The Element of Fire", "The Element of Fire allows you to ignite objects, both for destructive and puzzle solving purposes.", "When you get close to an object which can be destroyed by fire, it will flash red. Objects that are meant to help solve puzzles using the fire ability will not. ", "You have now acquired all 4 of the Main Alchemical Elements. In the full game, you may obtain future abilities. But that is all for this development build."])
-text_trigger_index = 2
+[node name="L4Textbox1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_0hw1m")]
+full_text = Array[String](["The Element of Fire allows you to ignite objects, both for destructive and puzzle solving purposes.", "When you get close to an object which can be destroyed by fire, it will flash red. Objects that are meant to help solve puzzles using the fire ability will not. ", "You have now acquired all 4 of the Main Alchemical Elements. In the full game, you may obtain future abilities. But that is all for this development build."])
+player = NodePath("../Player")
 
 [node name="L4InfoBall1" parent="." instance=ExtResource("6_ngn4d")]
 position = Vector2(317, -412)
 
-[node name="L4Textbox2" parent="." instance=ExtResource("5_0hw1m")]
-full_text = Array[String](["Objects may respond to more than one Alchemical Power, such is the cases with these cauldrons.", "If an object does not require a specific input of elemental abilities, then they will all be shown as usable on your tracker at once.", "Objects which need a specific order will only show as being usable at the specific point in the sequence."])
+[node name="L4Textbox2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_0hw1m")]
+full_text = Array[String](["Objects may respond to more than one Alchemical Power, such is the cases with these cauldrons. ", "If an object does not require a specific input of elemental abilities, then they will all be shown as usable on your tracker at once.", "Objects which need a specific order will only show as being usable at the specific point in the sequence."])
+player = NodePath("../Player")
 
 [node name="L4InfoBall2" parent="." instance=ExtResource("6_ngn4d")]
+visible = false
 position = Vector2(907, -405)
 
-[node name="PushableCauldron" parent="." instance=ExtResource("9_nrfsd")]
+[node name="PushableCauldron" parent="." node_paths=PackedStringArray("player", "scene") instance=ExtResource("9_nrfsd")]
 position = Vector2(1022, -424)
+player = NodePath("../Player")
+scene = NodePath("..")
 
 [node name="WindCurrent" parent="PushableCauldron" index="5"]
 max_height = -670.0
@@ -462,9 +468,11 @@ max_height = -670.0
 [node name="CollisionShape2D" parent="PushableCauldron/WindCurrent/WindInteractionArea" index="0"]
 position = Vector2(1, -60)
 
-[node name="PushableCauldron2" parent="." instance=ExtResource("9_nrfsd")]
+[node name="PushableCauldron2" parent="." node_paths=PackedStringArray("player", "scene") instance=ExtResource("9_nrfsd")]
 position = Vector2(590, -627)
 is_filled = true
+player = NodePath("../Player")
+scene = NodePath("..")
 metadata/_edit_lock_ = true
 
 [node name="WindCurrent" parent="PushableCauldron2" index="5"]
@@ -473,15 +481,18 @@ max_height = -780.0
 [node name="CollisionShape2D" parent="PushableCauldron2/WindCurrent/WindInteractionArea" index="0"]
 position = Vector2(0, -69.9375)
 
-[node name="PushableCauldron3" type="RigidBody2D" parent="." groups=["PushableObjects"]]
+[node name="PushableCauldron3" type="RigidBody2D" parent="." node_paths=PackedStringArray("player", "scene") groups=["PushableObjects"]]
 position = Vector2(449, -995)
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 gravity_scale = 0.5
 can_sleep = false
 lock_rotation = true
 continuous_cd = 1
 script = ExtResource("10_ccgkm")
 is_lit = true
+player = NodePath("../Player")
+scene = NodePath("..")
 
 [node name="CollisionShape2DCube" type="CollisionShape2D" parent="PushableCauldron3"]
 light_mask = 3
@@ -498,11 +509,8 @@ frame = 1
 
 [node name="Pushing_Interaction_Area" parent="PushableCauldron3" instance=ExtResource("7_kuskm")]
 position = Vector2(-1, 2)
-collision_layer = 1
-collision_mask = 1
-action_name = "Push or Pull"
-interaction_key = "Earth Power"
-keyboard_key = "S"
+collision_layer = 2
+power_needed = "Earth"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushableCauldron3/Pushing_Interaction_Area"]
 light_mask = 3
@@ -511,9 +519,7 @@ position = Vector2(1.5, 11.1151)
 shape = SubResource("RectangleShape2D_knvea")
 
 [node name="Fire_Interaction_Area" parent="PushableCauldron3" instance=ExtResource("7_kuskm")]
-action_name = "Light"
-interaction_key = "Fire Power"
-keyboard_key = "A"
+power_needed = "Fire"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PushableCauldron3/Fire_Interaction_Area"]
 light_mask = 3
@@ -522,9 +528,8 @@ position = Vector2(0.5, 13.1151)
 shape = SubResource("RectangleShape2D_knvea")
 
 [node name="Water_Interaction_Area" parent="PushableCauldron3" instance=ExtResource("7_kuskm")]
-action_name = "Fill"
-interaction_key = "Water Power"
-keyboard_key = "D"
+power_needed = "Water"
+power_subset_needed = "Fill"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="PushableCauldron3/Water_Interaction_Area"]
 light_mask = 3
@@ -548,10 +553,9 @@ position = Vector2(0, -39)
 shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="PushableCauldron3/WindCurrent"]
+collision_mask = 2
 script = ExtResource("18_6bm4j")
-action_name = "Ascend"
-interaction_key = "Air Power"
-keyboard_key = "W"
+power_needed = "Air"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushableCauldron3/WindCurrent/WindInteractionArea"]
 position = Vector2(-2, -209.75)
@@ -559,6 +563,7 @@ shape = SubResource("RectangleShape2D_566kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PushableCauldron3/WindCurrent"]
 stream = ExtResource("20_5p1fr")
+volume_db = -20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PushableCauldron3"]
 libraries = {
@@ -568,6 +573,9 @@ libraries = {
 [node name="WindCurrent" parent="." instance=ExtResource("20_5eoht")]
 position = Vector2(144, -1368)
 max_height = -1680.0
+
+[node name="WindInteractionArea" parent="WindCurrent" index="2"]
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="WindCurrent/WindInteractionArea" index="0"]
 position = Vector2(-0.5, -110.563)
@@ -599,8 +607,13 @@ position = Vector2(0, 4)
 position = Vector2(352, 118)
 
 [node name="Player" parent="." instance=ExtResource("4_qdcog")]
-position = Vector2(81, -394)
+position = Vector2(121, -392)
 camera_constraints = Array[int]([0, 0, 1553, -2175])
+
+[node name="TileMap2" parent="." instance=ExtResource("3_7wrrt")]
+layer_1/tile_data = PackedInt32Array(-3997696, 524288, 2, -3932160, 524288, 2, -3866624, 524288, 2, -3997695, 524288, 2, -3932159, 524288, 2, -3866623, 524288, 2, -3997694, 589824, 2, -3932158, 589824, 2, -3866622, 589824, 2)
+layer_2/name = "More Foreground"
+layer_2/tile_data = PackedInt32Array(-3932159, 720896, 0, -3866623, 393216, 268435456, -3866624, 327680, 1, -3997695, 393216, 1610612736, -4063231, 262144, 0, -4128767, 262144, 0)
 
 [node name="Next_Level" type="Area2D" parent="."]
 collision_layer = 4

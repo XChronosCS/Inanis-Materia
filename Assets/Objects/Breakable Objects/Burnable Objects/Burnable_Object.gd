@@ -39,4 +39,4 @@ func _on_interaction_area_body_entered(body):
 
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
-		animation.play(starting_animation)
+		sprite_animation.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://qsmc3u3omy3m"]
+[gd_scene load_steps=66 format=3 uid="uid://qsmc3u3omy3m"]
 
 [ext_resource type="PackedScene" uid="uid://u7s24oqsh5ht" path="res://UI/game_ui.tscn" id="1_6vxjw"]
 [ext_resource type="Script" path="res://Assets/Levels/Level 3/level_3.gd" id="1_bnyub"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cvht7os1kp5ks" path="res://Interactions/Interaction Area/interaction_area.tscn" id="5_4u4b5"]
 [ext_resource type="Script" path="res://Interactions/Interaction Area/interaction_area.gd" id="5_xtcvv"]
 [ext_resource type="PackedScene" uid="uid://c2kokba30ptdj" path="res://Assets/Objects/Pushable Objects/pushable_block.tscn" id="6_1j4lo"]
+[ext_resource type="AudioStream" uid="uid://bcb7j7d645qc0" path="res://Assets/Audio/SFX/iron_door.ogg" id="7_n6qq7"]
 [ext_resource type="Texture2D" uid="uid://heqthntuse7i" path="res://Assets/Sprites/Next Level Sign.png" id="10_memff"]
+[ext_resource type="Texture2D" uid="uid://bwwbr1uq64umh" path="res://Assets/Sprites/Fill Sign.png" id="11_42slj"]
 [ext_resource type="Texture2D" uid="uid://dp1frvfcjl4kc" path="res://Assets/Sprites/Free Alchecity Graffiti.png" id="11_aa30i"]
 [ext_resource type="PackedScene" uid="uid://dquugpob5xs2g" path="res://Assets/Objects/textbox.tscn" id="12_7d2sl"]
 [ext_resource type="Texture2D" uid="uid://cast5rv5571hm" path="res://Assets/Sprites/Alchemy is for All Graffiti.png" id="12_fpkms"]
@@ -314,9 +316,10 @@ layer_5/tile_data = PackedInt32Array(-196608, 131072, 2, -196607, 131072, 2, -19
 layer_6/name = "Wall A "
 layer_6/tile_data = PackedInt32Array(-786398, 327680, 1342177286, -720862, 327680, 1342177286, -655326, 327680, 1342177286)
 
-[node name="BucketPulley" type="Node2D" parent="."]
+[node name="BucketPulley" type="Node2D" parent="." node_paths=PackedStringArray("audio_player")]
 position = Vector2(1073, -488)
 script = ExtResource("3_jrdgg")
+audio_player = NodePath("AudioStreamPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BucketPulley"]
 position = Vector2(39, 15)
@@ -328,37 +331,43 @@ flip_h = true
 
 [node name="InteractionArea" parent="BucketPulley" instance=ExtResource("5_4u4b5")]
 position = Vector2(-6.56921, -66.7933)
+power_needed = "Water"
+power_subset_needed = "Fill"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BucketPulley/InteractionArea"]
 position = Vector2(-44.4308, 4.79327)
 shape = SubResource("RectangleShape2D_3x83t")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BucketPulley"]
+stream = ExtResource("7_n6qq7")
+volume_db = -15.0
+
 [node name="TileMap2" parent="." instance=ExtResource("3_mo31q")]
 layer_0/tile_data = PackedInt32Array(-917477, 131072, 2, -917476, 131072, 2, -917475, 131072, 2, -917474, 131072, 2, -917473, 131072, 2, -917472, 131072, 2, -917471, 131072, 2, -917470, 131072, 2, -917469, 131072, 2, -917468, 131072, 2, -917467, 131072, 2, -917466, 131072, 2, -851941, 131072, 536870914, -851940, 131072, 536870914, -851939, 131072, 536870914, -851938, 131072, 536870914, -851937, 131072, 536870914, -851936, 131072, 536870914, -851935, 131072, 536870914, -851932, 131072, 536870914, -851931, 131072, 536870914, -851930, 131072, 536870914, -851933, 131072, 536870914)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(901, -314)
-scale = Vector2(0.382812, 0.398438)
+position = Vector2(791, -304)
 texture = ExtResource("10_memff")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(554, -403)
-scale = Vector2(1.06641, 1.01172)
+position = Vector2(492, -395)
 texture = ExtResource("11_aa30i")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(722, -568)
-scale = Vector2(0.730469, 0.738281)
+position = Vector2(634, -592)
 texture = ExtResource("12_fpkms")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(724, -392)
-scale = Vector2(0.730469, 0.738281)
 texture = ExtResource("13_fnjy7")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1013, -573)
+scale = Vector2(0.730469, 0.738281)
+texture = ExtResource("11_42slj")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 position = Vector2(279, -518)
-scale = Vector2(0.730469, 0.738281)
 texture = ExtResource("15_en2ck")
 
 [node name="WindCurrent" type="Area2D" parent="."]
@@ -377,6 +386,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="WindCurrent"]
+collision_mask = 2
 script = ExtResource("5_xtcvv")
 power_needed = "Air"
 
@@ -386,9 +396,12 @@ shape = SubResource("RectangleShape2D_566kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WindCurrent"]
 stream = ExtResource("15_b0tm2")
+volume_db = -20.0
 
-[node name="PushableObject" parent="." instance=ExtResource("6_1j4lo")]
+[node name="PushableObject" parent="." node_paths=PackedStringArray("player", "scene") instance=ExtResource("6_1j4lo")]
 position = Vector2(386, -626)
+player = NodePath("../Player")
+scene = NodePath("..")
 
 [node name="Teleport" type="Node2D" parent="."]
 
@@ -399,6 +412,7 @@ metadata/_edit_group_ = true
 
 [node name="InteractionAreaA" parent="Teleport/PointA" instance=ExtResource("5_4u4b5")]
 power_needed = "Water"
+power_subset_needed = "Drain"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/PointA/InteractionAreaA"]
 shape = SubResource("RectangleShape2D_xnx4q")
@@ -414,6 +428,7 @@ metadata/_edit_group_ = true
 
 [node name="InteractionAreaB" parent="Teleport/PointB" instance=ExtResource("5_4u4b5")]
 power_needed = "Water"
+power_subset_needed = "Drain"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/PointB/InteractionAreaB"]
 shape = SubResource("RectangleShape2D_lqsvf")
@@ -424,15 +439,17 @@ scale = Vector2(1, 0.984375)
 sprite_frames = SubResource("SpriteFrames_8kjjy")
 frame_progress = 0.951714
 
-[node name="L3Textbox1" parent="." instance=ExtResource("12_7d2sl")]
-full_text = Array[String](["Unfortunately, it looks like the traditional path ends here. However, all is not lost.", "As the Inanis Materia, you not only have  the power to harness the alchemical elements of the world, but in some cases, their physical properties.", " This is the element of Water. With it, you can fill containers and ride through pipes, like a liquid.", "Whenever you enter an area where you can traverse pipes, an arrow will appear overhead. Using this method, you can traverse routes where none seem available.", "To use the water power, simply press the [D] Key when your water power icon in the tracker lights up."])
-text_trigger_index = 2
+[node name="L3Textbox1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_7d2sl")]
+full_text = Array[String](["As the Inanis Materia, you not only have  the power to harness the alchemical elements of the world, but in some cases, their physical properties.", "This is the element of Water. With it, you can fill containers with water and ride through pipes, like a liquid.", "Whenever you enter an area where you can traverse pipes, an arrow will appear overhead. Using this method, you can traverse routes where none seem available."])
+text_trigger_index = 1
+player = NodePath("../Player")
 
 [node name="L3InfoBall1" parent="." instance=ExtResource("13_5b62b")]
 position = Vector2(658, -117)
 
-[node name="L3Textbox2" parent="." instance=ExtResource("12_7d2sl")]
-full_text = Array[String](["Throughout the game, you'll come across walls like this which block your path.", "To open them, you need to explore the level and find a mechanism which can open them.", "Try doing so now."])
+[node name="L3Textbox2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_7d2sl")]
+full_text = Array[String](["Throughout the game, you'll come across walls like this which block your path.", "To open them, you need to explore the level and find a mechanism which can open them.", "Try doing so now. You can use the + and - Buttons to zoom in and out for a better view."])
+player = NodePath("../Player")
 
 [node name="L3InfoBall2" parent="." instance=ExtResource("13_5b62b")]
 position = Vector2(1025, -308)
@@ -446,11 +463,11 @@ position = Vector2(1204, -328)
 shape = SubResource("RectangleShape2D_p8bgb")
 
 [node name="Player" parent="." instance=ExtResource("2_rgkf6")]
-position = Vector2(48, -109)
+position = Vector2(52, -105)
 camera_constraints = Array[int]([0, 0, 1254, -737])
 
 [node name="Elemental Powers" parent="." instance=ExtResource("20_ehpp3")]
-position = Vector2(773, -113)
+position = Vector2(657, -153)
 playing_animation = "Water Power"
 
 [connection signal="BucketFilled" from="BucketPulley" to="." method="_on_bucket_pulley_bucket_filled"]

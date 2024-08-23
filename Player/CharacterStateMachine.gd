@@ -2,6 +2,7 @@ extends Node
 
 class_name CharacterStateMachine
 
+@export var previous_state: State
 @export var current_state : State 
 @export var animation_tree : AnimationTree
 @export var player : CharacterBody2D
@@ -31,7 +32,7 @@ func switch_states(next_state : State):
 	if current_state != null:
 		current_state.on_exit()
 		current_state.next_state = null
-		
+	previous_state = current_state
 	current_state = next_state
 	current_state.on_enter()
 	

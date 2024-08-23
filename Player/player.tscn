@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://b8ptl0m5d13qk"]
+[gd_scene load_steps=147 format=3 uid="uid://b8ptl0m5d13qk"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_coqo4"]
 [ext_resource type="AudioStream" uid="uid://bqypmcwtqn4oc" path="res://Assets/Audio/SFX/Inanis/Inanis Jump.ogg" id="2_2i7b1"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://6p3ki2ajwidj" path="res://Assets/Audio/SFX/Inanis/pop.ogg" id="3_mwfok"]
 [ext_resource type="AudioStream" uid="uid://d4j83kenro7h7" path="res://Assets/Audio/SFX/Inanis/Inanis Run.ogg" id="3_yqfcn"]
 [ext_resource type="AudioStream" uid="uid://b7xne3onhckas" path="res://Assets/Audio/SFX/Inanis/Inanis Earth Power.ogg" id="4_477re"]
+[ext_resource type="AudioStream" uid="uid://c0v0so6ia7ojv" path="res://Assets/Audio/SFX/bubbles-single2.wav" id="4_mai1l"]
 [ext_resource type="Texture2D" uid="uid://b4tkg0nk1i13p" path="res://Assets/Inanis Sprites/inanis_water_zen.png" id="4_mrlpn"]
 [ext_resource type="Texture2D" uid="uid://cnlkm1vn5pnby" path="res://Assets/Inanis Sprites/inanis_idle.png" id="5_4jmlj"]
 [ext_resource type="Texture2D" uid="uid://d2fxj0dcvy6hv" path="res://Assets/Inanis Sprites/inanis_melt.png" id="6_fuo1m"]
@@ -22,10 +23,11 @@
 [ext_resource type="Script" path="res://Player/State_Scripts/FallingState.gd" id="18_5xqh3"]
 [ext_resource type="Script" path="res://Player/State_Scripts/Pushing.gd" id="19_lnrle"]
 [ext_resource type="Script" path="res://Player/StateDebugLabel.gd" id="20_h8yct"]
-[ext_resource type="Script" path="res://Player/CutsceneState.gd" id="20_q7rbh"]
-[ext_resource type="Script" path="res://Player/Using_PowerState.gd" id="21_fd83l"]
+[ext_resource type="Script" path="res://Player/State_Scripts/CutsceneState.gd" id="22_qbm36"]
+[ext_resource type="Script" path="res://Player/State_Scripts/Using_PowerState.gd" id="23_4c684"]
 [ext_resource type="Script" path="res://Player/CoyoteTimer.gd" id="23_678em"]
-[ext_resource type="Script" path="res://Player/DeathState.gd" id="24_6i4ee"]
+[ext_resource type="Script" path="res://Player/State_Scripts/DeathState.gd" id="24_l3us8"]
+[ext_resource type="Script" path="res://Player/State_Scripts/RisingState.gd" id="25_sg6uo"]
 
 [sub_resource type="Animation" id="Animation_451kt"]
 resource_name = "Burn"
@@ -195,6 +197,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_mai1l")
+}],
+"times": PackedFloat32Array(0.7)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_b2slc"]
 resource_name = "Idle"
@@ -1038,6 +1055,9 @@ animation = &"Push"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ykvhr"]
 animation = &"Reform"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_awwlq"]
+animation = &"Rise"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_15fao"]
 advance_mode = 2
 
@@ -1095,6 +1115,10 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pob76"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dwv2m"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ysc0h"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_htyj3"]
 states/Burn/node = SubResource("AnimationNodeAnimation_f3jt8")
 states/Burn/position = Vector2(197, -36.8049)
@@ -1117,9 +1141,11 @@ states/Push/node = SubResource("AnimationNodeAnimation_talkc")
 states/Push/position = Vector2(579, 255.687)
 states/Reform/node = SubResource("AnimationNodeAnimation_ykvhr")
 states/Reform/position = Vector2(203, 318.687)
+states/Rise/node = SubResource("AnimationNodeAnimation_awwlq")
+states/Rise/position = Vector2(217, -201.496)
 states/Start/position = Vector2(384, 249)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_15fao"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_1urdb"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_eaps0"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_5w33g"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_55lui"), "Land", "Jump", SubResource("AnimationNodeStateMachineTransition_ilqkg"), "Move", "Fall", SubResource("AnimationNodeStateMachineTransition_qxvo6"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_3nul1"), "Move", "Burn", SubResource("AnimationNodeStateMachineTransition_3m0lt"), "Burn", "Move", SubResource("AnimationNodeStateMachineTransition_nedka"), "Burn", "Jump", SubResource("AnimationNodeStateMachineTransition_pnuim"), "Move", "Fill", SubResource("AnimationNodeStateMachineTransition_46tom"), "Fill", "Move", SubResource("AnimationNodeStateMachineTransition_wbjhy"), "Move", "Drain", SubResource("AnimationNodeStateMachineTransition_ser7u"), "Drain", "Reform", SubResource("AnimationNodeStateMachineTransition_tepel"), "Reform", "Move", SubResource("AnimationNodeStateMachineTransition_8mivp"), "Move", "Push", SubResource("AnimationNodeStateMachineTransition_bim8a"), "Push", "Move", SubResource("AnimationNodeStateMachineTransition_lcl6v"), "Move", "Death", SubResource("AnimationNodeStateMachineTransition_0xdil"), "Fall", "Death", SubResource("AnimationNodeStateMachineTransition_ru3dj"), "Jump", "Death", SubResource("AnimationNodeStateMachineTransition_1t3nh"), "Push", "Death", SubResource("AnimationNodeStateMachineTransition_dar7n"), "Death", "Move", SubResource("AnimationNodeStateMachineTransition_pob76")]
-graph_offset = Vector2(0, -302.494)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_15fao"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_1urdb"), "Jump", "Land", SubResource("AnimationNodeStateMachineTransition_eaps0"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_5w33g"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_55lui"), "Land", "Jump", SubResource("AnimationNodeStateMachineTransition_ilqkg"), "Move", "Fall", SubResource("AnimationNodeStateMachineTransition_qxvo6"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_3nul1"), "Move", "Burn", SubResource("AnimationNodeStateMachineTransition_3m0lt"), "Burn", "Move", SubResource("AnimationNodeStateMachineTransition_nedka"), "Burn", "Jump", SubResource("AnimationNodeStateMachineTransition_pnuim"), "Move", "Fill", SubResource("AnimationNodeStateMachineTransition_46tom"), "Fill", "Move", SubResource("AnimationNodeStateMachineTransition_wbjhy"), "Move", "Drain", SubResource("AnimationNodeStateMachineTransition_ser7u"), "Drain", "Reform", SubResource("AnimationNodeStateMachineTransition_tepel"), "Reform", "Move", SubResource("AnimationNodeStateMachineTransition_8mivp"), "Move", "Push", SubResource("AnimationNodeStateMachineTransition_bim8a"), "Push", "Move", SubResource("AnimationNodeStateMachineTransition_lcl6v"), "Move", "Death", SubResource("AnimationNodeStateMachineTransition_0xdil"), "Fall", "Death", SubResource("AnimationNodeStateMachineTransition_ru3dj"), "Jump", "Death", SubResource("AnimationNodeStateMachineTransition_1t3nh"), "Push", "Death", SubResource("AnimationNodeStateMachineTransition_dar7n"), "Death", "Move", SubResource("AnimationNodeStateMachineTransition_pob76"), "Move", "Rise", SubResource("AnimationNodeStateMachineTransition_dwv2m"), "Rise", "Fall", SubResource("AnimationNodeStateMachineTransition_ysc0h")]
+graph_offset = Vector2(0, -313.496)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -1160,25 +1186,29 @@ current_state = NodePath("Ground")
 animation_tree = NodePath("../AnimationTree")
 player = NodePath("..")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "push_state", "fall_state", "use_power_state", "death_state", "coyote_timer")]
+[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "push_state", "fall_state", "use_power_state", "death_state", "rise_state", "cutscene_state", "coyote_timer")]
 script = ExtResource("16_f6pkp")
 air_state = NodePath("../Air")
 push_state = NodePath("../Pushing")
 fall_state = NodePath("../Falling")
 use_power_state = NodePath("../Using_Power")
 death_state = NodePath("../Death")
+rise_state = NodePath("../Rising")
+cutscene_state = NodePath("../Cutscene")
 coyote_timer = NodePath("../../CoyoteTimer")
 
-[node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state", "death_state", "ground_detect")]
+[node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state", "death_state", "cutscene_state", "ground_detect")]
 script = ExtResource("17_fbgxm")
 ground_state = NodePath("../Ground")
 death_state = NodePath("../Death")
+cutscene_state = NodePath("../Cutscene")
 ground_detect = NodePath("../../GroundDetection")
 
-[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state", "death_state", "ground_detect")]
+[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state", "death_state", "cutscene_state", "ground_detect")]
 script = ExtResource("18_5xqh3")
 ground_state = NodePath("../Ground")
 death_state = NodePath("../Death")
+cutscene_state = NodePath("../Cutscene")
 ground_detect = NodePath("../../GroundDetection")
 
 [node name="Pushing" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state", "death_state")]
@@ -1187,17 +1217,24 @@ ground_state = NodePath("../Ground")
 death_state = NodePath("../Death")
 
 [node name="Cutscene" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("20_q7rbh")
+script = ExtResource("22_qbm36")
+can_move = false
 
 [node name="Using_Power" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
-script = ExtResource("21_fd83l")
+script = ExtResource("23_4c684")
 ground_state = NodePath("../Ground")
 can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
-script = ExtResource("24_6i4ee")
+script = ExtResource("24_l3us8")
 ground_state = NodePath("../Ground")
 can_move = false
+
+[node name="Rising" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state", "falling_state", "death_state")]
+script = ExtResource("25_sg6uo")
+ground_state = NodePath("../Ground")
+falling_state = NodePath("../Falling")
+death_state = NodePath("../Death")
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 visible = false

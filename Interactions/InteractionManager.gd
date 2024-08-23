@@ -4,7 +4,8 @@ extends Node2D
 
 var active_areas = []
 var can_interact = true
-var interaction_powers: Array[String] = PowerStateMachine.interactable_powers
+var detailed_interaction_powers: Array[Dictionary] = PowerStateMachine.detailed_interactable_powers
+var simple_interaction_powers: Array[String] = PowerStateMachine.interactable_powers
 
 func _ready():
 	# Connects signal from global Power State Machine to function
@@ -13,16 +14,23 @@ func _ready():
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)
-	interaction_powers.append(area.power_needed)
+	detailed_interaction_powers.append({"Power": area.power_needed, "Subset": area.power_subset_needed})
+	simple_interaction_powers.append(area.power_needed)
 	
 func unregister_area(area: InteractionArea):
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
 	# Removes area from list of powers that can currently be used
-	var power_index = interaction_powers.find(area.power_needed)
+	for item in detailed_interaction_powers:
+		if item["Power"] == area.power_needed and item["Subset"] == area.power_subset_needed:
+			@warning_ignore("confusable_local_declaration")
+			var power_index = detailed_interaction_powers.find(item)
+			if power_index != -1:
+				detailed_interaction_powers.remove_at(power_index)
+	var power_index = simple_interaction_powers.find(area.power_needed)
 	if power_index != -1:
-		interaction_powers.remove_at(power_index)
+		simple_interaction_powers.remove_at(power_index)
 
 @warning_ignore("unused_parameter")
 func _process(delta):
@@ -30,8 +38,9 @@ func _process(delta):
 	
 
 func power_use_available(power: String):
-	for item in interaction_powers:
-		if item == power:
+	for item in detailed_interaction_powers:
+		if item["Power"] == power:
+			PowerStateMachine.interaction_power_subset = item["Subset"]
 			return true
 	return false
 	

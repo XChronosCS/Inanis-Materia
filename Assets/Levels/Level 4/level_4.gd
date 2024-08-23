@@ -14,6 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta):
 	pass
 
@@ -22,14 +23,17 @@ func _on_chain_switch_open_the_gates():
 	base_tilemap.set_layer_enabled(6, false)
 
 
+@warning_ignore("unused_parameter")
 func _on_l_4_info_ball_1_body_entered(body):
 	textbox1.visible = true
 	DataSave.flags.prevent_player_movement = true
 
 
+@warning_ignore("unused_parameter")
 func _on_l_4_info_ball_2_body_entered(body):
 	textbox2.visible = true
 	DataSave.flags.prevent_player_movement = true
+	
 	
 func _on_l_4_textbox_1_text_trigger_reached():
 	FirePower.process_mode = Node.PROCESS_MODE_ALWAYS

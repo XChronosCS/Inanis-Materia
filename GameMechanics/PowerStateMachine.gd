@@ -3,7 +3,9 @@ extends Node
 @export var current_power : PowerState
 @export var previous_power : PowerState
 @export var next_power : PowerState
+@export var detailed_interactable_powers: Array[Dictionary]
 @export var interactable_powers: Array[String]
+@export var interaction_power_subset: String = "None"
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 signal use_power
 var power_index: int = 0
@@ -25,9 +27,10 @@ func power_obtained(power_name: String):
 	for child in get_children():
 		if child is PowerState:
 			if child.alchemical_power == power_name:
-				child.enabled = true
-				powers.append(child)
-				update_power_tracker()
+				if child not in powers:
+					child.enabled = true
+					powers.append(child)
+					update_power_tracker()
 
 func confirm_power_obtained(power_needed: String):
 	for item in powers:
@@ -61,6 +64,11 @@ func reset_power_tracker():
 	next_power = null
 	previous_power = null
 
+func set_power_tracker(spec_power: String):
+	if confirm_power_obtained(spec_power):
+		power_index = powers.find(spec_power)
+		update_power_tracker()
+	
 # Checks for Power Use Button Press
 func _input(event):
 	if powers.size() != 0:

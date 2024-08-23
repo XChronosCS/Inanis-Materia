@@ -47,6 +47,7 @@ func _on_wind_interaction_area_body_exited(body):
 		psm.power_in_use = false
 		player.air_current_animation = false
 		lift_enabled = false
+		player.state_machine.current_state.force_move()
 
 
 

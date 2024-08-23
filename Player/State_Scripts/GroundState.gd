@@ -6,11 +6,15 @@ var jump_velocity : float = -400.0
 @export var fall_state: State
 @export var use_power_state : State
 @export var death_state: State
-@export var jump_animation : String = "Jump"
-@export var fall_animation : String = "Fall"
-@export var burn_item_animation : String = "Burn"
-@export var drain_animation: String = "Drain"
-@export var push_animation: String = "Push"
+@export var rise_state: State
+@export var cutscene_state: State
+const jump_animation : String = "Jump"
+const fall_animation : String = "Fall"
+const burn_item_animation : String = "Burn"
+const drain_animation: String = "Drain"
+const push_animation: String = "Push"
+const fill_animation: String = "Fill"
+const rise_animation: String = "Rise"
 @export var coyote_timer: Timer
 @onready var jump_buffer_stored: bool = false
 
@@ -33,13 +37,21 @@ func state_input(event : InputEvent):
 					next_state = use_power_state
 					playback.travel(burn_item_animation)
 				"Water":
-					next_state = use_power_state
-					use_power_state.active_power = "Drain"
-					playback.travel(drain_animation)
+					match PowerStateMachine.interaction_power_subset:
+						"Drain":
+							next_state = use_power_state
+							use_power_state.active_power = "Drain"
+							playback.travel(drain_animation)
+						"Fill":
+							next_state = use_power_state
+							playback.travel(fill_animation)
 				"Earth":
 					next_state = push_state
 					character.set_collision_mask_value(3, false)
 					playback.travel(push_animation)
+				"Air":
+					next_state = rise_state
+					playback.travel(rise_animation)
 
 func jump():
 	character.velocity.y = jump_velocity
@@ -66,3 +78,5 @@ func force_move():
 	if character.death_flag:
 		next_state = death_state
 		playback.travel("Death")
+	if character.cutscene_flag:
+		next_state = cutscene_state

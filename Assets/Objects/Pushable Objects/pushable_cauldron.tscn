@@ -363,7 +363,8 @@ _data = {
 }
 
 [node name="PushableCauldron" type="RigidBody2D" groups=["PushableObjects"]]
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 gravity_scale = 0.5
 can_sleep = false
 lock_rotation = true
@@ -385,11 +386,8 @@ frame = 1
 
 [node name="Pushing_Interaction_Area" parent="." instance=ExtResource("3_rt3rx")]
 position = Vector2(-1, 2)
-collision_layer = 1
-collision_mask = 1
-action_name = "Push or Pull"
-interaction_key = "Earth Power"
-keyboard_key = "S"
+collision_layer = 2
+power_needed = "Earth"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pushing_Interaction_Area"]
 light_mask = 3
@@ -398,9 +396,7 @@ position = Vector2(1.5, 11.1151)
 shape = SubResource("RectangleShape2D_knvea")
 
 [node name="Fire_Interaction_Area" parent="." instance=ExtResource("3_rt3rx")]
-action_name = "Light"
-interaction_key = "Fire Power"
-keyboard_key = "A"
+power_needed = "Fire"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fire_Interaction_Area"]
 light_mask = 3
@@ -409,9 +405,8 @@ position = Vector2(0.5, 13.1151)
 shape = SubResource("RectangleShape2D_knvea")
 
 [node name="Water_Interaction_Area" parent="." instance=ExtResource("3_rt3rx")]
-action_name = "Fill"
-interaction_key = "Water Power"
-keyboard_key = "D"
+power_needed = "Water"
+power_subset_needed = "Fill"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Water_Interaction_Area"]
 light_mask = 3
@@ -434,10 +429,9 @@ position = Vector2(0, -39)
 shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="WindCurrent"]
+collision_mask = 2
 script = ExtResource("9_6k2cn")
-action_name = "Ascend"
-interaction_key = "Air Power"
-keyboard_key = "W"
+power_needed = "Air"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindCurrent/WindInteractionArea"]
 position = Vector2(0, -44)
@@ -445,6 +439,7 @@ shape = SubResource("RectangleShape2D_566kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WindCurrent"]
 stream = ExtResource("10_ei5nw")
+volume_db = -20.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

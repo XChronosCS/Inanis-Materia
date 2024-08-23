@@ -19,13 +19,15 @@ Breakdown of process:
 @onready var wind_animation = $WindCurrent/AnimatedSprite2D
 @onready var moveable: bool = false # Determines if the object is movable or not
 @onready var being_pushed: bool = false
-@onready var player: CharacterBody2D = null
 @export var ground_y = 0
 @export var is_lit: bool = false
 @export var is_filled: bool = false
 @onready var has_wind: bool = false
 @onready var anim_player = $AnimationPlayer
 @onready var playing_animation: String = ""
+@onready var psm = PowerStateMachine
+@export var player: CharacterBody2D = null
+@export var scene: Node2D = null
 
 
 
@@ -64,105 +66,90 @@ func _process(delta):
 	
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
-	if being_pushed == true:
-		collision_layer = 2
-		ground_y = player.position.y
-		position.y = ground_y - 25
-		if player.position.x < position.x:
-			if player.velocity.x < 0:
-				linear_velocity.x = player.velocity.x * 2
-			elif not Input.is_action_pressed("move_right"):
-				linear_velocity.x = 0
-			elif Input.is_action_pressed("move_right"):
-				linear_velocity.x = player.SPEED / 2
-		if player.position.x > position.x:
-			if player.velocity.x > 0:
-				linear_velocity.x = player.velocity.x * 2
-			elif not Input.is_action_pressed("move_left"):
-				linear_velocity.x = 0
-			elif Input.is_action_pressed("move_left"):
-				linear_velocity.x = -player.SPEED / 2
-			
-	else:
-		
-		collision_layer = 1
-		
-		
-		
+	#if being_pushed == true:
+		#collision_layer = 2
+		#ground_y = player.position.y
+		#position.y = ground_y - 25
+		#if player.position.x < position.x:
+			#if player.velocity.x < 0:
+				#linear_velocity.x = player.velocity.x * 2
+			#elif not Input.is_action_pressed("move_right"):
+				#linear_velocity.x = 0
+			#elif Input.is_action_pressed("move_right"):
+				#linear_velocity.x = player.SPEED / 2
+		#if player.position.x > position.x:
+			#if player.velocity.x > 0:
+				#linear_velocity.x = player.velocity.x * 2
+			#elif not Input.is_action_pressed("move_left"):
+				#linear_velocity.x = 0
+			#elif Input.is_action_pressed("move_left"):
+				#linear_velocity.x = -player.SPEED / 2
+			#
+	#else:
+		#
+		#collision_layer = 1
+		#
+		#
+	pass
+	
 func _on_interact():
-	if DataSave.flags.has_earth_power:
-		if being_pushed == false:
-			being_pushed = true
-			player.pushing_animation = true
-			DataSave.flags.earth_power_activated = true
-		else:
+	if psm.current_power.alchemical_power == "Earth":
+		# When the parent of the pushable block is the player, it moves alongside the player. 
+		if get_parent() == player:
+			reparent(scene)
+			set_collision_mask_value(2, true)
 			being_pushed = false
-			player.pushing_animation = false
-			DataSave.flags.earth_power_activated = false
-			linear_velocity.y = 0
+		else:
+			reparent(player)
+			set_collision_mask_value(2, false)
+			being_pushed = true
 			
 			
 		
 func _on_water_interact():
-	if not being_pushed:
-		DataSave.flags.water_power_activated = true
+	if not being_pushed and psm.current_power.alchemical_power == "Water":
 		anim_player.play("Filled")
 		is_filled = true
-		await get_tree().create_timer(1).timeout
-		DataSave.flags.water_power_activated = false
-		DataSave.flags.water_power_usable = false
+		interaction_water_area.queue_free()
 	
 func _on_fire_interact():
-	if not being_pushed:
-		DataSave.flags.fire_power_activated = true
+	if not being_pushed and psm.current_power.alchemical_power == "Fire":
 		is_lit = true
-		await get_tree().create_timer(1).timeout
-		DataSave.flags.fire_power_activated = false
-		DataSave.flags.fire_power_usable = false
+		interaction_fire_area.queue_free()
 	
 	
 
 func _on_interaction_area_body_entered(body):
 	if body.name == "Player":
-		player = body
-		if DataSave.flags.has_earth_power:
-			DataSave.flags.earth_power_usable = true
+		pass
 
 
 func _on_interaction_area_body_exited(body):
 	if body.name == "Player":
-		player = body
-		collision_layer = 1
-		player.pushing_animation = false
-		DataSave.flags.earth_power_usable = false
-		DataSave.flags.earth_power_activated = false
+		psm.power_in_use = false
+		set_collision_mask_value(2, true)
 		being_pushed = false
+		if player.state_machine.current_state.name == "Pushing":
+			player.state_machine.current_state.force_move()
+			call_deferred("reparent", scene)
+			
 
 
 
 func _on_water_interaction_area_body_entered(body):
 	if body.name == "Player":
-		if DataSave.flags.has_water_power && not is_filled and not being_pushed:
-			DataSave.flags.water_power_usable = true
-		else:
-			DataSave.flags.water_power_usable = false
+		pass
 
 func _on_water_interaction_area_body_exited(body):
 	if body.name == "Player":
-
-		DataSave.flags.water_power_usable = false
-		DataSave.flags.water_power_activated = false
+		pass
 
 
 func _on_fire_interaction_area_body_entered(body):
 	if body.name == "Player":
-		if DataSave.flags.has_fire_power && not is_lit and not being_pushed:
-			DataSave.flags.fire_power_usable = true 
-		else:
-			DataSave.flags.fire_power_usable = false
+		pass
 
 
 func _on_fire_interaction_area_body_exited(body):
 	if body.name == "Player":
-		DataSave.flags.fire_power_usable = false
-		DataSave.flags.fire_power_activated = false # Replace with function body.
+		pass

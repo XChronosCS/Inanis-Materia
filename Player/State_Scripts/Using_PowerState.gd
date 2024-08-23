@@ -25,3 +25,4 @@ func _on_animation_tree_animation_finished(anim_name):
 		PowerStateMachine.power_in_use = false
 	if anim_name == "Fill":
 		next_state = ground_state
+		PowerStateMachine.power_in_use = false

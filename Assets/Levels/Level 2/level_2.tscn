@@ -159,13 +159,11 @@ position = Vector2(213, -1106)
 texture = ExtResource("4_jlcdv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1650, -474)
-scale = Vector2(0.382813, 0.427734)
+position = Vector2(1670, -464)
 texture = ExtResource("5_42km6")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(1842, -473)
-scale = Vector2(0.382813, 0.427734)
+position = Vector2(1819, -464)
 texture = ExtResource("5_42km6")
 
 [node name="Elemental Powers" parent="." instance=ExtResource("5_kon6q")]
@@ -195,6 +193,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_4wdfd")
 
 [node name="WindInteractionArea" type="Area2D" parent="WindCurrent"]
+collision_mask = 2
 script = ExtResource("10_x0r6c")
 power_needed = "Air"
 
@@ -204,18 +203,21 @@ shape = SubResource("RectangleShape2D_566kt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WindCurrent"]
 stream = ExtResource("11_dxx3k")
+volume_db = -20.0
 
-[node name="L2Textbox1" parent="." instance=ExtResource("11_joc4n")]
+[node name="L2Textbox1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_joc4n")]
 visible = false
-full_text = Array[String](["This pipe here has broken, releasing a stream of gas. You can use the Alchemical Power of Air to Ride the current upward.  ", "Whenever you are in an area where you can use an alchemical power, the symbol of that power will glow in your tracker. ", "To activate the Air Power, press the [W] Key while inside the jet stream to ride upwards. Press [W         ] again or leave the current to deactivate the power."])
+full_text = Array[String](["This pipe here has broken, releasing a stream of gas. You can use the Alchemical Power of Air to Ride the current upward.  ", "Whenever you are in an area where you can use an alchemical power, the symbol of that power will glow in your tracker. ", "To activate your currently selected power, press the Z Key. Pressing it again deactivates the power."])
+player = NodePath("../Player")
 
 [node name="L2InfoBall1" parent="." instance=ExtResource("12_5o3pk")]
 position = Vector2(1232, -842)
 
-[node name="L2Textbox2" parent="." instance=ExtResource("11_joc4n")]
+[node name="L2Textbox2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_joc4n")]
 visible = false
-full_text = Array[String](["At the bottom of this alley, countless spikes line the floor. The locals have named this place \"Spike Alley\".", "To progress further, you will need a platform to stand on, instead of the spikes.", "This is the Element of Earth. It allows you to push and pull heavy objects. (Future updates will allow groundpounding as well).", "Collect the power, and use it to push the block at the bottom of the stage. You can toggle your power of earth using [S] next to a pushable object."])
+full_text = Array[String](["At the bottom of this alley, countless spikes line the floor. The locals have named this place \"Spike Alley\".", "To progress further, you will need a platform to stand on, as the spikes are dangerous to your fragile form.", "This is the Element of Earth. It allows you to push and pull heavy objects. (Future updates will allow ground pounding as well).", "When you have multiple powers at your disposal, you can use X and C to swap between them.", "The rest is up to you. Try and find your way to the next area."])
 text_trigger_index = 2
+player = NodePath("../Player")
 
 [node name="L2InfoBall2" parent="." instance=ExtResource("12_5o3pk")]
 position = Vector2(1627, -1018)

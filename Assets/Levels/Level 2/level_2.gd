@@ -16,16 +16,16 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 
-func _on_l2_info_ball_1_body_entered(body):
+func _on_l2_info_ball_1_body_entered(_body):
 	textbox1.visible = true
 	DataSave.flags.prevent_player_movement = true
 
 
-func _on_l2_info_ball_2_body_entered(body):
+func _on_l2_info_ball_2_body_entered(_body):
 	textbox2.visible = true
 	DataSave.flags.prevent_player_movement = true
 	
